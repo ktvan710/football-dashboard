@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  background: #f3f4f6;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
