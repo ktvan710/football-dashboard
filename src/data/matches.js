@@ -65,13 +65,13 @@ export const matches = {
       },
 
       prediction: {
-        home: 58,
-        away: 27,
-        draw: 15
+        home: 61.7,
+        away: 23.2,
+        draw: 18.9
       },
 
       bestBets: {
-  bet1: "Over 2.5 Goals",
+  bet1: "Australia +2.5 corners",
   bet2: "Both Teams to Score",
   bet3: "Double Chance: Australia or Draw"
 },
@@ -101,13 +101,13 @@ export const matches = {
 
   kickoff: {
     date: "June 19, 2026",
-    location: "Lusail Stadium"
+    location: "Boston Stadium, Massachusetts"
   },
 
   scouting: {
     injury: {
-      home: "None reported",
-      away: "None reported"
+      home: "Scott McKenna, CB, calf injury",
+      away: "Bounou mild shoulder injury"
     },
     weakness: {
       home: "Inconsistency in buildup under pressure",
@@ -125,15 +125,15 @@ export const matches = {
     },
 
     prediction: {
-      home: 34,
-      away: 41,
-      draw: 25
+      home: 17.8,
+      away: 27.4,
+      draw: 58.8
     },
 
     bestBets: {
-  bet1: "Over 2.5 Goals",
-  bet2: "Both Teams to Score",
-  bet3: "Double Chance: Morocco or Draw"
+  bet1: "Scotland over 0.5",
+  bet2: "Both Teams to Score and Draw",
+  bet3: "Under 8.5 corners"
 },
 
     outlook: {
@@ -187,7 +187,7 @@ export const matches = {
 
   kickoff: {
     date: "June 19, 2026",
-    location: "Lusail Stadium"
+    location: "Philadelphia Stadium, Philadelphia"
   },
 
   ratings: {
@@ -218,7 +218,7 @@ export const matches = {
 
   scouting: {
     injury: {
-      home: "No major injuries reported",
+      home: "Neymar out",
       away: "No major injuries reported"
     },
     weakness: {
@@ -237,15 +237,15 @@ export const matches = {
     },
 
     prediction: {
-      home: 78,
-      away: 10,
-      draw: 12
+      home: 90.1,
+      away: 8.92,
+      draw: 3.98
     },
 
     bestBets: {
-      bet1: "Brazil Win",
-      bet2: "Over 2.5 Goals",
-      bet3: "Brazil -1 Handicap"
+      bet1: "Brazil to Nil",
+      bet2: "1st half under 1.5",
+      bet3: "Odd"
     },
 
     outlook: {
@@ -279,7 +279,7 @@ away: {
 
     kickoff: {
       date: "June 19, 2026",
-      location: "Hard Rock Stadium, Miami"
+      location: "SF Bay Area Stadium, Santa Clara"
     },
 
     ratings: {
@@ -310,8 +310,8 @@ away: {
 
     scouting: {
       injury: {
-        home: "Minor knocks, squad mostly fit",
-        away: "No major injuries reported"
+        home: "Yildiz doubtful, calf",
+        away: "Gustavo Caballero and Ramon Sosa doubtful"
       },
       weakness: {
         home: "Leaves space when overattacking",
@@ -329,15 +329,15 @@ away: {
       },
 
       prediction: {
-        home: 52,
-        away: 23,
-        draw: 25
+        home: 48.3,
+        away: 29.2,
+        draw: 26.3
       },
 
       bestBets: {
-        bet1: "Turkey Win or Draw",
-        bet2: "Under 3.5 Goals",
-        bet3: "Turkey Corners Over 4.5"
+        bet1: "Turkey Win",
+        bet2: "2nd half highest scoring half",
+        bet3: "Turkey Corners -1.5"
       },
 
       outlook: {
