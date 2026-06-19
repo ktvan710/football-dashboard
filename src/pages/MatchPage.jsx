@@ -2,6 +2,20 @@ import { useParams } from "react-router-dom";
 import { matches } from "../data/matches";
 
 function RatingBar({ label, value }) {
+function getEmoji(team) {
+  const emojis = {
+    USA: "🇺🇸",
+    Australia: "🇦🇺",
+    Scotland: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    Morocco: "🇲🇦",
+    Brazil: "🇧🇷",
+    Haiti: "🇭🇹",
+    Turkey: "🇹🇷",
+    Paraguay: "🇵🇾"
+  };
+
+  return emojis[team] || "⚽";
+}
   return (
     <div style={{ marginBottom: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -22,14 +36,15 @@ function RatingBar({ label, value }) {
 }
 
 function MatchPage() {
-  const { matchId } = useParams();
-  const match = matches?.[matchId];
+  const { id } = useParams(); // ✅ FIXED
+
+  const match = matches?.[id]; // ✅ FIXED
 
   if (!match) {
     return (
       <div style={{ padding: "20px" }}>
         <h2>Match not found</h2>
-        <p>{matchId}</p>
+        <p>{id}</p>
       </div>
     );
   }
@@ -37,16 +52,7 @@ function MatchPage() {
   const home = match.home;
   const away = match.away;
 
-  const homeKey = matchId === "usa-australia" ? "usa"
-    : matchId === "scotland-morocco" ? "scotland"
-    : matchId === "brazil-haiti" ? "brazil"
-    : "home";
-
-  const awayKey = matchId === "usa-australia" ? "australia"
-    : matchId === "scotland-morocco" ? "morocco"
-    : matchId === "brazil-haiti" ? "haiti"
-    : "away";
-
+  
   return (
     <div style={styles.container}>
       {/* HEADER */}
@@ -180,24 +186,36 @@ function MatchPage() {
     </div>
   );
 }
-
+const colors = {
+  background: "#0f172a",
+  card: "#1e293b",
+  accent: "#38bdf8",
+  text: "#f8fafc",
+  secondaryText: "#94a3b8",
+  border: "#334155"
+};
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "20px"
-  },
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+  background: colors.background,
+  minHeight: "100vh",
+  padding: "20px"
+},
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gap: "20px"
   },
   card: {
-    background: "white",
-    padding: "20px",
-    borderRadius: "12px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
-  },
+  background: "#1e293b",
+  color: "#f8fafc",
+  padding: "20px",
+  borderRadius: "18px",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
+  border: "1px solid #334155"
+},
   barBackground: {
     width: "100%",
     height: "8px",

@@ -1,3 +1,6 @@
+export const countryFlags = (code) =>
+  `https://flagcdn.com/24x18/${code}.png`;
+
 export const globalAssets = {
   trophy:
     "https://upload.wikimedia.org/wikipedia/en/thumb/1/17/2026_FIFA_World_Cup_emblem.svg/250px-2026_FIFA_World_Cup_emblem.svg.png",
@@ -7,14 +10,14 @@ export const globalAssets = {
 
 export const matches = {
   "usa-australia": {
-    home: { name: "USA", key: "usa" },
-  away: { name: "Australia", key: "australia" },
+    home: { name: "USA", key: "usa", code: "us" },
+  away: { name: "Australia", key: "australia", code: "au" },
 
     competition: "World Cup 2026",
     group: "Group D",
 
     kickoff: {
-      date: "June 19, 2026",
+      date: "2026-06-19T19:00:00Z",
       location: "Seattle Stadium, Seattle"
     },
 
@@ -93,14 +96,14 @@ export const matches = {
   },
 
   "scotland-morocco": {
-  home: { name: "Scotland", key: "scotland" },
-  away: { name: "Morocco", key: "morocco" },
+  home: { name: "Scotland", key: "scotland", code: "gb-sct" },
+  away: { name: "Morocco", key: "morocco", code: "ma" },
 
   competition: "World Cup 2026",
   group: "Group C",
 
   kickoff: {
-    date: "June 19, 2026",
+    date: "2026-06-19T22:00:00Z",
     location: "Boston Stadium, Massachusetts"
   },
 
@@ -179,14 +182,14 @@ export const matches = {
 },
 
   "brazil-haiti": {
-  home: { name: "Brazil", key: "brazil" },
-  away: { name: "Haiti", key: "haiti" },
+  home: { name: "Brazil", key: "brazil", code: "br" },
+  away: { name: "Haiti", key: "haiti", code: "ht" },
 
   competition: "World Cup 2026",
   group: "Group C",
 
   kickoff: {
-    date: "June 19, 2026",
+    date: "2026-06-20T00:30:00Z",
     location: "Philadelphia Stadium, Philadelphia"
   },
 
@@ -267,18 +270,18 @@ export const matches = {
    "turkey-paraguay": {
     home: {
   name: "Turkey",
-  key: "turkey"
+  key: "turkey", code: "tr"
 },
 
 away: {
   name: "Paraguay",
-  key: "paraguay"
+  key: "paraguay", code: "py"
 },
     competition: "World Cup 2026",
     group: "Group D",
 
     kickoff: {
-      date: "June 19, 2026",
+      date: "2026-06-20T04:00:00Z",
       location: "SF Bay Area Stadium, Santa Clara"
     },
 

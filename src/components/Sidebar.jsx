@@ -1,57 +1,96 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { matches } from "../data/matches";
+
+function getEmoji(team) {
+  const emojis = {
+    USA: "🇺🇸",
+    Australia: "🇦🇺",
+    Scotland: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    Morocco: "🇲🇦",
+    Brazil: "🇧🇷",
+    Haiti: "🇭🇹",
+    Turkey: "🇹🇷",
+    Paraguay: "🇵🇾"
+  };
+
+  return emojis[team] || "⚽";
+}
 
 function Sidebar() {
+  const [open, setOpen] = useState(true);
+
   return (
-    <div style={styles.sidebar}>
-      {/* HOME BUTTON */}
-      <Link to="/" style={styles.title}>
-        Home
-      </Link>
+    <>
+      {/* TOGGLE BUTTON */}
+      <button onClick={() => setOpen(!open)} style={styles.toggle}>
+        ☰
+      </button>
 
-      <Link style={styles.link} to="/match/usa-australia">
-        USA vs Australia
-      </Link>
+      {/* SIDEBAR */}
+      <div
+        style={{
+          ...styles.sidebar,
+          transform: open ? "translateX(0)" : "translateX(-260px)"
+        }}
+      >
+        {/* HOME */}
+        <Link className="sidebar-link" to="/">
+          🏠 Home
+        </Link>
 
-      <Link style={styles.link} to="/match/scotland-morocco">
-        Scotland vs Morocco
-      </Link>
-
-      <Link style={styles.link} to="/match/brazil-haiti">
-        Brazil vs Haiti
-      </Link>
-
-      <Link style={styles.link} to="/match/turkey-paraguay">
-        Turkey vs Paraguay
-      </Link>
-    </div>
+        {/* MATCHES */}
+        {Object.entries(matches).map(([id, match]) => (
+          <Link
+            key={id}
+            className="sidebar-link"
+            to={`/match/${id}`}
+          >
+            {getEmoji(match.home.name)} {match.home.name}
+            {" vs "}
+            {match.away.name} {getEmoji(match.away.name)}
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 
 const styles = {
   sidebar: {
-    width: "220px",
+    width: "250px",
     height: "100vh",
-    background: "#111827",
-    color: "white",
+    position: "fixed",
+    top: 0,
+    left: 0,
+
+    /* 🌫 GLASSMORPHISM */
+    background: "rgba(2, 6, 23, 0.65)",
+    backdropFilter: "blur(14px)",
+    WebkitBackdropFilter: "blur(14px)",
+
+    borderRight: "1px solid rgba(148, 163, 184, 0.2)",
+    boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
+
     padding: "20px",
-    position: "fixed"
+    display: "flex",
+    flexDirection: "column",
+
+    transition: "0.35s ease"
   },
 
-  title: {
-    display: "block",
-    marginBottom: "20px",
-    color: "white",
-    textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold"
-  },
+  toggle: {
+    position: "fixed",
+    top: "15px",
+    left: "15px",
+    zIndex: 999,
 
-  link: {
-    display: "block",
-    color: "white",
-    textDecoration: "none",
-    marginBottom: "12px",
-    padding: "6px 0"
+    background: "#0f172a",
+    color: "#f8fafc",
+    border: "1px solid #334155",
+    borderRadius: "10px",
+    padding: "8px 12px",
+    cursor: "pointer"
   }
 };
 
