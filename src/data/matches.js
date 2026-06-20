@@ -12,7 +12,10 @@ export const matches = {
   "usa-australia": {
     home: { name: "USA", key: "usa", code: "us" },
   away: { name: "Australia", key: "australia", code: "au" },
-
+score: {
+    home: 2,
+    away: 0
+  },
     competition: "World Cup 2026",
     group: "Group D",
 
@@ -74,9 +77,9 @@ export const matches = {
       },
 
       bestBets: {
-  bet1: "Australia +2.5 corners",
-  bet2: "Both Teams to Score",
-  bet3: "Double Chance: Australia or Draw"
+  bet1: "",
+  bet2: "",
+  bet3: ""
 },
 
       outlook: {
@@ -98,7 +101,10 @@ export const matches = {
   "scotland-morocco": {
   home: { name: "Scotland", key: "scotland", code: "gb-sct" },
   away: { name: "Morocco", key: "morocco", code: "ma" },
-
+score: {
+    home: 0,
+    away: 1
+  },
   competition: "World Cup 2026",
   group: "Group C",
 
@@ -134,9 +140,9 @@ export const matches = {
     },
 
     bestBets: {
-  bet1: "Scotland over 0.5",
-  bet2: "Both Teams to Score and Draw",
-  bet3: "Under 8.5 corners"
+  bet1: "",
+  bet2: "",
+  bet3: ""
 },
 
     outlook: {
@@ -184,7 +190,10 @@ export const matches = {
   "brazil-haiti": {
   home: { name: "Brazil", key: "brazil", code: "br" },
   away: { name: "Haiti", key: "haiti", code: "ht" },
-
+score: {
+    home: 3,
+    away: 0
+  },
   competition: "World Cup 2026",
   group: "Group C",
 
@@ -246,9 +255,9 @@ export const matches = {
     },
 
     bestBets: {
-      bet1: "Brazil to Nil",
-      bet2: "1st half under 1.5",
-      bet3: "Odd"
+      bet1: "",
+      bet2: "",
+      bet3: ""
     },
 
     outlook: {
@@ -277,11 +286,15 @@ away: {
   name: "Paraguay",
   key: "paraguay", code: "py"
 },
+score: {
+    home: 0,
+    away: 1
+  },
     competition: "World Cup 2026",
     group: "Group D",
 
     kickoff: {
-      date: "2026-06-20T04:00:00Z",
+      date: "2026-06-20T03:00:00Z",
       location: "SF Bay Area Stadium, Santa Clara"
     },
 
@@ -357,5 +370,349 @@ away: {
           "Slight advantage to Turkey."
       }
     }
+  },
+   "netherlands-sweden": {
+    home: { name: "Netherlands", key: "netherlands", code: "nl" },
+    away: { name: "Sweden", key: "sweden", code: "se" },
+
+    competition: "World Cup 2026",
+    group: "Group F",
+
+    kickoff: {
+      date: "2026-06-21T01:00:00+08:00",
+      location: "Houston Stadium, Houston"
+    },
+
+    ratings: {
+      netherlands: {
+        attack: 85,
+        defense: 83,
+        pressing: 82,
+        transition: 84
+      },
+      sweden: {
+        attack: 87,
+        defense: 81,
+        pressing: 77,
+        transition: 76
+      }
+    },
+
+    tactics: {
+      netherlands: {
+        style: "Possession control + wide attacking rotations",
+        advantage: "Technical control and buildup quality"
+      },
+      sweden: {
+        style: "Compact defensive block + direct attacks",
+        advantage: "Physicality and aerial threat"
+      }
+    },
+
+    scouting: {
+      injury: {
+        home: "No major injuries added yet",
+        away: "No major injuries added yet"
+      },
+      weakness: {
+        home: "Can be exposed if fullbacks push too high",
+        away: "May struggle to control possession for long periods"
+      },
+      summary:
+        "Netherlands should look to control the ball, while Sweden can threaten through direct play and set pieces."
+    },
+
+    analysis: {
+      insight: {
+        style: "Possession team vs compact defensive team",
+        keyBattle: "Netherlands midfield control vs Sweden defensive shape",
+        risk: "Sweden set pieces and transition chances"
+      },
+
+      prediction: {
+        home: 52,
+        away: 24,
+        draw: 24
+      },
+
+      bestBets: {
+        bet1: "",
+        bet2: "",
+        bet3: ""
+      },
+
+      outlook: {
+        flow:
+          "Netherlands likely control possession while Sweden defend compactly and look for direct attacking moments.",
+
+        factors: [
+          "Midfield control",
+          "Set-piece defense",
+          "Wide attacking efficiency"
+        ],
+
+        edge:
+          "Slight advantage to Netherlands due to stronger technical control."
+      }
+    }
+  },
+
+  "germany-ivory-coast": {
+    home: { name: "Germany", key: "germany", code: "de" },
+    away: { name: "Ivory Coast", key: "ivoryCoast", code: "ci" },
+
+    competition: "World Cup 2026",
+    group: "Group E",
+
+    kickoff: {
+      date: "2026-06-21T04:00:00+08:00",
+      location: "Toronto Stadium, Toronto"
+    },
+
+    ratings: {
+      germany: {
+        attack: 88,
+        defense: 84,
+        pressing: 86,
+        transition: 85
+      },
+      ivoryCoast: {
+        attack: 79,
+        defense: 77,
+        pressing: 76,
+        transition: 82
+      }
+    },
+
+    tactics: {
+      germany: {
+        style: "High possession + structured pressing",
+        advantage: "Midfield control and attacking depth"
+      },
+      ivoryCoast: {
+        style: "Athletic transitions + direct attacking",
+        advantage: "Speed and physicality in open space"
+      }
+    },
+
+    scouting: {
+      injury: {
+        home: "No major injuries added yet",
+        away: "No major injuries added yet"
+      },
+      weakness: {
+        home: "Can leave space behind the press",
+        away: "Can struggle against sustained possession pressure"
+      },
+      summary:
+        "Germany should control large phases of possession, while Ivory Coast can be dangerous in transition."
+    },
+
+    analysis: {
+      insight: {
+        style: "Possession pressure vs athletic counter attack",
+        keyBattle: "Germany midfield control vs Ivory Coast transition speed",
+        risk: "Germany getting exposed after losing possession"
+      },
+
+      prediction: {
+        home: 60,
+        away: 20,
+        draw: 20
+      },
+
+      bestBets: {
+        bet1: "",
+        bet2: "",
+        bet3: ""
+      },
+
+      outlook: {
+        flow:
+          "Germany expected to dominate possession, with Ivory Coast looking to attack quickly after turnovers.",
+
+        factors: [
+          "Germany counter-pressing",
+          "Ivory Coast transition speed",
+          "Final third efficiency"
+        ],
+
+        edge:
+          "Advantage to Germany due to stronger structure and control."
+      }
+    }
+  },
+
+  "ecuador-curacao": {
+    home: { name: "Ecuador", key: "ecuador", code: "ec" },
+    away: { name: "Curacao", key: "curacao", code: "cw" },
+
+    competition: "World Cup 2026",
+    group: "Group E",
+
+    kickoff: {
+      date: "2026-06-21T08:00:00+08:00",
+      location: "Kansas City Stadium, Kansas City"
+    },
+
+    ratings: {
+      ecuador: {
+        attack: 80,
+        defense: 83,
+        pressing: 81,
+        transition: 82
+      },
+      curacao: {
+        attack: 68,
+        defense: 70,
+        pressing: 67,
+        transition: 69
+      }
+    },
+
+    tactics: {
+      ecuador: {
+        style: "Physical pressing + fast wide attacks",
+        advantage: "Athleticism and defensive intensity"
+      },
+      curacao: {
+        style: "Compact defending + counter attacking",
+        advantage: "Low block discipline"
+      }
+    },
+
+    scouting: {
+      injury: {
+        home: "No major injuries added yet",
+        away: "No major injuries added yet"
+      },
+      weakness: {
+        home: "Can be inefficient if forced to break down a deep block",
+        away: "May struggle against high pressing and physical duels"
+      },
+      summary:
+        "Ecuador should have the physical and defensive edge, while Curacao will likely defend deeper and counter."
+    },
+
+    analysis: {
+      insight: {
+        style: "High intensity pressing vs low block",
+        keyBattle: "Ecuador pressure vs Curacao defensive resistance",
+        risk: "Ecuador failing to convert dominance into goals"
+      },
+
+      prediction: {
+        home: 65,
+        away: 15,
+        draw: 20
+      },
+
+      bestBets: {
+        bet1: "",
+        bet2: "",
+        bet3: ""
+      },
+
+      outlook: {
+        flow:
+          "Ecuador likely press high and control territory, while Curacao defend compactly and look for rare counters.",
+
+        factors: [
+          "Early goal impact",
+          "Ecuador pressing intensity",
+          "Curacao defensive discipline"
+        ],
+
+        edge:
+          "Advantage to Ecuador due to stronger physical profile and defensive quality."
+      }
+    }
+  },
+
+  "tunisia-japan": {
+    home: { name: "Tunisia", key: "tunisia", code: "tn" },
+    away: { name: "Japan", key: "japan", code: "jp" },
+
+    competition: "World Cup 2026",
+    group: "Group F",
+
+    kickoff: {
+      date: "2026-06-21T12:00:00+08:00",
+      location: "Estadio Monterrey, Guadalupe"
+    },
+
+    ratings: {
+      tunisia: {
+        attack: 73,
+        defense: 78,
+        pressing: 75,
+        transition: 74
+      },
+      japan: {
+        attack: 84,
+        defense: 80,
+        pressing: 86,
+        transition: 85
+      }
+    },
+
+    tactics: {
+      tunisia: {
+        style: "Compact defense + disciplined midfield block",
+        advantage: "Defensive organization"
+      },
+      japan: {
+        style: "High tempo pressing + quick combinations",
+        advantage: "Speed, pressing, and technical movement"
+      }
+    },
+
+    scouting: {
+      injury: {
+        home: "No major injuries added yet",
+        away: "No major injuries added yet"
+      },
+      weakness: {
+        home: "Can struggle to progress the ball under pressure",
+        away: "Can be vulnerable to physical duels and set pieces"
+      },
+      summary:
+        "Japan should bring tempo and pressing, while Tunisia rely on defensive discipline and compact spacing."
+    },
+
+    analysis: {
+      insight: {
+        style: "High tempo pressing vs compact defensive block",
+        keyBattle: "Japan pressing vs Tunisia buildup",
+        risk: "Tunisia set pieces and defensive resilience"
+      },
+
+      prediction: {
+        home: 22,
+        away: 55,
+        draw: 23
+      },
+
+      bestBets: {
+        bet1: "",
+        bet2: "",
+        bet3: ""
+      },
+
+      outlook: {
+        flow:
+          "Japan expected to press aggressively and move the ball quickly, while Tunisia look to slow the game down and defend compactly.",
+
+        factors: [
+          "Japan pressing success",
+          "Tunisia defensive structure",
+          "Set-piece danger"
+        ],
+
+        edge:
+          "Advantage to Japan due to stronger pressing and attacking rhythm."
+      }
+    }
   }
+
 };
