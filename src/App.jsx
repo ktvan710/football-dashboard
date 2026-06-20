@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import MatchPage from "./pages/MatchPage";
@@ -191,6 +192,7 @@ function App() {
     </Routes>
   </div>
 </main>
+    <Analytics />
     </div>
   );
 }
