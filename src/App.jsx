@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Link, Routes, Route, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import MatchPage from "./pages/MatchPage";
-
+import WorldCupData from "./pages/WorldCupData";
 const OLISE_IMAGE =
   "https://preview.redd.it/official-michael-olise-has-been-called-to-play-with-france-v0-ue5ymyksglld1.jpeg?width=1080&crop=smart&auto=webp&s=715c0316bc50e9315d710a83512e79c1a3ba6d1c";
 
@@ -158,9 +158,94 @@ function handleApplyDiscount(e) {
     </div>
   );
 }
+function TopNav({ currentPath }) {
+  const navItems = [
+    {
+      label: "Overview",
+      path: "/"
+    },
+    {
+      label: "Table",
+      path: "/world-cup-data"
+    },
+    {
+      label: "Knockout",
+      path: "/knockout",
+      disabled: true
+    },
+    {
+      label: "Fixtures",
+      path: "/fixtures",
+      disabled: true
+    },
+    {
+      label: "Player stats",
+      path: "/player-stats",
+      disabled: true
+    },
+    {
+      label: "Team stats",
+      path: "/team-stats",
+      disabled: true
+    }
+  ];
 
+  return (
+    <div style={styles.topNav}>
+      <div style={styles.topNavHero}>
+        <div style={styles.competitionIdentity}>
+          <div style={styles.competitionLogo}>🏆</div>
+
+          <div>
+            <h2 style={styles.competitionTitle}>FIFA World Cup</h2>
+            <p style={styles.competitionSubtitle}>International</p>
+          </div>
+        </div>
+
+        <div style={styles.topNavActions}>
+          <span style={styles.actionPill}>2026 ▾</span>
+        </div>
+      </div>
+
+      <div style={styles.topNavTabs}>
+        {navItems.map((item) => {
+          const isActive = currentPath === item.path;
+
+          if (item.disabled) {
+            return (
+              <span
+                key={item.label}
+                style={{
+                  ...styles.topNavTab,
+                  ...styles.disabledTopNavTab
+                }}
+              >
+                {item.label}
+              </span>
+            );
+          }
+
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              style={{
+                ...styles.topNavTab,
+                ...(isActive ? styles.activeTopNavTab : {})
+              }}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 function App() {
   const location = useLocation();
+
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const [unlocked, setUnlocked] = useState(() => {
     return localStorage.getItem("worldCupDashboardUnlocked") === "true";
@@ -176,32 +261,42 @@ function App() {
   }
 
   return (
-  <div className="dashboard-enter">
-    <Sidebar />
+  <div
+    style={{
+      "--sidebar-width": sidebarOpen ? "250px" : "0px",
+      "--content-offset": sidebarOpen ? "290px" : "0px"
+    }}
+  >
+    <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 
-      <button onClick={handleLogout} style={styles.logoutButton}>
-        Lock
-      </button>
+    <button onClick={handleLogout} style={styles.logoutButton}>
+      Lock
+    </button>
 
-      <main style={styles.mainContent}>
+    <main style={styles.mainContent} className="dashboard-main-enter">
+  <TopNav currentPath={location.pathname} />
+
   <div key={location.pathname} className="page-route-transition">
     <Routes location={location}>
       <Route path="/" element={<Home />} />
       <Route path="/match/:id" element={<MatchPage />} />
+      <Route path="/world-cup-data" element={<WorldCupData />} />
     </Routes>
   </div>
 </main>
-    </div>
-  );
+  </div>
+);
 }
 
 const styles = {
   mainContent: {
-    marginLeft: "310px",
-    padding: "20px",
-    width: "calc(100% - 310px)",
-    boxSizing: "border-box"
-  },
+  marginLeft: "var(--content-offset)",
+  padding: "20px",
+  width: "calc(100% - var(--content-offset))",
+  boxSizing: "border-box",
+  transition:
+    "margin-left 0.55s cubic-bezier(0.16, 1, 0.3, 1), width 0.55s cubic-bezier(0.16, 1, 0.3, 1)"
+},
   lockLayout: {
   width: "100%",
   maxWidth: "1150px",
@@ -223,7 +318,113 @@ oldPrice: {
   fontWeight: "900",
   textDecoration: "line-through"
 },
+topNav: {
+  position: "sticky",
+  top: 0,
+  zIndex: 800,
+  marginBottom: "16px",
 
+  background: "#1f1f1f",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "18px",
+  overflow: "hidden",
+  boxShadow: "0 14px 35px rgba(0,0,0,0.32)"
+},
+
+topNavHero: {
+  minHeight: "88px",
+  padding: "22px 26px 12px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "20px"
+},
+
+competitionIdentity: {
+  display: "flex",
+  alignItems: "center",
+  gap: "14px"
+},
+
+competitionLogo: {
+  width: "38px",
+  height: "38px",
+  borderRadius: "10px",
+  background: "#f5f5f5",
+  color: "#111",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "21px"
+},
+
+competitionTitle: {
+  margin: 0,
+  color: "#f5f5f5",
+  fontSize: "24px",
+  fontWeight: "850",
+  letterSpacing: "-0.4px",
+  fontFamily: "var(--heading)"
+},
+
+competitionSubtitle: {
+  margin: "2px 0 0",
+  color: "#a1a1aa",
+  fontSize: "14px",
+  fontWeight: "700",
+  fontFamily: "var(--sans)"
+},
+
+topNavActions: {
+  display: "flex",
+  alignItems: "center",
+  gap: "10px"
+},
+
+actionPill: {
+  background: "#242424",
+  border: "1px solid rgba(255,255,255,0.12)",
+  color: "#f5f5f5",
+  borderRadius: "999px",
+  padding: "9px 15px",
+  fontSize: "13px",
+  fontWeight: "800",
+  fontFamily: "var(--sans)"
+},
+
+
+
+topNavTabs: {
+  display: "flex",
+  alignItems: "center",
+  gap: "34px",
+  padding: "0 26px",
+  height: "52px",
+  overflowX: "auto"
+},
+
+topNavTab: {
+  position: "relative",
+  height: "52px",
+  display: "inline-flex",
+  alignItems: "center",
+  color: "#a1a1aa",
+  textDecoration: "none",
+  fontSize: "14px",
+  fontWeight: "850",
+  whiteSpace: "nowrap",
+  fontFamily: "var(--sans)"
+},
+
+activeTopNavTab: {
+  color: "#f5f5f5",
+  boxShadow: "inset 0 -3px 0 #4ade80"
+},
+
+disabledTopNavTab: {
+  opacity: 0.85,
+  cursor: "not-allowed"
+},
 discountSuccess: {
   marginTop: "4px",
   color: "#22c55e",

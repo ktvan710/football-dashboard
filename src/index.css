@@ -92,15 +92,16 @@
 
 body {
   margin: 0;
-  font-family: Inter, var(--sans);
-  background: #0f172a;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #050505;
+  color: #f5f5f5;
+  font-family: var(--sans);
 }
-h1,
-h2,
-h3 {
-  font-family: var(--heading);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+
+#root {
+  min-height: 100vh;
+  background: #050505;
 }
 
 p,
@@ -399,15 +400,13 @@ code {
   animation: dashboardEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes lockPageIntro {
+@keyframes dashboardEnter {
   from {
     opacity: 0;
-    filter: blur(10px);
   }
 
   to {
     opacity: 1;
-    filter: blur(0);
   }
 }
 
@@ -550,20 +549,10 @@ code {
 @keyframes pageRouteEnter {
   0% {
     opacity: 0;
-    transform: translateX(24px) scale(0.985);
-    filter: blur(12px);
-  }
-
-  55% {
-    opacity: 1;
-    transform: translateX(-3px) scale(1.002);
-    filter: blur(0);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
   }
 }
 .hero-title-morph {
@@ -616,4 +605,29 @@ code {
   opacity: 1;
   transform: scale(1.1);
   filter: brightness(0.85) saturate(1.25) contrast(1.08);
+}
+.dashboard-main-enter {
+  animation: dashboardMainEnter 0.5s ease both;
+}
+
+@keyframes dashboardMainEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
 }

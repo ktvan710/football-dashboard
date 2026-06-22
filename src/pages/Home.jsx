@@ -246,17 +246,7 @@ useEffect(() => {
 
     <div style={styles.page}>
       {/* HERO SECTION */}
-      <div style={styles.hero} className="gold-animated">
-        <div style={styles.heroText}>
-          <h1 style={styles.heroTitle} className="hero-title-morph">
-  {heroTitleText}
-</h1>
-
-          
-        </div>
-
-        
-      </div>
+      
 
       {/* UPCOMING / ACTIVE MATCHES */}
       <h2 style={styles.sectionTitle}>Upcoming Board</h2>
@@ -303,11 +293,10 @@ useEffect(() => {
 
 const styles = {
   page: {
-  position: "relative",
-  zIndex: 1,
-  color: "#f8fafc",
-  maxWidth: "1100px",
-  margin: "0 auto"
+  color: "#f5f5f5",
+  maxWidth: "1280px",
+  margin: "0 auto",
+  fontFamily: "var(--sans)"
 },
 
   heroTitle: {
@@ -341,21 +330,30 @@ homeShell: {
 
 homeBackgroundStage: {
   position: "fixed",
-  inset: 0,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: "var(--sidebar-width)",
   zIndex: -3,
   overflow: "hidden",
   pointerEvents: "none",
-  background: "#020617"
+  background: "#020617",
+  transition: "left 0.55s cubic-bezier(0.16, 1, 0.3, 1)"
 },
 
 homeDarkOverlay: {
   position: "fixed",
-  inset: 0,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: "var(--sidebar-width)",
   zIndex: -2,
   pointerEvents: "none",
 
   background:
-    "radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 34%), linear-gradient(135deg, rgba(2,6,23,0.78), rgba(15,23,42,0.58), rgba(2,6,23,0.82))"
+    "radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 34%), linear-gradient(135deg, rgba(2,6,23,0.78), rgba(15,23,42,0.58), rgba(2,6,23,0.82))",
+
+  transition: "left 0.55s cubic-bezier(0.16, 1, 0.3, 1)"
 },
   hero: {
   background: "rgba(15, 23, 42, 0.76)",
@@ -394,15 +392,16 @@ homeDarkOverlay: {
   },
 
   card: {
-  background: "rgba(15, 23, 42, 0.78)",
+  background: "#1f1f1f",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "18px",
+  boxShadow: "none",
+  color: "#f5f5f5",
   backdropFilter: "blur(12px)",
   WebkitBackdropFilter: "blur(12px)",
-  color: "#f8fafc",
   padding: "14px 16px",
-  borderRadius: "18px",
   textDecoration: "none",
   border: "1px solid rgba(212,175,55,0.52)",
-  boxShadow: "0 14px 35px rgba(0,0,0,0.38)",
   transition: "0.2s ease"
 },
 
@@ -440,7 +439,7 @@ homeDarkOverlay: {
   },
 
   scoreText: {
-    background: "#0f172a",
+    background: "#1f1f1f",
     color: "#facc15",
     padding: "4px 10px",
     borderRadius: "999px",
@@ -456,8 +455,8 @@ homeDarkOverlay: {
   margin: "35px 0 15px",
   padding: "14px 18px",
   borderRadius: "14px",
-  border: "1px solid #334155",
-  background: "#1e293b",
+  border: "1px solid rgba(255,255,255,0.08)",
+  background: "#1f1f1f",
   color: "#f8fafc",
   fontSize: "24px",
   fontWeight: "900",

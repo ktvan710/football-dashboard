@@ -2,27 +2,78 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { matches } from "../data/matches";
 
-function getEmoji(team) {
-  const emojis = {
-    USA: "🇺🇸",
+function getFlagEmoji(code, teamName) {
+  const flagEmojis = {
+    us: "🇺🇸",
+    au: "🇦🇺",
+    br: "🇧🇷",
+    ht: "🇭🇹",
+    tr: "🇹🇷",
+    py: "🇵🇾",
+    ma: "🇲🇦",
+    "gb-sct": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    nl: "🇳🇱",
+    se: "🇸🇪",
+    de: "🇩🇪",
+    ci: "🇨🇮",
+    ec: "🇪🇨",
+    cw: "🇨🇼",
+    tn: "🇹🇳",
+    jp: "🇯🇵",
+    es: "🇪🇸",
+    sa: "🇸🇦",
+    be: "🇧🇪",
+    ir: "🇮🇷",
+    uy: "🇺🇾",
+    cv: "🇨🇻",
+    nz: "🇳🇿",
+    eg: "🇪🇬",
+    ar: "🇦🇷",
+at: "🇦🇹",
+fr: "🇫🇷",
+iq: "🇮🇶",
+no: "🇳🇴",
+sn: "🇸🇳",
+jo: "🇯🇴",
+dz: "🇩🇿"
+  };
+
+  const nameFallbacks = {
+    "United States": "🇺🇸",
     Australia: "🇦🇺",
-    Scotland: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-    Morocco: "🇲🇦",
     Brazil: "🇧🇷",
     Haiti: "🇭🇹",
     Turkey: "🇹🇷",
     Paraguay: "🇵🇾",
+    Morocco: "🇲🇦",
+    Scotland: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     Netherlands: "🇳🇱",
-  Sweden: "🇸🇪",
-  Germany: "🇩🇪",
-  "Ivory Coast": "🇨🇮",
-  Ecuador: "🇪🇨",
-  Curacao: "🇨🇼",
-  Tunisia: "🇹🇳",
-  Japan: "🇯🇵"
+    Sweden: "🇸🇪",
+    Germany: "🇩🇪",
+    "Ivory Coast": "🇨🇮",
+    Ecuador: "🇪🇨",
+    Curacao: "🇨🇼",
+    Tunisia: "🇹🇳",
+    Japan: "🇯🇵",
+    Spain: "🇪🇸",
+    "Saudi Arabia": "🇸🇦",
+    Belgium: "🇧🇪",
+    Iran: "🇮🇷",
+    Uruguay: "🇺🇾",
+    "Cape Verde": "🇨🇻",
+    "New Zealand": "🇳🇿",
+    Egypt: "🇪🇬",
+    Argentina: "🇦🇷",
+Austria: "🇦🇹",
+France: "🇫🇷",
+Iraq: "🇮🇶",
+Norway: "🇳🇴",
+Senegal: "🇸🇳",
+Jordan: "🇯🇴",
+Algeria: "🇩🇿"
   };
 
-  return emojis[team] || "⚽";
+  return flagEmojis[code] || nameFallbacks[teamName] || "🏳️";
 }
 
 function getMatchStatus(kickoffDate) {
@@ -42,8 +93,7 @@ function getMatchStatus(kickoffDate) {
   return "FT";
 }
 
-function Sidebar() {
-  const [open, setOpen] = useState(true);
+function Sidebar({ open, setOpen }) {
   const [showCompleted, setShowCompleted] = useState(false);
 
   const matchEntries = Object.entries(matches);
@@ -67,27 +117,30 @@ function Sidebar() {
       <div
         style={{
           ...styles.sidebar,
-          transform: open ? "translateX(0)" : "translateX(-260px)"
+          transform: open ? "translateX(0)" : "translateX(-250px)"
         }}
       >
         {/* HOME */}
-        <Link className="sidebar-link" to="/">
-        Home
-        </Link>
+        <Link className="sidebar-link" style={styles.homeLink} to="/">
+  🏠 Home
+</Link>
 
-        {/* UPCOMING MATCHES */}
-        <p style={styles.sectionTitle}>Upcoming Board</p>
+
+
+<div style={styles.scrollArea} className="sidebar-scrollbar">
+  <p style={styles.sectionTitle}>Upcoming Board</p>
 
         {upcomingMatches.length > 0 ? (
           upcomingMatches.map(([id, match]) => (
             <Link
-              key={id}
-              className="sidebar-link"
-              to={`/match/${id}`}
-            >
-              {getEmoji(match.home.name)} {match.home.name}
-              {" vs "}
-              {match.away.name} {getEmoji(match.away.name)}
+  key={id}
+  className="sidebar-link"
+  style={styles.matchLink}
+  to={`/match/${id}`}
+>
+             {getFlagEmoji(match.home.code, match.home.name)} {match.home.name}
+{" vs "}
+{match.away.name} {getFlagEmoji(match.away.code, match.away.name)}
             </Link>
           ))
         ) : (
@@ -111,105 +164,147 @@ function Sidebar() {
 
             return (
               <Link
-                key={id}
-                className="sidebar-link"
-                to={`/match/${id}`}
-              >
-                {getEmoji(match.home.name)} {match.home.name}
-                {hasScore ? (
-                  <>
-                    {" "}
-                    {match.score.home} - {match.score.away}
-                    {" "}
-                  </>
-                ) : (
-                  " vs "
-                )}
-                {match.away.name} {getEmoji(match.away.name)}
+  key={id}
+  className="sidebar-link"
+  style={styles.matchLink}
+  to={`/match/${id}`}
+>
+                {getFlagEmoji(match.home.code, match.home.name)} {match.home.name}
+{hasScore ? (
+  <>
+    {" "}
+    {match.score.home} - {match.score.away}
+    {" "}
+  </>
+) : (
+  " vs "
+)}
+{match.away.name} {getFlagEmoji(match.away.code, match.away.name)}
               </Link>
             );
           })}
       </div>
+     </div> 
     </>
   );
 }
 
 const styles = {
   sidebar: {
-    width: "300px",
-    height: "100vh",
-    position: "fixed",
-    top: 0,
-    left: 0,
+  width: "250px",
+  height: "100dvh",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  zIndex: 2000,
+  boxSizing: "border-box",
 
-    background: "rgba(2, 6, 23, 0.65)",
-    backdropFilter: "blur(14px)",
-    WebkitBackdropFilter: "blur(14px)",
+  background: "#050505",
+  backdropFilter: "blur(14px)",
+  WebkitBackdropFilter: "blur(14px)",
 
-    borderRight: "1px solid rgba(148, 163, 184, 0.2)",
-    boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
+  borderRight: "1px solid rgba(255,255,255,0.08)",
+  boxShadow: "none",
 
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
+  padding: "14px",
+  display: "flex",
+  flexDirection: "column",
 
-    transition: "0.35s ease",
-    overflowY: "auto"
-  },
+  transition: "transform 0.55s cubic-bezier(0.16, 1, 0.3, 1)",
+  overflow: "hidden"
+},
 
   toggle: {
-    position: "fixed",
-    top: "15px",
-    left: "15px",
-    zIndex: 999,
+  position: "fixed",
+  top: "15px",
+  left: open ? "15px" : "15px",
+  zIndex: 1001,
 
-    background: "#0f172a",
-    color: "#f8fafc",
-    border: "1px solid #334155",
-    borderRadius: "10px",
-    padding: "8px 12px",
-    cursor: "pointer"
-  },
+  background: "#0f172a",
+  color: "#f8fafc",
+  border: "1px solid #334155",
+  borderRadius: "10px",
+  padding: "8px 12px",
+  cursor: "pointer"
+},
 
   sectionTitle: {
-    color: "#f8fafc",
-    fontSize: "13px",
-    fontWeight: "800",
-    textTransform: "uppercase",
-    letterSpacing: "0.8px",
-    textAlign: "left",
-    margin: "18px 0 10px"
-  },
+  color: "#f8fafc",
+  fontSize: "11px",
+  fontWeight: "900",
+  textTransform: "uppercase",
+  letterSpacing: "0.8px",
+  textAlign: "left",
+  margin: "10px 0 7px",
+  fontFamily: "var(--heading)"
+},
 
   collapseButton: {
-    marginTop: "18px",
-    marginBottom: "12px",
-    padding: "12px",
-    borderRadius: "12px",
-    border: "1px solid #334155",
-    background: "#0f172a",
-    color: "#f8fafc",
-    cursor: "pointer",
-    fontWeight: "800",
-    fontSize: "15px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
+  marginTop: "10px",
+  marginBottom: "8px",
+  padding: "7px 8px",
+  borderRadius: "9px",
+  border: "1px solid #334155",
+  background: "#1f1f1f",
+border: "1px solid rgba(255,255,255,0.08)",
+boxShadow: "none",
+  color: "#f8fafc",
+  cursor: "pointer",
+  fontWeight: "800",
+  fontSize: "11px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  fontFamily: "var(--sans)"
+},
 
   countBadge: {
-    background: "#1e293b",
-    color: "#94a3b8",
-    padding: "2px 8px",
-    borderRadius: "999px",
-    fontSize: "12px"
-  },
+  background: "#1e293b",
+  color: "#94a3b8",
+  padding: "1px 6px",
+  borderRadius: "999px",
+  fontSize: "10px"
+},
+  scrollArea: {
+  flex: 1,
+  overflowY: "auto",
+  overflowX: "hidden",
+  paddingRight: "4px",
+  paddingBottom: "20px"
+},
+
+homeLink: {
+  padding: "9px 10px",
+  borderRadius: "10px",
+  marginBottom: "8px",
+  fontSize: "14px",
+  fontWeight: "900",
+  background: "#1f1f1f",
+border: "1px solid rgba(255,255,255,0.08)",
+boxShadow: "none"
+},
+
+matchLink: {
+  padding: "5px 7px",
+  borderRadius: "8px",
+  marginBottom: "4px",
+  fontSize: "11px",
+  lineHeight: "1.15",
+  minHeight: "auto",
+  whiteSpace: "normal",
+  background: "#1f1f1f",
+border: "1px solid rgba(255,255,255,0.08)",
+boxShadow: "none"
+},
 
   emptyText: {
     color: "#64748b",
     fontSize: "14px",
     textAlign: "left",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    background: "#1f1f1f",
+border: "1px solid rgba(255,255,255,0.08)",
+boxShadow: "none"
   }
 };
 
