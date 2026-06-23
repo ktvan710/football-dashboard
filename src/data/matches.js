@@ -649,6 +649,10 @@ score: {
       date: "2026-06-21T12:00:00+08:00",
       location: "Estadio Monterrey, Guadalupe"
     },
+    score: {
+      home: 0,
+      away: 4
+    },
 
     ratings: {
       tunisia: {
@@ -1019,6 +1023,10 @@ score: {
       date: "2026-06-22T17:00:00Z",
       location: "Dallas Stadium, Arlington"
     },
+    score: {
+      home: 2,
+      away: 0
+    },
     analyticsV2: {
       matchImportance: {
         level: "Top-spot swing match",
@@ -1186,6 +1194,10 @@ score: {
       date: "2026-06-22T21:00:00Z",
       location: "Philadelphia Stadium, Philadelphia"
     },
+    score: {
+      home: 3,
+      away: 0
+    },
     analyticsV2: {
       matchImportance: {
         level: "Qualification control match",
@@ -1350,6 +1362,10 @@ score: {
     kickoff: {
       date: "2026-06-23T00:00:00Z",
       location: "New York/New Jersey Stadium, East Rutherford"
+    },
+    score: {
+      home: 3,
+      away: 2
     },
     analyticsV2: {
       matchImportance: {

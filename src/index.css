@@ -631,3 +631,34 @@ code {
   background: rgba(148, 163, 184, 0.35);
   border-radius: 999px;
 }
+@keyframes deviceSelectEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes deviceFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 720px) {
+  .device-select-responsive-fix {
+    grid-template-columns: 1fr !important;
+  }
+}
+button:hover {
+  border-color: rgba(74, 222, 128, 0.35);
+}

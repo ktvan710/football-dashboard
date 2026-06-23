@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { matches } from "../data/matches";
+import { worldCupFixtures } from "../data/worldCupFixtures";
 
 function getFlagImage(code) {
   if (!code) return "";
@@ -273,18 +274,63 @@ function AnalyticsV2({ match }) {
     </>
   );
 }
+function UnavailableMatchPage({ match }) {
+  const completed = Boolean(match.score);
 
+  return (
+    <div style={styles.page}>
+      <section style={styles.heroCard}>
+        <p style={styles.eyebrow}>{match.group}</p>
+
+        <h1 style={styles.simpleMatchTitle}>
+          {match.home.name} vs {match.away.name}
+        </h1>
+
+        <p style={styles.metaText}>
+          {match.kickoff.location}
+        </p>
+
+        {completed ? (
+          <div style={styles.resultBox}>
+            Final Score: {match.home.name} {match.score.home} -{" "}
+            {match.score.away} {match.away.name}
+          </div>
+        ) : (
+          <div style={styles.resultBox}>
+            Upcoming fixture. Detailed preview not available yet.
+          </div>
+        )}
+      </section>
+
+      <section style={styles.card}>
+        <h2 style={styles.sectionTitle}>
+          {completed ? "Post-Match Review" : "Match Preview"}
+        </h2>
+
+        <p style={styles.bodyText}>
+          {completed
+            ? "N/A — this match has been logged for standings and results, but a full tactical review has not been added to the dashboard yet."
+            : "N/A — this upcoming match is listed in the fixture board, but no analysis has been published yet."}
+        </p>
+      </section>
+    </div>
+  );
+}
 export default function MatchPage() {
   const { id } = useParams();
-  const match = matches[id];
+  const richMatch = matches[id];
+const fixtureMatch = worldCupFixtures[id];
+const match = richMatch || fixtureMatch;
 
-  if (!match) {
-    return (
-      <div style={styles.page}>
-        <h1 style={styles.errorTitle}>Match not found</h1>
-      </div>
-    );
-  }
+if (!match) {
+  return <div style={styles.notFound}>Match not found.</div>;
+}
+
+const hasDetailedAnalysis = Boolean(richMatch?.analyticsV2);
+
+if (!hasDetailedAnalysis) {
+  return <UnavailableMatchPage match={match} />;
+}
 
   const home = match.home;
   const away = match.away;
@@ -577,5 +623,42 @@ const styles = {
 
   errorTitle: {
     color: "#f8fafc"
-  }
+  },
+  simpleMatchTitle: {
+  margin: "8px 0",
+  color: "#f1f0e8",
+  fontFamily: "var(--heading)",
+  fontSize: "56px",
+  fontWeight: "900",
+  letterSpacing: "-1px",
+  lineHeight: "0.95"
+},
+
+metaText: {
+  color: "#a1a1aa",
+  fontFamily: "var(--sans)",
+  fontSize: "15px",
+  fontWeight: "750"
+},
+
+resultBox: {
+  marginTop: "20px",
+  padding: "16px 18px",
+  borderRadius: "16px",
+  background: "#181818",
+  border: "1px solid rgba(255,255,255,0.08)",
+  color: "#f5f5f5",
+  fontFamily: "var(--sans)",
+  fontSize: "16px",
+  fontWeight: "850"
+},
+
+bodyText: {
+  margin: 0,
+  color: "#a1a1aa",
+  fontFamily: "var(--sans)",
+  fontSize: "16px",
+  fontWeight: "700",
+  lineHeight: "1.65"
+}
 };

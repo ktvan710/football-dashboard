@@ -1,480 +1,797 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { matches, countryFlags } from "../data/matches";
-const HERO_TITLES = [
-  "FIFA WORLD CUP 2026 DASHBOARD",
-  "MADE BY KT"
-];
-const HOME_BACKGROUNDS = [
-  "/images/backgrounds/worldcup-1.jpg",
-  "/images/backgrounds/france.webp",
-  "/images/backgrounds/brazil.png",
-  "/images/backgrounds/germany.webp",
-  "/images/backgrounds/argentina.webp",
-  "/images/backgrounds/portugal.webp",
-  "/images/backgrounds/spain.jpg",
-  "/images/backgrounds/usa.jpg",
-  "/images/backgrounds/japan.webp"
-];
-const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-function getCountdown(targetDate) {
-  const target = Date.parse(targetDate);
+import { worldCupFixtures } from "../data/worldCupFixtures";
 
-  if (isNaN(target)) return null;
+const MALAYSIA_TIME_ZONE = "Asia/Kuala_Lumpur";
 
-  const diff = target - Date.now();
-
-  if (diff <= 0) {
-    return {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
-    };
-  }
-
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60)
+function getFlagEmoji(code, teamName) {
+  const flags = {
+    us: "🇺🇸",
+    au: "🇦🇺",
+    br: "🇧🇷",
+    ht: "🇭🇹",
+    tr: "🇹🇷",
+    py: "🇵🇾",
+    ma: "🇲🇦",
+    "gb-sct": "🏴",
+    nl: "🇳🇱",
+    se: "🇸🇪",
+    de: "🇩🇪",
+    ci: "🇨🇮",
+    ec: "🇪🇨",
+    cw: "🇨🇼",
+    tn: "🇹🇳",
+    jp: "🇯🇵",
+    es: "🇪🇸",
+    sa: "🇸🇦",
+    be: "🇧🇪",
+    ir: "🇮🇷",
+    uy: "🇺🇾",
+    cv: "🇨🇻",
+    nz: "🇳🇿",
+    eg: "🇪🇬",
+    ar: "🇦🇷",
+    at: "🇦🇹",
+    fr: "🇫🇷",
+    iq: "🇮🇶",
+    no: "🇳🇴",
+    sn: "🇸🇳",
+    jo: "🇯🇴",
+    dz: "🇩🇿",
+    pt: "🇵🇹",
+    uz: "🇺🇿",
+    co: "🇨🇴",
+    cd: "🇨🇩",
+    en: "🏴",
+    gh: "🇬🇭",
+    pa: "🇵🇦",
+    hr: "🇭🇷",
+    mx: "🇲🇽",
+    kr: "🇰🇷",
+    cz: "🇨🇿",
+    za: "🇿🇦",
+    ca: "🇨🇦",
+    ch: "🇨🇭",
+    ba: "🇧🇦",
+    qa: "🇶🇦"
   };
+function getFlagCode(code) {
+  const aliases = {
+    en: "gb-eng",
+    scotland: "gb-sct"
+  };
+
+  return aliases[code] || code;
 }
 
-function getMatchStatus(kickoffDate) {
-  const matchTime = new Date(kickoffDate).getTime();
+function getFlagUrl(code) {
+  const flagCode = getFlagCode(code);
 
-  if (isNaN(matchTime)) return "UPCOMING";
+  if (!flagCode) return "";
 
-  const diff = matchTime - Date.now();
-  const MATCH_DURATION = 125 * 60 * 1000;
+  return `https://flagcdn.com/w80/${flagCode.toLowerCase()}.png`;
+}
+  const fallbacks = {
+    Scotland: "🏴",
+    England: "🏴",
+    "Ivory Coast": "🇨🇮",
+    Curacao: "🇨🇼",
+    "Cape Verde": "🇨🇻",
+    "New Zealand": "🇳🇿",
+    "South Korea": "🇰🇷",
+    Czechia: "🇨🇿",
+    "South Africa": "🇿🇦",
+    "Bosnia and Herzegovina": "🇧🇦",
+    "DR Congo": "🇨🇩"
+  };
 
-  if (diff > 0) return "UPCOMING";
-
-  if (Math.abs(diff) < MATCH_DURATION) {
-    return "ACTIVE";
-  }
-
-  return "FT";
+  return flags[code] || fallbacks[teamName] || "🏳️";
 }
 
-function MatchCard({ id, match }) {
-  const status = getMatchStatus(match.kickoff.date);
-  const countdown = getCountdown(match.kickoff.date);
+function getMalaysiaDateParts(date) {
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: MALAYSIA_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  });
 
-  const hasScore =
-    match.score?.home !== undefined &&
-    match.score?.away !== undefined;
+  return formatter.format(date);
+}
+
+function getTodayKey() {
+  return getMalaysiaDateParts(new Date());
+}
+
+function shiftDateKey(dateKey, amount) {
+  const [year, month, day] = dateKey.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  date.setUTCDate(date.getUTCDate() + amount);
+
+  const shiftedYear = date.getUTCFullYear();
+  const shiftedMonth = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const shiftedDay = String(date.getUTCDate()).padStart(2, "0");
+
+  return `${shiftedYear}-${shiftedMonth}-${shiftedDay}`;
+}
+
+function getMatchDateKey(match) {
+  return getMalaysiaDateParts(new Date(match.kickoff.date));
+}
+
+function getDateLabel(dateKey) {
+  const today = getTodayKey();
+  const yesterday = shiftDateKey(today, -1);
+  const tomorrow = shiftDateKey(today, 1);
+
+  if (dateKey === today) return "Today";
+  if (dateKey === yesterday) return "Yesterday";
+  if (dateKey === tomorrow) return "Tomorrow";
+
+  const [year, month, day] = dateKey.split("-").map(Number);
+
+  return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric"
+  });
+}
+
+function formatKickoffTime(dateString) {
+  return new Date(dateString).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: MALAYSIA_TIME_ZONE
+  });
+}
+
+function getCountdown(dateString, now) {
+  const kickoff = new Date(dateString).getTime();
+  const current = now.getTime();
+  const diff = kickoff - current;
+
+  if (diff <= 0) return "";
+
+  const totalMinutes = Math.floor(diff / 1000 / 60);
+  const days = Math.floor(totalMinutes / 1440);
+  const hours = Math.floor((totalMinutes % 1440) / 60);
+  const minutes = totalMinutes % 60;
+
+  if (days > 0) return `${days}d ${hours}h`;
+  if (hours > 0) return `${hours}h ${minutes}m`;
+
+  return `${minutes}m`;
+}
+
+function groupMatchesByGroup(matchList) {
+  return matchList.reduce((groups, match) => {
+    const groupName = match.group || "Other";
+
+    if (!groups[groupName]) {
+      groups[groupName] = [];
+    }
+
+    groups[groupName].push(match);
+
+    return groups;
+  }, {});
+}
+
+function isCompleted(match) {
+  return Boolean(match.score);
+}
+function getFlagCode(code) {
+  const aliases = {
+    en: "gb-eng",
+    "gb-sct": "gb-sct"
+  };
+
+  return aliases[code] || code;
+}
+
+function getFlagUrl(code) {
+  const flagCode = getFlagCode(code);
+
+  if (!flagCode) return "";
+
+  return `https://flagcdn.com/w80/${flagCode.toLowerCase()}.png`;
+}
+function FixtureRow({ match, now }) {
+  const completed = isCompleted(match);
 
   return (
-    <Link
-      key={id}
-      to={`/match/${id}`}
-      className="match-card"
-      style={styles.card}
-    >
-      {/* TEAMS */}
-      <div style={styles.matchTitle}>
-        <img
-          src={countryFlags(match.home.code)}
-          width="22"
-          alt={match.home.name}
-        />
+    <Link to={`/match/${match.id}`} style={styles.fixtureRow}>
+      <div style={styles.statusColumn}>
+        {completed ? <span style={styles.statusBadge}>FT</span> : null}
+      </div>
 
-        <span>{match.home.name}</span>
+      <div style={styles.homeTeamName}>{match.home.name}</div>
 
-        {status === "FT" && hasScore ? (
+      <div style={styles.flagColumn}>
+        <div style={styles.flagCircle}>
+          <img
+            src={getFlagUrl(match.home.code)}
+            alt={match.home.name}
+            style={styles.flagImage}
+          />
+        </div>
+      </div>
+
+      <div style={styles.middleColumn}>
+        {completed ? (
           <span style={styles.scoreText}>
             {match.score.home} - {match.score.away}
           </span>
         ) : (
-          <span>vs</span>
+          <span style={styles.kickoffText}>
+            {formatKickoffTime(match.kickoff.date)}
+          </span>
         )}
-
-        <span>{match.away.name}</span>
-
-        <img
-          src={countryFlags(match.away.code)}
-          width="22"
-          alt={match.away.name}
-        />
       </div>
 
-      {/* GROUP */}
-      <p>{match.group}</p>
+      <div style={styles.flagColumn}>
+        <div style={styles.flagCircle}>
+          <img
+            src={getFlagUrl(match.away.code)}
+            alt={match.away.name}
+            style={styles.flagImage}
+          />
+        </div>
+      </div>
 
-      {/* DATE */}
-      <p>
-        {new Date(match.kickoff.date).toLocaleString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-          timeZone: "Asia/Kuala_Lumpur"
-        })} MYT
-      </p>
+      <div style={styles.awayTeamName}>{match.away.name}</div>
 
-      {/* STATUS */}
-      <p style={styles.statusText}>
-  {status === "UPCOMING" && countdown ? (
-    `⏳ ${countdown.days ?? 0}d ${countdown.hours ?? 0}h ${countdown.minutes ?? 0}m ${countdown.seconds ?? 0}s`
-  ) : status === "ACTIVE" ? (
-    "ACTIVE 🔴"
-  ) : (
-    "FT"
-  )}
-</p>
+      <div style={styles.rightColumn}>
+        {!completed && (
+          <span style={styles.countdownText}>
+            {getCountdown(match.kickoff.date, now)}
+          </span>
+        )}
+      </div>
     </Link>
   );
 }
 
-export default function Home() {
-  const [, forceUpdate] = useState(0);
-  const [showCompleted, setShowCompleted] = useState(false);
-  const [heroTitleText, setHeroTitleText] = useState(HERO_TITLES[0]);
-const [heroTitleIndex, setHeroTitleIndex] = useState(0);
-const currentTitleRef = useRef(HERO_TITLES[0]);
-const [bgIndex, setBgIndex] = useState(0);
-
-useEffect(() => {
-  HOME_BACKGROUNDS.forEach((src) => {
-    const image = new Image();
-    image.src = src;
-  });
-}, []);
-
-useEffect(() => {
-  const bgTimer = setInterval(() => {
-    setBgIndex((current) => (current + 1) % HOME_BACKGROUNDS.length);
-  }, 7000);
-
-  return () => clearInterval(bgTimer);
-}, []);
-useEffect(() => {
-  const swapTimer = setInterval(() => {
-    setHeroTitleIndex((current) => (current + 1) % HERO_TITLES.length);
-  }, 4300);
-
-  return () => clearInterval(swapTimer);
-}, []);
-
-useEffect(() => {
-  const target = HERO_TITLES[heroTitleIndex];
-  const from = currentTitleRef.current;
-  const maxLength = Math.max(from.length, target.length);
-
-  let frame = 0;
-  const totalFrames = 24;
-
-  const animationTimer = setInterval(() => {
-    frame += 1;
-
-    const progress = frame / totalFrames;
-
-    const nextText = Array.from({ length: maxLength })
-      .map((_, index) => {
-        const fromChar = from[index] || "";
-        const targetChar = target[index] || "";
-        const revealPoint = index / maxLength;
-
-        if (progress > revealPoint + 0.22) {
-          return targetChar;
-        }
-
-        if (targetChar === " " && progress > revealPoint) {
-          return " ";
-        }
-
-        if (progress < revealPoint) {
-          return fromChar;
-        }
-
-        return SCRAMBLE_CHARS[
-          Math.floor(Math.random() * SCRAMBLE_CHARS.length)
-        ];
-      })
-      .join("")
-      .trimEnd();
-
-    setHeroTitleText(nextText);
-
-    if (frame >= totalFrames) {
-      clearInterval(animationTimer);
-      currentTitleRef.current = target;
-      setHeroTitleText(target);
-    }
-  }, 32);
-
-  return () => clearInterval(animationTimer);
-}, [heroTitleIndex]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      forceUpdate((v) => v + 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const matchEntries = Object.entries(matches);
-
-  const upcomingMatches = matchEntries.filter(([id, match]) => {
-    return getMatchStatus(match.kickoff.date) !== "FT";
-  });
-
-  const completedMatches = matchEntries.filter(([id, match]) => {
-    return getMatchStatus(match.kickoff.date) === "FT";
-  });
-
+function FixtureGroup({ groupName, groupMatches, now }) {
   return (
-  <div style={styles.homeShell}>
-    <div style={styles.homeBackgroundStage}>
-      {HOME_BACKGROUNDS.map((image, index) => (
-        <div
-          key={image}
-          className={`home-bg-image ${index === bgIndex ? "active" : ""}`}
-          style={{
-            backgroundImage: `url(${image})`
-          }}
-        />
+    <div style={styles.groupBlock}>
+      <div style={styles.groupHeader}>
+        <span style={styles.groupPill}>{groupName}</span>
+      </div>
+
+      {groupMatches.map((match) => (
+        <FixtureRow key={match.id} match={match} now={now} />
       ))}
     </div>
+  );
+}
 
-    <div style={styles.homeDarkOverlay} />
+function CalendarModal({
+  selectedDate,
+  setSelectedDate,
+  setCalendarOpen,
+  calendarMonth,
+  setCalendarMonth
+}) {
+  const [year, month] = calendarMonth.split("-").map(Number);
 
+  const firstDay = new Date(Date.UTC(year, month - 1, 1));
+  const startDay = firstDay.getUTCDay();
+  const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const previousMonthDays = new Date(Date.UTC(year, month - 1, 0)).getUTCDate();
+
+  const calendarCells = [];
+
+  for (let i = startDay - 1; i >= 0; i--) {
+    calendarCells.push({
+      day: previousMonthDays - i,
+      outside: true,
+      dateKey: null
+    });
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${String(month).padStart(2, "0")}-${String(
+      day
+    ).padStart(2, "0")}`;
+
+    calendarCells.push({
+      day,
+      outside: false,
+      dateKey
+    });
+  }
+
+  while (calendarCells.length < 42) {
+    const nextDay = calendarCells.length - startDay - daysInMonth + 1;
+
+    calendarCells.push({
+      day: nextDay,
+      outside: true,
+      dateKey: null
+    });
+  }
+
+  function shiftMonth(amount) {
+    const nextMonth = new Date(Date.UTC(year, month - 1 + amount, 1));
+    const nextYear = nextMonth.getUTCFullYear();
+    const nextMonthNumber = String(nextMonth.getUTCMonth() + 1).padStart(
+      2,
+      "0"
+    );
+
+    setCalendarMonth(`${nextYear}-${nextMonthNumber}`);
+  }
+
+  const monthTitle = new Date(Date.UTC(year, month - 1, 1)).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      year: "numeric"
+    }
+  );
+
+  return (
+    <div style={styles.modalOverlay} onClick={() => setCalendarOpen(false)}>
+      <div style={styles.calendarModal} onClick={(event) => event.stopPropagation()}>
+        <div style={styles.calendarHeader}>
+          <button style={styles.calendarArrow} onClick={() => shiftMonth(-1)}>
+            ‹
+          </button>
+
+          <h3 style={styles.calendarTitle}>{monthTitle}</h3>
+
+          <button style={styles.calendarArrow} onClick={() => shiftMonth(1)}>
+            ›
+          </button>
+        </div>
+
+        <div style={styles.weekdayRow}>
+          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+            <span key={day} style={styles.weekday}>
+              {day}
+            </span>
+          ))}
+        </div>
+
+        <div style={styles.calendarGrid}>
+          {calendarCells.map((cell, index) => {
+            const isSelected = cell.dateKey === selectedDate;
+
+            return (
+              <button
+                key={`${cell.day}-${index}`}
+                style={{
+                  ...styles.calendarDay,
+                  ...(cell.outside ? styles.outsideDay : {}),
+                  ...(isSelected ? styles.selectedDay : {})
+                }}
+                disabled={cell.outside}
+                onClick={() => {
+                  setSelectedDate(cell.dateKey);
+                  setCalendarOpen(false);
+                }}
+              >
+                {cell.day}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  const [selectedDate, setSelectedDate] = useState(getTodayKey());
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [calendarMonth, setCalendarMonth] = useState(() => {
+    return selectedDate.slice(0, 7);
+  });
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(new Date());
+    }, 30000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    setCalendarMonth(selectedDate.slice(0, 7));
+  }, [selectedDate]);
+
+  const allMatches = useMemo(() => {
+    return Object.entries(worldCupFixtures)
+      .map(([id, match]) => ({
+        id,
+        ...match
+      }))
+      .sort((a, b) => new Date(a.kickoff.date) - new Date(b.kickoff.date));
+  }, []);
+
+  const selectedMatches = allMatches.filter((match) => {
+    return getMatchDateKey(match) === selectedDate;
+  });
+
+  const groupedMatches = groupMatchesByGroup(selectedMatches);
+
+  return (
     <div style={styles.page}>
-      {/* HERO SECTION */}
-      
+      <div style={styles.dateBar}>
+        <button
+          style={styles.dateArrow}
+          onClick={() => setSelectedDate(shiftDateKey(selectedDate, -1))}
+        >
+          ‹
+        </button>
 
-      {/* UPCOMING / ACTIVE MATCHES */}
-      <h2 style={styles.sectionTitle}>Upcoming Board</h2>
+        <button
+          style={styles.dateCenter}
+          onClick={() => setCalendarOpen(true)}
+        >
+          {getDateLabel(selectedDate)}
+          <span style={styles.dateCaret}>⌄</span>
+        </button>
 
-      <div style={styles.grid}>
-        {upcomingMatches.length > 0 ? (
-          upcomingMatches.map(([id, match]) => (
-            <MatchCard key={id} id={id} match={match} />
+        <button
+          style={styles.dateArrow}
+          onClick={() => setSelectedDate(shiftDateKey(selectedDate, 1))}
+        >
+          ›
+        </button>
+      </div>
+
+      <div style={styles.fixtureBoard}>
+        {selectedMatches.length > 0 ? (
+          Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
+            <FixtureGroup
+              key={groupName}
+              groupName={groupName}
+              groupMatches={groupMatches}
+              now={now}
+            />
           ))
         ) : (
-          <p style={styles.emptyText}>No upcoming matches.</p>
+          <div style={styles.emptyState}>No World Cup matches on this date</div>
         )}
       </div>
 
-      {/* COMPLETED MATCHES COLLAPSIBLE */}
-      <button
-        onClick={() => setShowCompleted(!showCompleted)}
-        style={styles.collapseButton}
-      >
-        <span>
-          {showCompleted ? "▾" : "▸"} Completed Results
-        </span>
-
-        <span style={styles.completedCount}>
-          {completedMatches.length}
-        </span>
-      </button>
-
-      {showCompleted && (
-        <div style={styles.grid}>
-          {completedMatches.length > 0 ? (
-            completedMatches.map(([id, match]) => (
-              <MatchCard key={id} id={id} match={match} />
-            ))
-          ) : (
-            <p style={styles.emptyText}>No completed matches yet.</p>
-          )}
-        </div>
+      {calendarOpen && (
+        <CalendarModal
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          setCalendarOpen={setCalendarOpen}
+          calendarMonth={calendarMonth}
+          setCalendarMonth={setCalendarMonth}
+        />
       )}
     </div>
-   </div> 
   );
 }
 
 const styles = {
   page: {
-  color: "#f5f5f5",
-  maxWidth: "1280px",
-  margin: "0 auto",
-  fontFamily: "var(--sans)"
-},
-
-  heroTitle: {
-    marginBottom: "5px",
-    fontWeight: "800",
-    fontSize: "60px",
-    lineHeight: "1.1",
-    letterSpacing: "0.5px",
-    paddingTop: "0px",
-    paddingBottom: "0px",
-    textAlign: "center",
-
-    background: "linear-gradient(90deg, #d4af37, #6edc19, #facc15)",
-    backgroundSize: "200% 200%",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    animation: "gradientMove 4s ease infinite",
-
-    fontFamily: "var(--heading)"
+    color: "#f5f5f5",
+    maxWidth: "880px",
+    margin: "0 auto",
+    fontFamily: "var(--sans)"
   },
 
-  subtitle: {
-    color: "rgba(255,255,255,0.85)",
-    marginTop: "12px"
-  },
-homeShell: {
-  position: "relative",
-  minHeight: "100vh",
-  isolation: "isolate"
-},
-
-homeBackgroundStage: {
-  position: "fixed",
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: "var(--sidebar-width)",
-  zIndex: -3,
-  overflow: "hidden",
-  pointerEvents: "none",
-  background: "#020617",
-  transition: "left 0.55s cubic-bezier(0.16, 1, 0.3, 1)"
-},
-
-homeDarkOverlay: {
-  position: "fixed",
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: "var(--sidebar-width)",
-  zIndex: -2,
-  pointerEvents: "none",
-
-  background:
-    "radial-gradient(circle at top, rgba(56,189,248,0.14), transparent 34%), linear-gradient(135deg, rgba(2,6,23,0.78), rgba(15,23,42,0.58), rgba(2,6,23,0.82))",
-
-  transition: "left 0.55s cubic-bezier(0.16, 1, 0.3, 1)"
-},
-  hero: {
-  background: "rgba(15, 23, 42, 0.76)",
-  backdropFilter: "blur(14px)",
-  WebkitBackdropFilter: "blur(14px)",
-  borderRadius: "20px",
-  padding: "25px",
-  marginBottom: "25px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  border: "1px solid rgba(212,175,55,0.65)",
-  boxShadow: "0 18px 45px rgba(0,0,0,0.42)"
-},
-
-  heroText: {
-    textAlign: "left"
-  },
-
-  imageRow: {
-    display: "flex",
-    gap: "20px",
-    marginBottom: "25px"
-  },
-
-  image: {
-    width: "180px",
-    height: "180px",
-    objectFit: "contain"
-  },
-
-  grid: {
+  dateBar: {
+    background: "#1f1f1f",
+    border: "1px solid rgba(255,255,255,0.08)",
+    borderRadius: "18px",
+    height: "82px",
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "20px"
+    gridTemplateColumns: "64px 1fr 64px",
+    alignItems: "center",
+    marginBottom: "18px",
+    overflow: "hidden"
   },
 
-  card: {
+  dateArrow: {
+    width: "42px",
+    height: "42px",
+    borderRadius: "999px",
+    border: 0,
+    background: "#3a3a3a",
+    color: "#f5f5f5",
+    fontSize: "36px",
+    lineHeight: "38px",
+    fontWeight: "900",
+    cursor: "pointer",
+    justifySelf: "center"
+  },
+
+  dateCenter: {
+  border: 0,
+  background: "transparent",
+  color: "#a1a1aa",
+  fontFamily: "var(--heading)",
+  fontSize: "28px",
+  fontWeight: "900",
+  cursor: "pointer",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "10px",
+  letterSpacing: "-0.4px"
+},
+
+  dateCaret: {
+    fontSize: "18px",
+    transform: "translateY(1px)"
+  },
+
+  fixtureBoard: {
   background: "#1f1f1f",
   border: "1px solid rgba(255,255,255,0.08)",
   borderRadius: "18px",
+  overflowX: "auto",
+  overflowY: "hidden",
   boxShadow: "none",
-  color: "#f5f5f5",
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  padding: "14px 16px",
-  textDecoration: "none",
-  border: "1px solid rgba(212,175,55,0.52)",
-  transition: "0.2s ease"
+  WebkitOverflowScrolling: "touch",
+  touchAction: "pan-x"
 },
 
-  matchTitle: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "10px",
-    fontSize: "20px",
-    marginBottom: "10px",
-    fontFamily: "var(--sans)",
-    fontWeight: "600",
-    flexWrap: "wrap"
+  groupBlock: {
+  minWidth: "720px",
+  borderBottom: "1px solid rgba(255,255,255,0.08)"
+},
+
+  groupHeader: {
+    padding: "14px 22px 8px"
   },
 
-  sectionTitle: {
-    color: "#f8fafc",
-    textAlign: "left",
-    margin: "30px 0 15px",
-    fontSize: "40px",
-    fontWeight: "800",
-    fontFamily: "var(--heading)",
-    letterSpacing: "2px"
-  },
+  groupPill: {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid rgba(255,255,255,0.12)",
+  borderRadius: "12px",
+  padding: "8px 13px",
+  color: "#a1a1aa",
+  fontFamily: "var(--heading)",
+  fontSize: "17px",
+  fontWeight: "900",
+  letterSpacing: "-0.2px"
+},
 
-  statusText: {
-    color: "#94a3b8",
-    marginTop: "10px",
-    fontWeight: "700"
-  },
+  fixtureRow: {
+  minHeight: "78px",
+  minWidth: "720px",
+  display: "grid",
+  gridTemplateColumns:
+    "64px minmax(120px, 1fr) 46px 110px 46px minmax(120px, 1fr) 90px",
+  alignItems: "center",
+  color: "#f5f5f5",
+  textDecoration: "none",
+  borderTop: "1px solid rgba(255,255,255,0.06)",
+  padding: "6px 22px",
+  columnGap: "10px"
+},
 
-  emptyText: {
-    color: "#94a3b8",
-    textAlign: "left"
-  },
+statusColumn: {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start"
+},
 
-  scoreText: {
-    background: "#1f1f1f",
-    color: "#facc15",
-    padding: "4px 10px",
-    borderRadius: "999px",
-    fontWeight: "900",
-    border: "1px solid #334155",
-    fontFamily: "var(--score)",
-    fontSize: "20px",
-    letterSpacing: "0.5px"
-  },
+statusBadge: {
+  width: "38px",
+  height: "30px",
+  borderRadius: "999px",
+  background: "#343434",
+  color: "#a1a1aa",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "13px",
+  fontWeight: "900"
+},
 
-  collapseButton: {
-  width: "100%",
-  margin: "35px 0 15px",
-  padding: "14px 18px",
-  borderRadius: "14px",
-  border: "1px solid rgba(255,255,255,0.08)",
-  background: "#1f1f1f",
-  color: "#f8fafc",
+homeTeamName: {
+  color: "#f1f0e8",
+  fontFamily: "var(--heading)",
   fontSize: "24px",
   fontWeight: "900",
+  letterSpacing: "-0.30px",
+  lineHeight: "1",
+  textAlign: "right",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis"
+},
+
+awayTeamName: {
+  color: "#f1f0e8",
   fontFamily: "var(--heading)",
-  textTransform: "uppercase",
-  letterSpacing: "0.5px",
+  fontSize: "24px",
+  fontWeight: "900",
+  letterSpacing: "-0.30px",
+  lineHeight: "1",
   textAlign: "left",
-  cursor: "pointer",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis"
+},
+
+flagColumn: {
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "center"
 },
 
-  completedCount: {
-    background: "#0f172a",
-    color: "#94a3b8",
-    padding: "2px 10px",
+flagCircle: {
+  width: "36px",
+  height: "36px",
+  borderRadius: "999px",
+  background: "#2a2a2a",
+  overflow: "hidden",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flex: "0 0 auto"
+},
+
+flagImage: {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block"
+},
+
+middleColumn: {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+},
+
+scoreText: {
+  color: "#f1f0e8",
+  fontFamily: "var(--score)",
+  fontSize: "18px",
+  fontWeight: "900",
+  whiteSpace: "nowrap",
+  minWidth: "74px",
+  textAlign: "center",
+  letterSpacing: "0.2px"
+},
+
+kickoffText: {
+  color: "#a1a1aa",
+  fontFamily: "var(--score)",
+  fontSize: "19px",
+  fontWeight: "900",
+  whiteSpace: "nowrap",
+  minWidth: "96px",
+  textAlign: "center",
+  letterSpacing: "0.1px"
+},
+
+rightColumn: {
+  display: "flex",
+  justifyContent: "flex-end",
+  alignItems: "center"
+},
+
+countdownText: {
+  color: "#4ade80",
+  fontFamily: "var(--score)",
+  fontSize: "15px",
+  fontWeight: "900",
+  whiteSpace: "nowrap"
+},
+
+  emptyState: {
+    padding: "42px 20px",
+    textAlign: "center",
+    color: "#a1a1aa",
+    fontSize: "18px",
+    fontWeight: "800"
+  },
+
+  modalOverlay: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,0.72)",
+    zIndex: 2000,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
+  calendarModal: {
+    width: "430px",
+    maxWidth: "calc(100vw - 36px)",
+    background: "#2b2b2b",
+    borderRadius: "22px",
+    border: "1px solid rgba(255,255,255,0.08)",
+    boxShadow: "0 28px 70px rgba(0,0,0,0.55)",
+    overflow: "hidden",
+    paddingBottom: "22px"
+  },
+
+  calendarHeader: {
+    height: "84px",
+    display: "grid",
+    gridTemplateColumns: "72px 1fr 72px",
+    alignItems: "center",
+    borderBottom: "1px solid rgba(255,255,255,0.06)"
+  },
+
+  calendarArrow: {
+    width: "42px",
+    height: "42px",
     borderRadius: "999px",
-    fontSize: "16px"
+    border: 0,
+    background: "#4a4a4a",
+    color: "#f5f5f5",
+    fontSize: "34px",
+    lineHeight: "38px",
+    fontWeight: "900",
+    cursor: "pointer",
+    justifySelf: "center"
+  },
+
+  calendarTitle: {
+    margin: 0,
+    color: "#f5f5f5",
+    fontSize: "24px",
+    fontWeight: "900",
+    textAlign: "center"
+  },
+
+  weekdayRow: {
+    display: "grid",
+    gridTemplateColumns: "repeat(7, 1fr)",
+    padding: "20px 24px 8px"
+  },
+
+  weekday: {
+    color: "#a1a1aa",
+    textAlign: "center",
+    fontSize: "15px",
+    fontWeight: "800"
+  },
+
+  calendarGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(7, 1fr)",
+    gap: "8px",
+    padding: "10px 24px 0"
+  },
+
+  calendarDay: {
+    height: "38px",
+    borderRadius: "999px",
+    border: 0,
+    background: "transparent",
+    color: "#f5f5f5",
+    fontSize: "19px",
+    fontWeight: "800",
+    cursor: "pointer"
+  },
+  flagColumn: {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+},
+
+middleColumn: {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+},
+
+  outsideDay: {
+    color: "#6b7280",
+    cursor: "not-allowed"
+  },
+
+  selectedDay: {
+    background: "#3a3a3a"
   }
 };

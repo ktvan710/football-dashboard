@@ -1,32 +1,16 @@
+import { worldCupFixtures } from "../data/worldCupFixtures";
+import { tournamentLeaders } from "../data/worldCupData";
 import {
-  groupStandings,
-  tournamentInfo,
-  tournamentLeaders
-} from "../data/worldCupData";
+  buildGroupStandings,
+  getBestThirdPlacedTeams
+} from "../data/buildStandings";
 function getQualificationStatus(index) {
   if (index === 0 || index === 1) return "qualified";
   if (index === 2) return "possible";
   return "none";
 }
 
-function getBestThirdPlacedTeams(groups) {
-  const thirdPlaced = groups
-    .map((group) => {
-      const thirdTeam = group.teams[2];
-      return {
-        ...thirdTeam,
-        group: group.group
-      };
-    })
-    .sort((a, b) => {
-      if (b.points !== a.points) return b.points - a.points;
-      if (b.gd !== a.gd) return b.gd - a.gd;
-      if (b.gf !== a.gf) return b.gf - a.gf;
-      return a.team.localeCompare(b.team);
-    });
 
-  return thirdPlaced;
-}
 
 function InfoCard({ item }) {
   return (
@@ -74,7 +58,13 @@ function NextMatchPill({ nextMatch }) {
 
   return (
     <span style={styles.nextMatchPill}>
-      <span style={styles.nextFlagCircle}>{nextMatch.flag}</span>
+      <span style={styles.nextFlagCircle}>
+        <img
+          src={nextMatch.flagUrl}
+          alt={nextMatch.team}
+          style={styles.nextFlagImage}
+        />
+      </span>
     </span>
   );
 }
@@ -139,7 +129,9 @@ function StandingsTable({ group }) {
                   <td style={styles.fotmobTd}>{index + 1}</td>
 
                   <td style={{ ...styles.fotmobTd, ...styles.teamCell }}>
-                    <span style={styles.teamFlag}>{team.flag}</span>
+                    <span style={styles.teamFlagCircle}>
+  <img src={team.flagUrl} alt={team.team} style={styles.teamFlagImage} />
+</span>
                     <span>{team.team}</span>
                   </td>
 
@@ -178,86 +170,6 @@ function StandingsTable({ group }) {
       </div>
 
       
-    </div>
-  );
-}
-function BestThirdPlacedTable({ groups }) {
-  const teams = getBestThirdPlacedTeams(groups);
-
-  return (
-    <div style={styles.tableCard}>
-      <div style={styles.tableHeader}>
-        <h3 style={styles.tableTitle}>Best 3rd Placed Teams</h3>
-      </div>
-
-      <div style={styles.tableWrapper}>
-        <table style={styles.fotmobTable}>
-          <thead>
-            <tr>
-              <th style={styles.fotmobTh}>#</th>
-              <th style={{ ...styles.fotmobTh, textAlign: "left" }}>Team</th>
-              <th style={styles.fotmobTh}>PL</th>
-              <th style={styles.fotmobTh}>W</th>
-              <th style={styles.fotmobTh}>D</th>
-              <th style={styles.fotmobTh}>L</th>
-              <th style={styles.fotmobTh}>+/-</th>
-              <th style={styles.fotmobTh}>GD</th>
-              <th style={styles.fotmobTh}>PTS</th>
-              <th style={styles.fotmobTh}>Form</th>
-              <th style={{ ...styles.fotmobTh, textAlign: "center" }}>Next</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {teams.map((team, index) => (
-              <tr
-                key={`${team.group}-${team.team}`}
-                style={{
-                  ...styles.fotmobTr,
-                  ...(index < 8 ? styles.possibleRow : {})
-                }}
-              >
-                <td style={styles.fotmobTd}>{index + 1}</td>
-
-                <td style={{ ...styles.fotmobTd, ...styles.teamCell }}>
-                  <span style={styles.teamFlag}>{team.flag}</span>
-                  <span>{team.team}</span>
-                </td>
-
-                <td style={styles.fotmobTd}>{team.played}</td>
-                <td style={styles.fotmobTd}>{team.wins}</td>
-                <td style={styles.fotmobTd}>{team.draws}</td>
-                <td style={styles.fotmobTd}>{team.losses}</td>
-                <td style={styles.fotmobTd}>
-                  {team.gf}-{team.ga}
-                </td>
-                <td style={styles.fotmobTd}>
-                  {team.gd > 0 ? `+${team.gd}` : team.gd}
-                </td>
-                <td style={styles.fotmobPts}>{team.points}</td>
-
-                <td style={styles.fotmobTd}>
-                  <div style={styles.formStack}>
-                    {(team.form || []).map((result, formIndex) => (
-                      <FormBadge
-                        key={`${team.team}-${formIndex}`}
-                        result={result}
-                        isLatest={formIndex === team.form.length - 1}
-                      />
-                    ))}
-                  </div>
-                </td>
-
-                <td style={styles.fotmobTd}>
-                  <NextMatchPill nextMatch={team.nextMatch} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-  
     </div>
   );
 }
@@ -302,26 +214,101 @@ function LeaderBoard({ title, data, statLabel }) {
     </div>
   );
 }
+function BestThirdPlacedTable({ groups }) {
+  const teams = getBestThirdPlacedTeams(groups);
 
+  return (
+    <div style={styles.tableCard}>
+      <div style={styles.tableHeader}>
+        <h3 style={styles.tableTitle}>Best 3rd Placed Teams</h3>
+      </div>
+
+      <div style={styles.tableWrapper}>
+        <table style={styles.fotmobTable}>
+          <thead>
+            <tr>
+              <th style={styles.fotmobTh}>#</th>
+              <th style={{ ...styles.fotmobTh, textAlign: "left" }}>Team</th>
+              <th style={styles.fotmobTh}>PL</th>
+              <th style={styles.fotmobTh}>W</th>
+              <th style={styles.fotmobTh}>D</th>
+              <th style={styles.fotmobTh}>L</th>
+              <th style={styles.fotmobTh}>+/-</th>
+              <th style={styles.fotmobTh}>GD</th>
+              <th style={styles.fotmobTh}>PTS</th>
+              <th style={styles.fotmobTh}>Form</th>
+              <th style={{ ...styles.fotmobTh, textAlign: "center" }}>
+                Next
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {teams.map((team, index) => (
+              <tr
+                key={`${team.group}-${team.team}`}
+                style={{
+                  ...styles.fotmobTr,
+                  ...(index < 8 ? styles.possibleRow : {})
+                }}
+              >
+                <td style={styles.fotmobTd}>{index + 1}</td>
+
+                <td style={{ ...styles.fotmobTd, ...styles.teamCell }}>
+                  <span style={styles.teamFlagCircle}>
+                    <img
+                      src={team.flagUrl}
+                      alt={team.team}
+                      style={styles.teamFlagImage}
+                    />
+                  </span>
+
+                  <span>{team.team}</span>
+                </td>
+
+                <td style={styles.fotmobTd}>{team.played}</td>
+                <td style={styles.fotmobTd}>{team.wins}</td>
+                <td style={styles.fotmobTd}>{team.draws}</td>
+                <td style={styles.fotmobTd}>{team.losses}</td>
+
+                <td style={styles.fotmobTd}>
+                  {team.gf}-{team.ga}
+                </td>
+
+                <td style={styles.fotmobTd}>
+                  {team.gd > 0 ? `+${team.gd}` : team.gd}
+                </td>
+
+                <td style={styles.fotmobPts}>{team.points}</td>
+
+                <td style={styles.fotmobTd}>
+                  <div style={styles.formStack}>
+                    {(team.form || []).map((result, formIndex) => (
+                      <FormBadge
+                        key={`${team.team}-${formIndex}`}
+                        result={result}
+                        isLatest={formIndex === team.form.length - 1}
+                      />
+                    ))}
+                  </div>
+                </td>
+
+                <td style={styles.fotmobTd}>
+                  <NextMatchPill nextMatch={team.nextMatch} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
 export default function WorldCupData() {
+    const groupStandings = buildGroupStandings(worldCupFixtures);
   return (
     <div style={styles.page}>
-      <div style={styles.pageHeader}>
-        <p style={styles.pageEyebrow}>Tournament Center</p>
-
-        <h1 style={styles.pageTitle}>World Cup Standings</h1>
-
-        <p style={styles.pageSubtitle}>
-          Standings, leaders, cards, and tournament records updated throughout
-          the competition.
-        </p>
-      </div>
-
-      <div style={styles.infoGrid}>
-        {tournamentInfo.map((item) => (
-          <InfoCard key={item.label} item={item} />
-        ))}
-      </div>
+      
 
       <h2 style={styles.sectionTitle}>Group Standings</h2>
 
@@ -674,7 +661,7 @@ keyStripe: {
 
   standingsGrid: {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(480px, 1fr))",
+  gridTemplateColumns: "1fr",
   gap: "0",
   background: "#1f1f1f"
 },
@@ -815,5 +802,42 @@ keyStripe: {
     color: "#94a3b8",
     margin: 0,
     fontWeight: "800"
-  }
+  },
+  teamFlagCircle: {
+  width: "22px",
+  height: "22px",
+  borderRadius: "999px",
+  overflow: "hidden",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  background: "#2a2a2a",
+  flex: "0 0 auto"
+},
+
+teamFlagImage: {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block"
+},
+
+nextFlagCircle: {
+  width: "38px",
+  height: "38px",
+  borderRadius: "999px",
+  background: "#2a2a2a",
+  overflow: "hidden",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid rgba(255,255,255,0.08)"
+},
+
+nextFlagImage: {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block"
+}
 };
