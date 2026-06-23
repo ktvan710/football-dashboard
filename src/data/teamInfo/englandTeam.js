@@ -72,8 +72,8 @@ export const englandTeamInfo = {
         player: "Jordan Pickford",
         position: "Goalkeeper",
         suggestedFaceAssetKey: "england/pickford",
-        imagePath: "/images/england/pickford.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/pickford.png",
+        previousMatchRating: "6.1",
         x: "50%",
         y: "88%"
       },
@@ -82,8 +82,8 @@ export const englandTeamInfo = {
         player: "Reece James",
         position: "Right-back",
         suggestedFaceAssetKey: "england/reece-james",
-        imagePath: "/images/england/reece-james.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/reece-james.png",
+        previousMatchRating: "5.9",
         x: "89%",
         y: "70%"
       },
@@ -92,28 +92,28 @@ export const englandTeamInfo = {
         player: "Ezri Konsa",
         position: "Centre-back",
         suggestedFaceAssetKey: "england/konsa",
-        imagePath: "/images/england/konsa.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/konsa.png",
+        previousMatchRating: "6.2",
         x: "67%",
-        y: "73%"
+        y: "77%"
       },
       {
         pos: "LCB",
         player: "John Stones",
         position: "Centre-back",
         suggestedFaceAssetKey: "england/stones",
-        imagePath: "/images/england/stones.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/stones.png",
+        previousMatchRating: "6.4",
         x: "33%",
-        y: "73%"
+        y: "77%"
       },
       {
         pos: "LB",
         player: "Nico O’Reilly",
         position: "Left-back",
         suggestedFaceAssetKey: "england/nico-oreilly",
-        imagePath: "/images/england/nico-oreilly.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/nico-oreilly.png",
+        previousMatchRating: "6.3",
         x: "11%",
         y: "70%"
       },
@@ -122,9 +122,9 @@ export const englandTeamInfo = {
         player: "Declan Rice",
         position: "Defensive midfield",
         suggestedFaceAssetKey: "england/rice",
-        imagePath: "/images/england/rice.jpeg",
-        previousMatchRating: "N/A",
-        x: "40%",
+        imagePath: "/images/england/rice.png",
+        previousMatchRating: "6.9",
+        x: "33%",
         y: "54%"
       },
       {
@@ -132,9 +132,9 @@ export const englandTeamInfo = {
         player: "Elliot Anderson",
         position: "Central midfield",
         suggestedFaceAssetKey: "england/anderson",
-        imagePath: "/images/england/anderson.jpeg",
-        previousMatchRating: "N/A",
-        x: "60%",
+        imagePath: "/images/england/anderson.png",
+        previousMatchRating: "7.0",
+        x: "67%",
         y: "54%"
       },
       {
@@ -142,8 +142,8 @@ export const englandTeamInfo = {
         player: "Noni Madueke",
         position: "Right wing",
         suggestedFaceAssetKey: "england/madueke",
-        imagePath: "/images/england/madueke.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/madueke.png",
+        previousMatchRating: "7.5",
         x: "78%",
         y: "31%"
       },
@@ -152,8 +152,8 @@ export const englandTeamInfo = {
         player: "Jude Bellingham",
         position: "Attacking midfield",
         suggestedFaceAssetKey: "england/bellingham",
-        imagePath: "/images/england/bellingham.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/bellingham.png",
+        previousMatchRating: "7.7",
         x: "50%",
         y: "37%"
       },
@@ -162,8 +162,8 @@ export const englandTeamInfo = {
         player: "Anthony Gordon",
         position: "Left wing",
         suggestedFaceAssetKey: "england/gordon",
-        imagePath: "/images/england/gordon.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/gordon.png",
+        previousMatchRating: "6.3",
         x: "22%",
         y: "31%"
       },
@@ -172,8 +172,8 @@ export const englandTeamInfo = {
         player: "Harry Kane",
         position: "Centre-forward",
         suggestedFaceAssetKey: "england/kane",
-        imagePath: "/images/england/kane.jpeg",
-        previousMatchRating: "N/A",
+        imagePath: "/images/england/kane.png",
+        previousMatchRating: "8.3",
         x: "50%",
         y: "14%"
       }
