@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { worldCupFixtures } from "../data/worldCupFixtures";
 
@@ -391,6 +392,35 @@ function CalendarModal({
 }
 
 export default function Home() {
+  const getInitialMatchZoom = () => {
+  const savedZoom = Number(localStorage.getItem("matchBoardZoom"));
+
+  if (savedZoom) {
+    return savedZoom;
+  }
+
+  const screenWidth = window.innerWidth || 390;
+  const boardWidth = 720;
+  const fitZoom = (screenWidth - 14) / boardWidth;
+
+  return Math.max(0.42, Math.min(1, Number(fitZoom.toFixed(2))));
+};
+
+const [matchBoardZoom, setMatchBoardZoom] = useState(getInitialMatchZoom);
+
+function updateMatchBoardZoom(value) {
+  localStorage.setItem("matchBoardZoom", String(value));
+  setMatchBoardZoom(value);
+}
+
+function fitMatchBoardToScreen() {
+  const screenWidth = window.innerWidth || 390;
+  const boardWidth = 720;
+  const fitZoom = (screenWidth - 14) / boardWidth;
+  const safeZoom = Math.max(0.42, Math.min(1, Number(fitZoom.toFixed(2))));
+
+  updateMatchBoardZoom(safeZoom);
+}
   const [selectedDate, setSelectedDate] = useState(getTodayKey());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(() => {
@@ -451,20 +481,43 @@ export default function Home() {
         </button>
       </div>
 
-      <div style={styles.fixtureBoard} className="home-fixture-board">
-        {selectedMatches.length > 0 ? (
-          Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
-            <FixtureGroup
-              key={groupName}
-              groupName={groupName}
-              groupMatches={groupMatches}
-              now={now}
-            />
-          ))
-        ) : (
-          <div style={styles.emptyState}>No World Cup matches on this date</div>
-        )}
-      </div>
+      <div className="match-board-toolbar">
+  <span>Match board zoom</span>
+
+  <button type="button" onClick={fitMatchBoardToScreen}>
+    Fit screen
+  </button>
+
+  <button type="button" onClick={() => updateMatchBoardZoom(0.62)}>
+    Readable
+  </button>
+
+  <button type="button" onClick={() => updateMatchBoardZoom(1)}>
+    Full size
+  </button>
+</div>
+
+<div className="match-board-zoom-shell">
+  <div
+    className="match-board-zoom-target"
+    style={{ "--matchBoardZoom": matchBoardZoom }}
+  >
+    <div style={styles.fixtureBoard} className="home-fixture-board">
+      {selectedMatches.length > 0 ? (
+        Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
+          <FixtureGroup
+            key={groupName}
+            groupName={groupName}
+            groupMatches={groupMatches}
+            now={now}
+          />
+        ))
+      ) : (
+        <div style={styles.emptyState}>No World Cup matches on this date</div>
+      )}
+    </div>
+  </div>
+</div>
 
       {calendarOpen && (
         <CalendarModal
