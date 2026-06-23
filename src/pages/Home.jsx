@@ -262,7 +262,7 @@ function FixtureRow({ match, now }) {
 
 function FixtureGroup({ groupName, groupMatches, now }) {
   return (
-    <div style={styles.groupBlock}>
+    <div style={styles.groupBlock} className="home-group-block">
       <div style={styles.groupHeader}>
         <span style={styles.groupPill}>{groupName}</span>
       </div>
@@ -451,7 +451,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div style={styles.fixtureBoard} className="fixture-board-scroll home-fixture-board">
+      <div style={styles.fixtureBoard} className="home-fixture-board">
         {selectedMatches.length > 0 ? (
           Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
             <FixtureGroup
@@ -534,21 +534,21 @@ const styles = {
   },
 
   fixtureBoard: {
+  width: "100%",
+  maxWidth: "100%",
   background: "#1f1f1f",
   border: "1px solid rgba(255,255,255,0.08)",
   borderRadius: "18px",
-  overflowX: "auto",
+  overflowX: "hidden",
   overflowY: "hidden",
   boxShadow: "none",
-  WebkitOverflowScrolling: "touch",
-  overscrollBehaviorX: "contain",
-  touchAction: "pan-x pan-y",
-  scrollbarWidth: "none"
+  boxSizing: "border-box"
 },
 
   groupBlock: {
-  minWidth: "720px",
-  borderBottom: "1px solid rgba(255,255,255,0.08)"
+  width: "100%",
+  minWidth: 0,
+  boxSizing: "border-box"
 },
 
   groupHeader: {
@@ -570,17 +570,18 @@ const styles = {
 },
 
   fixtureRow: {
-  minHeight: "78px",
-  minWidth: "720px",
+  width: "100%",
+  minWidth: 0,
   display: "grid",
-  gridTemplateColumns:
-    "64px minmax(120px, 1fr) 46px 110px 46px minmax(120px, 1fr) 90px",
+  gridTemplateColumns: "64px minmax(110px, 1fr) 46px 96px 46px minmax(110px, 1fr) 82px",
   alignItems: "center",
-  color: "#f5f5f5",
+  gap: "10px",
+  padding: "14px 18px",
+  minHeight: "78px",
   textDecoration: "none",
-  borderTop: "1px solid rgba(255,255,255,0.06)",
-  padding: "6px 22px",
-  columnGap: "10px"
+  color: "#f5f5f5",
+  borderTop: "1px solid rgba(255,255,255,0.08)",
+  boxSizing: "border-box"
 },
 
 statusColumn: {

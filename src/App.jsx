@@ -245,7 +245,7 @@ function TopNav({ currentPath }) {
                 ...styles.topNavTab,
                 ...styles.disabledTopNavTab
               }}
-              className="top-nav-tab-responsive"
+              className="top-nav-tab-responsive top-nav-disabled-mobile"
             >
               {item.label}
             </span>
