@@ -206,8 +206,8 @@ function TopNav({ currentPath, onChangeDevice }) {
           <div style={styles.competitionLogo}>🏆</div>
 
           <div>
-            <h2 style={styles.competitionTitle}>FIFA World Cup</h2>
-            <p style={styles.competitionSubtitle}>International</p>
+            <h2 style={styles.competitionTitle}>KT's Picks</h2>
+<p style={styles.competitionSubtitle}>World Cup Analytics</p>
           </div>
         </div>
 
