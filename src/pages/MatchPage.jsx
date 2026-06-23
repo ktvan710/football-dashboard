@@ -91,7 +91,7 @@ function TeamPanel({ title, data }) {
 
 function StatTable({ stats, homeName, awayName }) {
   return (
-    <div style={styles.tableWrapper}>
+    <div style={styles.tableWrap}>
       <table style={styles.table}>
         <thead>
           <tr>
@@ -541,7 +541,7 @@ const styles = {
     fontWeight: "750"
   },
 
-  tableWrapper: {
+  tableWrap: {
     overflowX: "auto"
   },
 

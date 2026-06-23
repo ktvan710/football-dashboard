@@ -199,59 +199,77 @@ function TopNav({ currentPath }) {
   ];
 
   return (
-    <div style={styles.topNav}>
-      <div style={styles.topNavHero}>
-        <div style={styles.competitionIdentity}>
-          <div style={styles.competitionLogo}>🏆</div>
-
-          <div>
-            <h2 style={styles.competitionTitle}>KT's Picks</h2>
-<p style={styles.competitionSubtitle}>World Cup Analytics</p>
-          </div>
+  <div style={styles.topNav} className="top-nav-responsive">
+    <div style={styles.topNavHero} className="top-nav-hero-responsive">
+      <div
+        style={styles.competitionIdentity}
+        className="competition-identity-responsive"
+      >
+        <div style={styles.competitionLogo} className="competition-logo-responsive">
+          🏆
         </div>
 
-        <div style={styles.topNavActions}>
-          <span style={styles.actionPill}>2026 ▾</span>
+        <div>
+          <h2
+            style={styles.competitionTitle}
+            className="competition-title-responsive"
+          >
+            KT's Picks
+          </h2>
 
+          <p
+            style={styles.competitionSubtitle}
+            className="competition-subtitle-responsive"
+          >
+            World Cup Analytics
+          </p>
         </div>
       </div>
 
-      <div style={styles.topNavTabs}>
-        {navItems.map((item) => {
-          const isActive = currentPath === item.path;
-
-          if (item.disabled) {
-            return (
-              <span
-                key={item.label}
-                style={{
-                  ...styles.topNavTab,
-                  ...styles.disabledTopNavTab
-                }}
-              >
-                {item.label}
-              </span>
-            );
-          }
-
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              style={{
-                ...styles.topNavTab,
-                ...(isActive ? styles.activeTopNavTab : {})
-              }}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
+      <div style={styles.topNavActions} className="top-nav-actions-responsive">
+        <span style={styles.actionPill} className="action-pill-responsive">
+          2026 ▾
+        </span>
       </div>
     </div>
-  );
-}
 
+    <div style={styles.topNavTabs} className="top-nav-tabs-responsive">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.path;
+
+        if (item.disabled) {
+          return (
+            <span
+              key={item.label}
+              style={{
+                ...styles.topNavTab,
+                ...styles.disabledTopNavTab
+              }}
+              className="top-nav-tab-responsive"
+            >
+              {item.label}
+            </span>
+          );
+        }
+
+        return (
+          <Link
+            key={item.path}
+            to={item.path}
+            style={{
+              ...styles.topNavTab,
+              ...(isActive ? styles.activeTopNavTab : {})
+            }}
+            className="top-nav-tab-responsive"
+          >
+            {item.label}
+          </Link>
+        );
+      })}
+    </div>
+  </div>
+);
+}
 function App() {
   const [unlocked, setUnlocked] = useState(false);
   const location = useLocation();

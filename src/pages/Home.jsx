@@ -200,12 +200,18 @@ function FixtureRow({ match, now }) {
   const completed = isCompleted(match);
 
   return (
-    <Link to={`/match/${match.id}`} style={styles.fixtureRow}>
+    <Link
+  to={`/match/${match.id}`}
+  style={styles.fixtureRow}
+  className="home-fixture-row"
+>
       <div style={styles.statusColumn}>
         {completed ? <span style={styles.statusBadge}>FT</span> : null}
       </div>
 
-      <div style={styles.homeTeamName}>{match.home.name}</div>
+      <div style={styles.homeTeamName} className="home-fixture-team-name">
+  {match.home.name}
+</div>
 
       <div style={styles.flagColumn}>
         <div style={styles.flagCircle}>
@@ -239,7 +245,9 @@ function FixtureRow({ match, now }) {
         </div>
       </div>
 
-      <div style={styles.awayTeamName}>{match.away.name}</div>
+      <div style={styles.awayTeamName} className="home-fixture-team-name">
+  {match.away.name}
+</div>
 
       <div style={styles.rightColumn}>
         {!completed && (
@@ -418,7 +426,7 @@ export default function Home() {
   const groupedMatches = groupMatchesByGroup(selectedMatches);
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="home-responsive-page">
       <div style={styles.dateBar}>
         <button
           style={styles.dateArrow}
@@ -443,7 +451,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div style={styles.fixtureBoard} className="fixture-board-scroll">
+      <div style={styles.fixtureBoard} className="fixture-board-scroll home-fixture-board">
         {selectedMatches.length > 0 ? (
           Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
             <FixtureGroup

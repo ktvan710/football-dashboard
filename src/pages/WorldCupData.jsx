@@ -92,8 +92,8 @@ function StandingsTable({ group }) {
         <h3 style={styles.tableTitle}>{group.group}</h3>
       </div>
 
-      <div style={styles.tableWrapper}>
-        <table style={styles.fotmobTable}>
+      <div style={styles.tableWrap} className="worldcup-table-wrap">
+        <table style={styles.fotmobTable} className="worldcup-standings-table">
           <thead>
             <tr>
               <th style={styles.fotmobTh}>#</th>
@@ -176,10 +176,10 @@ function StandingsTable({ group }) {
 
 function LeaderBoard({ title, data, statLabel }) {
   return (
-    <div style={styles.card}>
+    <div style={styles.card} className="worldcup-leader-card">
       <h3 className="shiny-card-title">{title}</h3>
 
-      <div style={styles.leaderList}>
+      <div style={styles.leaderRow} className="worldcup-leader-row">
         {data.length > 0 ? (
           data.map((player) => (
             <div key={`${title}-${player.player}`} style={styles.leaderRow}>
@@ -223,8 +223,8 @@ function BestThirdPlacedTable({ groups }) {
         <h3 style={styles.tableTitle}>Best 3rd Placed Teams</h3>
       </div>
 
-      <div style={styles.tableWrapper}>
-        <table style={styles.fotmobTable}>
+      <div style={styles.tableWrap} className="worldcup-table-wrap">
+        <table style={styles.fotmobTable} className="worldcup-standings-table">
           <thead>
             <tr>
               <th style={styles.fotmobTh}>#</th>
@@ -307,7 +307,7 @@ function BestThirdPlacedTable({ groups }) {
 export default function WorldCupData() {
     const groupStandings = buildGroupStandings(worldCupFixtures);
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="worldcup-data-responsive-page">
       
 
       <h2 style={styles.sectionTitle}>Group Standings</h2>
@@ -330,7 +330,7 @@ export default function WorldCupData() {
 
       <h2 style={styles.sectionTitle}>Tournament Leaders</h2>
 
-      <div style={styles.leadersGrid}>
+      <div style={styles.leadersGrid} className="worldcup-leaders-grid">
         <LeaderBoard
           title="Top Goalscorers"
           data={tournamentLeaders.goals}
@@ -680,7 +680,7 @@ keyStripe: {
   boxShadow: "none"
 },
 
-  tableWrapper: {
+  tableWrap: {
     overflowX: "auto"
   },
 
@@ -739,7 +739,7 @@ keyStripe: {
     objectFit: "contain"
   },
 
-  leaderList: {
+  leaderRow: {
     display: "flex",
     flexDirection: "column",
     gap: "10px",

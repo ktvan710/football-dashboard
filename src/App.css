@@ -47,3 +47,188 @@ body {
     overflow-x: hidden;
   }
 }
+/* ----------------------------- */
+/* Phone responsive fit system   */
+/* Team Info stays mostly alone  */
+/* ----------------------------- */
+
+@media (max-width: 600px) {
+  .app-main-content {
+    max-width: 430px;
+    padding: 8px 8px 26px !important;
+    box-sizing: border-box;
+  }
+
+  /* Top navigation */
+  .top-nav-responsive {
+    border-radius: 0 0 18px 18px !important;
+    padding: 12px 10px 0 !important;
+  }
+
+  .top-nav-hero-responsive {
+    padding: 0 !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .competition-identity-responsive {
+    gap: 9px !important;
+  }
+
+  .competition-logo-responsive {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 15px !important;
+  }
+
+  .competition-title-responsive {
+    font-size: 22px !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.4px !important;
+    margin: 0 !important;
+  }
+
+  .competition-subtitle-responsive {
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+    margin-top: 5px !important;
+  }
+
+  .top-nav-actions-responsive {
+    gap: 6px !important;
+  }
+
+  .action-pill-responsive {
+    padding: 8px 11px !important;
+    font-size: 11px !important;
+    border-radius: 999px !important;
+  }
+
+  .top-nav-tabs-responsive {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    padding-top: 12px !important;
+    overflow-x: hidden !important;
+  }
+
+  .top-nav-tab-responsive {
+    font-size: 10.5px !important;
+    padding: 10px 2px !important;
+    letter-spacing: -0.15px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Home page / matches */
+  .home-responsive-page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home-hero-card {
+    padding: 16px 12px !important;
+    border-radius: 18px !important;
+    min-height: auto !important;
+  }
+
+  .home-hero-title {
+    font-size: clamp(38px, 13vw, 54px) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.8px !important;
+  }
+
+  .home-fixture-board {
+    width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .home-fixture-row {
+    min-width: 100% !important;
+    grid-template-columns:
+      30px minmax(58px, 1fr) 26px 48px 26px minmax(58px, 1fr) 40px !important;
+    column-gap: 4px !important;
+    padding: 6px 7px !important;
+    min-height: 56px !important;
+  }
+
+  .home-fixture-team-name {
+    font-size: 12px !important;
+    letter-spacing: -0.25px !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+  }
+
+  .home-fixture-row span {
+    font-size: 10px !important;
+  }
+
+  .home-fixture-row img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* World Cup data page */
+  .worldcup-data-responsive-page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .worldcup-table-wrap {
+    width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .worldcup-standings-table {
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed !important;
+  }
+
+  .worldcup-standings-table th,
+  .worldcup-standings-table td {
+    padding: 6px 3px !important;
+    font-size: 9.5px !important;
+    line-height: 1.1 !important;
+  }
+
+  .worldcup-standings-table th:nth-child(2),
+  .worldcup-standings-table td:nth-child(2) {
+    width: 31% !important;
+  }
+
+  .worldcup-standings-table th:nth-child(10),
+  .worldcup-standings-table td:nth-child(10) {
+    display: none !important;
+  }
+
+  .worldcup-standings-table th:nth-child(11),
+  .worldcup-standings-table td:nth-child(11) {
+    display: none !important;
+  }
+
+  .worldcup-standings-table img {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+  .worldcup-leaders-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .worldcup-leader-card {
+    padding: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .worldcup-leader-row {
+    grid-template-columns: 28px 30px 1fr auto !important;
+    gap: 8px !important;
+    padding: 9px !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
