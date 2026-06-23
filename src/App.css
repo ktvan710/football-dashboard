@@ -429,3 +429,23 @@ body {
     height: 13px !important;
   }
 }
+/* PHONE: zoom out entire match board so it fits screen */
+@media (max-width: 600px) {
+  .home-fixture-board {
+    --match-board-zoom: 0.54;
+
+    width: calc(100% / var(--match-board-zoom)) !important;
+    max-width: none !important;
+
+    zoom: var(--match-board-zoom);
+
+    overflow-x: hidden !important;
+    transform-origin: top left;
+  }
+
+  .home-fixture-row,
+  .home-group-block {
+    min-width: 720px !important;
+    width: 720px !important;
+  }
+}
