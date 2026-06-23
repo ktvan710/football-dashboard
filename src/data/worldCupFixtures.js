@@ -96,7 +96,7 @@ const fixtureList = [
   fixture("argentina-algeria", "Group J", ["Argentina", "ar"], ["Algeria", "dz"], "2026-06-16T20:00:00-05:00", "Kansas City", { home: 3, away: 0 }),
   fixture("austria-jordan", "Group J", ["Austria", "at"], ["Jordan", "jo"], "2026-06-16T21:00:00-07:00", "San Francisco Bay Area", { home: 3, away: 1 }),
   fixture("argentina-austria", "Group J", ["Argentina", "ar"], ["Austria", "at"], "2026-06-22T12:00:00-05:00", "Dallas", { home: 2, away: 0 }),
-  fixture("jordan-algeria", "Group J", ["Jordan", "jo"], ["Algeria", "dz"], "2026-06-22T20:00:00-07:00", "San Francisco Bay Area"),
+  fixture("jordan-algeria", "Group J", ["Jordan", "jo"], ["Algeria", "dz"], "2026-06-22T20:00:00-07:00", "San Francisco Bay Area", { home: 1, away: 2}),
   fixture("algeria-austria", "Group J", ["Algeria", "dz"], ["Austria", "at"], "2026-06-27T21:00:00-05:00", "Kansas City"),
   fixture("jordan-argentina", "Group J", ["Jordan", "jo"], ["Argentina", "ar"], "2026-06-27T21:00:00-05:00", "Dallas"),
 

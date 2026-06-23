@@ -1531,6 +1531,10 @@ score: {
       date: "2026-06-23T03:00:00Z",
       location: "San Francisco Bay Area Stadium, Santa Clara"
     },
+    score: {
+      home: 1,
+      away: 2
+    },
     analyticsV2: {
       matchImportance: {
         level: "Elimination-risk match",

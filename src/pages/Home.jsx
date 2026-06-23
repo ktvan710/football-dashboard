@@ -124,7 +124,7 @@ function getDateLabel(dateKey) {
   const yesterday = shiftDateKey(today, -1);
   const tomorrow = shiftDateKey(today, 1);
 
-  if (dateKey === today) return "Today";
+  if (dateKey === today) return "Today, press match for info";
   if (dateKey === yesterday) return "Yesterday";
   if (dateKey === tomorrow) return "Tomorrow";
 
@@ -508,7 +508,7 @@ const styles = {
   dateCenter: {
   border: 0,
   background: "transparent",
-  color: "#a1a1aa",
+  color: "#ffffff",
   fontFamily: "var(--heading)",
   fontSize: "28px",
   fontWeight: "900",

@@ -20,3 +20,30 @@ body {
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+.app-main-content {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 14px 20px 40px;
+  box-sizing: border-box;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .app-main-content {
+    max-width: 760px;
+    padding: 12px 14px 34px;
+  }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .app-main-content {
+    max-width: 430px;
+    padding: 10px 10px 28px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}

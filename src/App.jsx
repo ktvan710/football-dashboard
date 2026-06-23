@@ -3,7 +3,7 @@ import { Link, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import MatchPage from "./pages/MatchPage";
 import WorldCupData from "./pages/WorldCupData";
-import DeviceSelect from "./pages/DeviceSelect";
+import TeamInfo from "./pages/TeamInfo";
 
 const OLISE_IMAGE =
   "https://preview.redd.it/official-michael-olise-has-been-called-to-play-with-france-v0-ue5ymyksglld1.jpeg?width=1080&crop=smart&auto=webp&s=715c0316bc50e9315d710a83512e79c1a3ba6d1c";
@@ -167,7 +167,7 @@ function PasswordScreen({ onUnlock }) {
   );
 }
 
-function TopNav({ currentPath, onChangeDevice }) {
+function TopNav({ currentPath }) {
   const navItems = [
     {
       label: "Overview",
@@ -184,8 +184,7 @@ function TopNav({ currentPath, onChangeDevice }) {
     },
     {
       label: "Team Info",
-      path: "/team-info",
-      disabled: true
+      path: "/team-info"
     },
     {
       label: "Player stats",
@@ -214,9 +213,6 @@ function TopNav({ currentPath, onChangeDevice }) {
         <div style={styles.topNavActions}>
           <span style={styles.actionPill}>2026 ▾</span>
 
-          <button style={styles.changeDeviceButton} onClick={onChangeDevice}>
-            Change Device
-          </button>
         </div>
       </div>
 
@@ -257,81 +253,31 @@ function TopNav({ currentPath, onChangeDevice }) {
 }
 
 function App() {
+  const [unlocked, setUnlocked] = useState(false);
   const location = useLocation();
-
-  const [deviceMode, setDeviceMode] = useState(() => {
-    return localStorage.getItem("deviceMode");
-  });
-
-  const [unlocked, setUnlocked] = useState(() => {
-    return localStorage.getItem("worldCupDashboardUnlocked") === "true";
-  });
-
-  function handleDeviceSelect(mode) {
-    localStorage.setItem("deviceMode", mode);
-    setDeviceMode(mode);
-  }
-
-  function handleChangeDevice() {
-    localStorage.removeItem("deviceMode");
-    setDeviceMode(null);
-  }
-
-  function handleLogout() {
-    localStorage.removeItem("worldCupDashboardUnlocked");
-    setUnlocked(false);
-  }
-
-  if (!deviceMode) {
-    return <DeviceSelect onSelect={handleDeviceSelect} />;
-  }
 
   if (!unlocked) {
     return <PasswordScreen onUnlock={() => setUnlocked(true)} />;
   }
 
   return (
-    <div>
-      <button onClick={handleLogout} style={styles.logoutButton}>
-        Lock
-      </button>
+    <div style={styles.appShell}>
+      <TopNav currentPath={location.pathname} />
 
-      <main
-        style={{
-          ...styles.mainContent,
-          ...(deviceMode === "phone" ? styles.phoneMainContent : {})
-        }}
-        className="dashboard-main-enter"
-      >
-        <TopNav
-          currentPath={location.pathname}
-          onChangeDevice={handleChangeDevice}
-        />
-
-        <div key={location.pathname} className="page-route-transition">
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            <Route path="/match/:id" element={<MatchPage />} />
-            <Route path="/world-cup-data" element={<WorldCupData />} />
-          </Routes>
-        </div>
+      <main className="app-main-content">
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/match/:id" element={<MatchPage />} />
+          <Route path="/world-cup-data" element={<WorldCupData />} />
+          <Route path="/team-info" element={<TeamInfo />} />
+          <Route path="/team-info/:teamId" element={<TeamInfo />} />
+        </Routes>
       </main>
     </div>
   );
 }
 
 const styles = {
-  mainContent: {
-    maxWidth: "1320px",
-    margin: "0 auto",
-    padding: "14px 20px 40px",
-    boxSizing: "border-box"
-  },
-
-  phoneMainContent: {
-    maxWidth: "430px",
-    padding: "10px 10px 34px"
-  },
 
   lockLayout: {
     width: "100%",
@@ -430,20 +376,6 @@ const styles = {
     fontSize: "13px",
     fontWeight: "800",
     fontFamily: "var(--sans)"
-  },
-
-  changeDeviceButton: {
-    border: "1px solid rgba(255,255,255,0.1)",
-    background: "#181818",
-    color: "#a1a1aa",
-    borderRadius: "999px",
-    padding: "9px 13px",
-    fontFamily: "var(--sans)",
-    fontSize: "12px",
-    fontWeight: "900",
-    textTransform: "uppercase",
-    letterSpacing: "0.4px",
-    cursor: "pointer"
   },
 
   topNavTabs: {
