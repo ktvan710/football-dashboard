@@ -662,3 +662,6 @@ code {
 button:hover {
   border-color: rgba(74, 222, 128, 0.35);
 }
+.fixture-board-scroll::-webkit-scrollbar {
+  display: none;
+}

@@ -443,7 +443,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div style={styles.fixtureBoard}>
+      <div style={styles.fixtureBoard} className="fixture-board-scroll">
         {selectedMatches.length > 0 ? (
           Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
             <FixtureGroup
@@ -533,7 +533,9 @@ const styles = {
   overflowY: "hidden",
   boxShadow: "none",
   WebkitOverflowScrolling: "touch",
-  touchAction: "pan-x"
+  overscrollBehaviorX: "contain",
+  touchAction: "pan-x pan-y",
+  scrollbarWidth: "none"
 },
 
   groupBlock: {
