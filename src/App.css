@@ -432,7 +432,7 @@ body {
 /* PHONE: zoom out entire match board so it fits screen */
 @media (max-width: 600px) {
   .home-fixture-board {
-    --match-board-zoom: 0.54;
+    --match-board-zoom: 0.47;
 
     width: calc(100% / var(--match-board-zoom)) !important;
     max-width: none !important;
