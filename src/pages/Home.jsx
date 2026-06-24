@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { worldCupFixtures } from "../data/worldCupFixtures";
 
@@ -392,35 +391,7 @@ function CalendarModal({
 }
 
 export default function Home() {
-  const getInitialMatchZoom = () => {
-  const savedZoom = Number(localStorage.getItem("matchBoardZoom"));
-
-  if (savedZoom) {
-    return savedZoom;
-  }
-
-  const screenWidth = window.innerWidth || 390;
-  const boardWidth = 720;
-  const fitZoom = (screenWidth - 14) / boardWidth;
-
-  return Math.max(0.42, Math.min(1, Number(fitZoom.toFixed(2))));
-};
-
-const [matchBoardZoom, setMatchBoardZoom] = useState(getInitialMatchZoom);
-
-function updateMatchBoardZoom(value) {
-  localStorage.setItem("matchBoardZoom", String(value));
-  setMatchBoardZoom(value);
-}
-
-function fitMatchBoardToScreen() {
-  const screenWidth = window.innerWidth || 390;
-  const boardWidth = 720;
-  const fitZoom = (screenWidth - 14) / boardWidth;
-  const safeZoom = Math.max(0.42, Math.min(1, Number(fitZoom.toFixed(2))));
-
-  updateMatchBoardZoom(safeZoom);
-}
+  
   const [selectedDate, setSelectedDate] = useState(getTodayKey());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarMonth, setCalendarMonth] = useState(() => {
@@ -481,42 +452,19 @@ function fitMatchBoardToScreen() {
         </button>
       </div>
 
-      <div className="match-board-toolbar">
-  <span>Match board zoom</span>
-
-  <button type="button" onClick={fitMatchBoardToScreen}>
-    Fit screen
-  </button>
-
-  <button type="button" onClick={() => updateMatchBoardZoom(0.62)}>
-    Readable
-  </button>
-
-  <button type="button" onClick={() => updateMatchBoardZoom(1)}>
-    Full size
-  </button>
-</div>
-
-<div className="match-board-zoom-shell">
-  <div
-    className="match-board-zoom-target"
-    style={{ "--matchBoardZoom": matchBoardZoom }}
-  >
-    <div style={styles.fixtureBoard} className="home-fixture-board">
-      {selectedMatches.length > 0 ? (
-        Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
-          <FixtureGroup
-            key={groupName}
-            groupName={groupName}
-            groupMatches={groupMatches}
-            now={now}
-          />
-        ))
-      ) : (
-        <div style={styles.emptyState}>No World Cup matches on this date</div>
-      )}
-    </div>
-  </div>
+      <div style={styles.fixtureBoard} className="home-fixture-board">
+  {selectedMatches.length > 0 ? (
+    Object.entries(groupedMatches).map(([groupName, groupMatches]) => (
+      <FixtureGroup
+        key={groupName}
+        groupName={groupName}
+        groupMatches={groupMatches}
+        now={now}
+      />
+    ))
+  ) : (
+    <div style={styles.emptyState}>No World Cup matches on this date</div>
+  )}
 </div>
 
       {calendarOpen && (
@@ -592,21 +540,32 @@ const styles = {
   background: "#1f1f1f",
   border: "1px solid rgba(255,255,255,0.08)",
   borderRadius: "18px",
-  overflowX: "hidden",
+  overflowX: "auto",
   overflowY: "hidden",
+  WebkitOverflowScrolling: "touch",
+  touchAction: "pan-x pan-y",
+  scrollbarWidth: "none",
   boxShadow: "none",
+  padding: "0 18px",
   boxSizing: "border-box"
 },
 
   groupBlock: {
   width: "100%",
-  minWidth: 0,
+  maxWidth: "760px",
+  minWidth: "760px",
+  margin: "0 auto",
+  borderBottom: "1px solid rgba(255,255,255,0.08)",
   boxSizing: "border-box"
 },
 
   groupHeader: {
-    padding: "14px 22px 8px"
-  },
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  padding: "22px 0 14px",
+  boxSizing: "border-box"
+},
 
   groupPill: {
   display: "inline-flex",
@@ -624,13 +583,13 @@ const styles = {
 
   fixtureRow: {
   width: "100%",
-  minWidth: 0,
+  minWidth: "760px",
   display: "grid",
-  gridTemplateColumns: "64px minmax(110px, 1fr) 46px 96px 46px minmax(110px, 1fr) 82px",
+  gridTemplateColumns: "58px minmax(115px, 1fr) 52px 96px 52px minmax(115px, 1fr) 76px",
   alignItems: "center",
-  gap: "10px",
-  padding: "14px 18px",
-  minHeight: "78px",
+  gap: "8px",
+  padding: "18px 8px",
+  minHeight: "84px",
   textDecoration: "none",
   color: "#f5f5f5",
   borderTop: "1px solid rgba(255,255,255,0.08)",

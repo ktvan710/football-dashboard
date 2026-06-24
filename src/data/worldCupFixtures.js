@@ -103,16 +103,16 @@ const fixtureList = [
   // Group K
   fixture("portugal-dr-congo", "Group K", ["Portugal", "pt"], ["DR Congo", "cd"], "2026-06-17T12:00:00-05:00", "Houston", { home: 1, away: 1 }),
   fixture("uzbekistan-colombia", "Group K", ["Uzbekistan", "uz"], ["Colombia", "co"], "2026-06-17T20:00:00-06:00", "Mexico City", { home: 1, away: 3 }),
-  fixture("portugal-uzbekistan", "Group K", ["Portugal", "pt"], ["Uzbekistan", "uz"], "2026-06-23T12:00:00-05:00", "Houston"),
-  fixture("colombia-dr-congo", "Group K", ["Colombia", "co"], ["DR Congo", "cd"], "2026-06-23T20:00:00-06:00", "Guadalajara"),
+  fixture("portugal-uzbekistan", "Group K", ["Portugal", "pt"], ["Uzbekistan", "uz"], "2026-06-23T12:00:00-05:00", "Houston", { home: 5, away: 0}),
+  fixture("colombia-dr-congo", "Group K", ["Colombia", "co"], ["DR Congo", "cd"], "2026-06-23T20:00:00-06:00", "Guadalajara", { home: 1, away: 0}),
   fixture("colombia-portugal", "Group K", ["Colombia", "co"], ["Portugal", "pt"], "2026-06-27T19:30:00-04:00", "Miami"),
   fixture("dr-congo-uzbekistan", "Group K", ["DR Congo", "cd"], ["Uzbekistan", "uz"], "2026-06-27T19:30:00-04:00", "Atlanta"),
 
   // Group L
   fixture("england-croatia", "Group L", ["England", "gb-eng"], ["Croatia", "hr"], "2026-06-17T15:00:00-05:00", "Dallas", { home: 4, away: 2 }),
   fixture("ghana-panama", "Group L", ["Ghana", "gh"], ["Panama", "pa"], "2026-06-17T19:00:00-04:00", "Toronto", { home: 1, away: 0 }),
-  fixture("england-ghana", "Group L", ["England", "gb-eng"], ["Ghana", "gh"], "2026-06-23T16:00:00-04:00", "Boston"),
-  fixture("panama-croatia", "Group L", ["Panama", "pa"], ["Croatia", "hr"], "2026-06-23T19:00:00-04:00", "Toronto"),
+  fixture("england-ghana", "Group L", ["England", "gb-eng"], ["Ghana", "gh"], "2026-06-23T16:00:00-04:00", "Boston", { home: 0, away: 0 }),
+  fixture("panama-croatia", "Group L", ["Panama", "pa"], ["Croatia", "hr"], "2026-06-23T19:00:00-04:00", "Toronto", { home: 0, away: 1 }),
   fixture("panama-england", "Group L", ["Panama", "pa"], ["England", "gb-eng"], "2026-06-27T17:00:00-04:00", "New York/New Jersey"),
   fixture("croatia-ghana", "Group L", ["Croatia", "hr"], ["Ghana", "gh"], "2026-06-27T17:00:00-04:00", "Philadelphia")
 ];

@@ -331,26 +331,7 @@ body {
   }
 
   /* HOME PAGE */
-  .home-responsive-page,
-  .home-fixture-board,
-  .home-group-block {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    overflow-x: hidden !important;
-  }
-
-  .home-fixture-row {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    grid-template-columns: 32px minmax(0, 1fr) 22px 44px 22px minmax(0, 1fr) 34px !important;
-    gap: 3px !important;
-    padding: 7px 5px !important;
-    min-height: 54px !important;
-    overflow: hidden !important;
-  }
-
+  
   .home-fixture-row * {
     min-width: 0 !important;
   }
@@ -443,11 +424,7 @@ body {
     transform-origin: top left;
   }
 
-  .home-fixture-row,
-  .home-group-block {
-    min-width: 720px !important;
-    width: 720px !important;
-  }
+  
 }
 /* -------------------------------- */
 /* PHONE MATCH BOARD ZOOM CONTROL   */
@@ -494,28 +471,82 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  .match-board-zoom-target {
-    width: 720px !important;
-    min-width: 720px !important;
-    zoom: var(--matchBoardZoom);
+}
+/* RESET MATCH BOARD ON PHONE: bring back horizontal scroll */
+
+@media (max-width: 600px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
   }
 
-  .home-fixture-board {
-    width: 720px !important;
-    min-width: 720px !important;
+  .app-main-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 6px 24px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .match-board-toolbar {
+    display: none !important;
+  }
+
+  .match-board-zoom-shell,
+  .match-board-zoom-target {
+    width: auto !important;
+    min-width: 0 !important;
     max-width: none !important;
+    zoom: normal !important;
+    transform: none !important;
     overflow: visible !important;
   }
 
-  .home-group-block {
-    width: 720px !important;
-    min-width: 720px !important;
-    max-width: none !important;
+  .home-fixture-board {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y !important;
+    scrollbar-width: none !important;
   }
 
+  .home-fixture-board::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+/* Bring back horizontal scroll for Home match board */
+@media (max-width: 600px) {
+  .match-board-toolbar,
+  .match-board-zoom-shell,
+  .match-board-zoom-target {
+    display: none !important;
+  }
+
+  .home-fixture-board {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x pan-y !important;
+    scrollbar-width: none !important;
+  }
+
+  .home-fixture-board::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .home-group-block,
   .home-fixture-row {
-    width: 720px !important;
-    min-width: 720px !important;
+    width: 760px !important;
+    min-width: 760px !important;
     max-width: none !important;
   }
 }
