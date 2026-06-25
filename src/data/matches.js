@@ -1689,5 +1689,1846 @@ score: {
       ]
     }
   },
+"ecuador-germany": {
+  home: { name: "Ecuador", code: "ec" },
+  away: { name: "Germany", code: "de" },
+  competition: "FIFA World Cup 2026",
+  group: "Group E",
+  kickoff: {
+    date: "2026-06-25T20:00:00Z",
+    location: "New York/New Jersey Stadium, East Rutherford"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Must-win survival match for Ecuador",
+      note:
+        "Germany have already secured qualification and control of Group E after wins over Curaçao and Ivory Coast. Ecuador enter under major pressure after failing to score against Ivory Coast and Curaçao.",
+      environment:
+        "Large neutral venue. Ecuador are likely to play with emotional urgency, while Germany want rhythm and knockout momentum without overextending key players.",
+      gameState:
+        "Ecuador need goals and probably need a win. Germany can control the game state, manage tempo, and punish Ecuador if they chase too aggressively."
+    },
 
+    form: {
+      home: {
+        last_5_results:
+          "Ecuador 0-1 Ivory Coast; Ecuador 0-0 Curaçao; previous results need update",
+        goals_for_against: "0 GF / 1 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Shot volume appears stronger than output, but exact xG needs update from FBref/Opta/FotMob",
+        xGA_trend:
+          "Defensive numbers look respectable from scoreline, but exact xGA needs update",
+        opponent_strength:
+          "Opened against Ivory Coast, then drew Curaçao; Germany are their strongest test",
+        momentum_rating: "3/10",
+        key_warning_sign:
+          "Ecuador have not scored yet despite pressure and shot creation; final-third execution is the major red flag"
+      },
+
+      away: {
+        last_5_results:
+          "Germany 7-1 Curaçao; Germany 2-1 Ivory Coast; previous results need update",
+        goals_for_against: "9 GF / 2 GA in tournament data available",
+        clean_sheets: "0 tournament clean sheets",
+        xG_trend:
+          "Strong attacking trend expected, exact xG needs update from Opta/FBref",
+        xGA_trend:
+          "Germany have conceded in both tournament games; exact xGA needs update",
+        opponent_strength:
+          "Beat Curaçao heavily, then came from behind to beat Ivory Coast",
+        momentum_rating: "9/10",
+        key_warning_sign:
+          "Already qualified, so game management or small rotation could lower intensity"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "4-2-3-1 / 4-3-3",
+        in_possession_shape:
+          "Fullbacks support wide progression, with Caicedo protecting rest defense and midfield circulation",
+        out_of_possession_shape:
+          "Compact 4-4-2 / 4-5-1 block, trying to deny central access",
+        build_up_style:
+          "Controlled buildup through midfield, then wide attacks and cutbacks",
+        pressing_style:
+          "Medium press with selective jumps, especially when Germany play backward",
+        defensive_block: "Mid block that may become more aggressive if Ecuador need a goal",
+        transition_style:
+          "Quick wide breaks through runners after regains, but finishing has been the problem",
+        main_attacking_zones:
+          "Left-sided progression, wide combinations, late box arrivals",
+        set_piece_strength:
+          "Useful physical route, but exact set-piece xG needs update",
+        biggest_tactical_weakness:
+          "If Ecuador push numbers forward, Germany can attack the space behind the fullbacks"
+      },
+
+      away: {
+        base_formation: "4-2-3-1 / 4-2-2-2 attacking rotation",
+        in_possession_shape:
+          "2-3-5 with creators between lines, high wingers, and fullback support",
+        out_of_possession_shape:
+          "Compact 4-4-2 press that can jump high after loose touches",
+        build_up_style:
+          "Structured buildup, quick switches, half-space combinations, and central overloads",
+        pressing_style:
+          "Coordinated high press and counter-press, but may manage energy due to qualification status",
+        defensive_block: "Mid-to-high block",
+        transition_style:
+          "Fast vertical attacks after regains, especially into wide or half-space runners",
+        main_attacking_zones:
+          "Central pockets, right half-space combinations, weak-side switches",
+        set_piece_strength:
+          "Strong delivery and aerial targets",
+        biggest_tactical_weakness:
+          "Can concede transition chances if fullbacks and midfielders are advanced at the same time"
+      }
+    },
+
+    matchupAnalysis: [
+      "Ecuador’s biggest route is emotional intensity: press Germany’s buildup, create territory, and finally convert one of their chances.",
+      "Germany’s biggest edge is chance quality and variety. They can score through central combinations, wide rotations, set pieces, or transition moments.",
+      "The key battle is Moisés Caicedo and Ecuador’s midfield screen against Germany’s between-the-lines creators.",
+      "Wide areas matter because Ecuador may need to commit fullbacks forward, which opens counter lanes for Germany.",
+      "Stylistic advantage leans Germany because Ecuador need to chase the game more than Germany do."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "High volume but poor conversion reported",
+        away: "High attacking output",
+        note: "Opta/FotMob trend label; exact number needs update"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Possession %",
+        home: "Medium expected",
+        away: "Medium-high expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Field tilt",
+        home: "Must push higher than previous games",
+        away: "Likely territorial control",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Caicedo / midfield progression important",
+        away: "High-value central progression expected",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Wide runners important",
+        away: "Wirtz/Musiala-style carries important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Needs update",
+        away: "High expected",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Medium-high if chasing",
+        away: "Controlled high press",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Key upset route",
+        away: "Key control route",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Possible route",
+        away: "Strong route",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Likely underperforming finishing",
+        away: "Likely positive finishing trend",
+        note: "Exact xG needs update"
+      },
+      {
+        label: "Save percentage",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium-high",
+        away: "Medium",
+        note: "Ecuador desperation can raise foul risk"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Enner Valencia",
+        key_creator: "Kendry Páez",
+        key_ball_progressor: "Moisés Caicedo",
+        key_defender: "Willian Pacho",
+        key_goalkeeper: "Hernán Galíndez",
+        x_factor: "Jeremy Sarmiento",
+        most_likely_to_decide:
+          "Moisés Caicedo if Ecuador can turn midfield regains into attacks",
+        vulnerable_tactically:
+          "Ecuador fullbacks if they push high while chasing a goal"
+      },
+
+      away: {
+        key_attacker: "Deniz Undav",
+        key_creator: "Jamal Musiala",
+        key_ball_progressor: "Joshua Kimmich",
+        key_defender: "Antonio Rüdiger",
+        key_goalkeeper: "Manuel Neuer / Marc-André ter Stegen needs lineup update",
+        x_factor: "Florian Wirtz",
+        most_likely_to_decide:
+          "Deniz Undav if Germany continue using him as a high-impact finisher",
+        vulnerable_tactically:
+          "Germany’s fullback zones if Ecuador counter quickly after turnovers"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Ecuador score first",
+        points: [
+          "Ecuador can protect the center and turn the match into a transition battle.",
+          "Germany will increase possession pressure and try to attack through half-spaces.",
+          "Risk level rises because Ecuador may defend deeper than they have all tournament.",
+          "Benefits Ecuador emotionally, but only if they avoid sitting too low too early."
+        ]
+      },
+      {
+        title: "If Germany score first",
+        points: [
+          "Ecuador are forced to open the game and commit more bodies forward.",
+          "Germany can manage tempo and attack the space behind Ecuador’s fullbacks.",
+          "Substitutions may become more aggressive for Ecuador, with extra attackers or wide runners.",
+          "Benefits Germany because the game becomes more stretched and transition-heavy."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Ecuador may grow anxious because their tournament problem has been finishing.",
+          "Germany can stay patient and wait for Ecuador to overcommit.",
+          "The match becomes a test of Ecuador’s emotional control.",
+          "Benefits Germany slightly because they do not need to force the game."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 18,
+      draw: 20,
+      awayWin: 62,
+      scoreRange: "Ecuador 0-1 Germany to Ecuador 1-2 Germany",
+      confidence: 6,
+      volatility: 5,
+      dataConfidence: "Medium",
+      lean: "Higher-probability outcome: Germany avoid defeat",
+      mainReason:
+        "Germany have already shown more attacking variety, more finishing quality, and better game-state control.",
+      failurePoint:
+        "Germany’s qualification status could lower intensity, and Ecuador’s urgency could create a chaotic high-pressure game."
+    },
+
+    whyThisCouldBeWrong: [
+      "Germany may rotate or manage minutes with qualification already secured.",
+      "Ecuador’s underlying chance creation may be better than their zero-goal output suggests.",
+      "One early Ecuador goal changes the emotional rhythm completely.",
+      "Confirmed lineups, injuries, and exact xG data still need updating."
+    ],
+
+    sourceNotes: [
+      "Reuters: Germany are already qualified and are seeking three wins from three against Ecuador.",
+      "Reuters: Nico Schlotterbeck is out; Antonio Rüdiger is expected to take a larger defensive role.",
+      "Reuters: Ecuador have faced criticism after failing to score against Ivory Coast and Curaçao.",
+      "Opta Analyst: Germany are the model favorite; exact dashboard metrics still need manual update.",
+      "FIFA/FotMob/SofaScore: use for final lineups, live data, xG, shot maps, and player ratings before kickoff."
+    ]
+  }
+},
+
+"curacao-ivory-coast": {
+  home: { name: "Curaçao", code: "cw" },
+  away: { name: "Ivory Coast", code: "ci" },
+  competition: "FIFA World Cup 2026",
+  group: "Group E",
+  kickoff: {
+    date: "2026-06-25T20:00:00Z",
+    location: "Philadelphia Stadium, Philadelphia"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Second-place qualification decider",
+      note:
+        "Ivory Coast control the cleaner path to second place after beating Ecuador and competing well against Germany. Curaçao still have a route after earning a historic 0-0 draw with Ecuador.",
+      environment:
+        "Philadelphia venue with high pressure on both teams. Ivory Coast are chasing a historic knockout place, while Curaçao are trying to turn a debut tournament into a shock qualification push.",
+      gameState:
+        "Ivory Coast can be more balanced because a strong result likely protects their position. Curaçao need defensive discipline first, then efficient transition moments."
+    },
+
+    form: {
+      home: {
+        last_5_results:
+          "Curaçao 1-7 Germany; Curaçao 0-0 Ecuador; previous results need update",
+        goals_for_against: "1 GF / 7 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; likely low chance volume against stronger opponents",
+        xGA_trend:
+          "Needs update; scorelines suggest major defensive pressure against Germany but strong recovery vs Ecuador",
+        opponent_strength:
+          "Opened against Germany, then drew Ecuador in a resilient defensive performance",
+        momentum_rating: "6/10",
+        key_warning_sign:
+          "The Germany match showed how quickly Curaçao can be overloaded if the defensive block loses compactness"
+      },
+
+      away: {
+        last_5_results:
+          "Ivory Coast 1-0 Ecuador; Ivory Coast 1-2 Germany; previous results need update",
+        goals_for_against: "2 GF / 2 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; attacking threat has looked more sustainable than Ecuador’s output",
+        xGA_trend:
+          "Needs update; Germany created enough pressure to overturn the game",
+        opponent_strength:
+          "Beat Ecuador, then narrowly lost to already-qualified Germany",
+        momentum_rating: "7/10",
+        key_warning_sign:
+          "Must avoid turning territorial control into a slow, frustrated, low-chance game"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "4-2-3-1 / 4-4-2 defensive shape",
+        in_possession_shape:
+          "Direct outlets into attacking midfielders and wide runners, with limited long-possession sequences",
+        out_of_possession_shape:
+          "Compact mid-to-low block, narrow central protection, and quick pressure near the box",
+        build_up_style:
+          "Pragmatic buildup, often direct when pressed",
+        pressing_style:
+          "Selective press rather than full high pressure; likely to conserve shape",
+        defensive_block: "Low to mid block",
+        transition_style:
+          "Quick vertical attacks after regains, especially through wide outlets",
+        main_attacking_zones:
+          "Wide counters, second balls, and set-piece situations",
+        set_piece_strength:
+          "Important route because open-play territory may be limited",
+        biggest_tactical_weakness:
+          "If the first line is bypassed, the back line can be exposed to repeated box entries"
+      },
+
+      away: {
+        base_formation: "4-3-3 / 4-2-3-1",
+        in_possession_shape:
+          "Wingers high, midfield support underneath, fullbacks adding width when safe",
+        out_of_possession_shape:
+          "Athletic 4-4-2 / 4-5-1 mid-block with aggressive wide pressure",
+        build_up_style:
+          "Direct but technical, using wide progression and quick final-third combinations",
+        pressing_style:
+          "Medium-to-high pressing in bursts, especially after poor first touches",
+        defensive_block: "Mid block with the ability to press higher",
+        transition_style:
+          "Fast wide attacks through athletic runners and early service into the box",
+        main_attacking_zones:
+          "Wide channels, right-sided combinations, cutbacks, and second-ball zones",
+        set_piece_strength:
+          "Physical aerial threat and strong delivery potential",
+        biggest_tactical_weakness:
+          "Can leave space behind fullbacks if the wide press fails"
+      }
+    },
+
+    matchupAnalysis: [
+      "Curaçao’s best chance is to repeat the Ecuador script: compact block, goalkeeper security, and patience without the ball.",
+      "Ivory Coast’s best route is wide pressure. If they isolate Curaçao fullbacks, they can generate cutbacks and box entries.",
+      "The key battle is Curaçao’s defensive spacing against Ivory Coast’s wide forwards and late-arriving midfield runners.",
+      "Set pieces matter because Curaçao may not create many open-play chances, while Ivory Coast have a physical edge.",
+      "Stylistic advantage leans Ivory Coast because they have more athletic attacking tools and more ways to create pressure."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "Low expected",
+        away: "Medium-high expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "High pressure expected",
+        away: "Medium expected",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Big chances allowed",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Possession %",
+        home: "Lower expected",
+        away: "Higher expected",
+        note: "Expected game state"
+      },
+      {
+        label: "Field tilt",
+        home: "Low expected",
+        away: "High expected",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Limited but important on counters",
+        away: "Wide and half-space progression expected",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Wide outlets important",
+        away: "Key attacking weapon",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Low expected",
+        away: "Medium-high expected",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Low block / selective press",
+        away: "Medium-high in bursts",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Low",
+        away: "Important chance source",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Key upset route",
+        away: "Physical edge",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Exact xG unavailable"
+      },
+      {
+        label: "Save percentage",
+        home: "Important after Ecuador clean sheet",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium-high",
+        away: "Medium",
+        note: "Curaçao defending long spells can increase foul pressure"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Leandro Bacuna",
+        key_creator: "Tahith Chong",
+        key_ball_progressor: "Juninho Bacuna",
+        key_defender: "Jurien Gaari",
+        key_goalkeeper: "Eloy Room",
+        x_factor: "Richairo Živković",
+        most_likely_to_decide:
+          "Eloy Room if Curaçao need another survival-style defensive performance",
+        vulnerable_tactically:
+          "Curaçao fullbacks if Ivory Coast create repeated 1v1s wide"
+      },
+
+      away: {
+        key_attacker: "Amad Diallo",
+        key_creator: "Franck Kessié",
+        key_ball_progressor: "Yan Diomandé",
+        key_defender: "Evan Ndicka",
+        key_goalkeeper: "Yahia Fofana",
+        x_factor: "Simon Adingra",
+        most_likely_to_decide:
+          "Amad Diallo if Ivory Coast can isolate him in wide or half-space situations",
+        vulnerable_tactically:
+          "Fullback zones if Ivory Coast push high and Curaçao counter quickly"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Curaçao score first",
+        points: [
+          "Curaçao can drop into a compact survival block and slow the tempo.",
+          "Ivory Coast will push fullbacks higher and increase crossing/cutback volume.",
+          "Substitutions likely become more attacking for Ivory Coast around the hour mark.",
+          "Benefits Curaçao emotionally, but the defensive workload becomes extreme."
+        ]
+      },
+      {
+        title: "If Ivory Coast score first",
+        points: [
+          "Curaçao must open up more than they would like.",
+          "Ivory Coast can attack transition lanes and use their athletic edge.",
+          "Curaçao may need earlier attacking substitutions or more direct service.",
+          "Benefits Ivory Coast because their pressing and counterattacking become more dangerous."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Curaçao gain belief that the Ecuador defensive script can repeat.",
+          "Ivory Coast must stay patient and avoid forcing low-quality shots.",
+          "Set pieces and second balls become more important.",
+          "Benefits Curaçao slightly if the match becomes tense and low-event."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 17,
+      draw: 25,
+      awayWin: 58,
+      scoreRange: "Curaçao 0-1 Ivory Coast to Curaçao 1-2 Ivory Coast",
+      confidence: 6,
+      volatility: 6,
+      dataConfidence: "Medium-low",
+      lean: "Tactical lean: Ivory Coast",
+      mainReason:
+        "Ivory Coast have shown more attacking quality across two matches and have the athletic wide threats to stress Curaçao’s block.",
+      failurePoint:
+        "Curaçao already proved against Ecuador that they can survive pressure and turn the game into a low-scoring grind."
+    },
+
+    whyThisCouldBeWrong: [
+      "Curaçao’s confidence is higher after the Ecuador draw.",
+      "Ivory Coast may become impatient if they dominate territory but do not score early.",
+      "A goalkeeper-heavy or set-piece-driven match can break normal tactical expectations.",
+      "Confirmed lineups, injuries, and exact xG data still need updating before kickoff."
+    ],
+
+    sourceNotes: [
+      "Reuters: Curaçao coach Dick Advocaat said his team can trouble any rival after the 0-0 draw with Ecuador.",
+      "Reuters: Ivory Coast coach Emerse Faé praised Curaçao’s resilience and emphasized intensity and focus.",
+      "Reuters / public match reports: Ivory Coast beat Ecuador 1-0, then lost 2-1 to Germany.",
+      "Public stat fields such as xG, PPDA, shot maps, and injury details are marked needs update until verified from FIFA/FotMob/SofaScore/Opta."
+    ]
+  }
+},
+"japan-sweden": {
+  home: { name: "Japan", code: "jp" },
+  away: { name: "Sweden", code: "se" },
+  competition: "FIFA World Cup 2026",
+  group: "Group F",
+  kickoff: {
+    date: "2026-06-25T23:00:00Z",
+    location: "Dallas Stadium, Dallas"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Automatic qualification swing match",
+      note:
+        "Japan enter on four points after a 2-2 draw with the Netherlands and a 4-0 win over Tunisia. Sweden enter on three points after a 5-1 win over Tunisia and a 5-1 defeat to the Netherlands. A win for either side guarantees at least second place in Group F.",
+      environment:
+        "Dallas venue. Game-state pressure is heavier on Sweden because Japan can play with more control and still benefit from draw scenarios.",
+      gameState:
+        "Japan want compact control, coordinated pressure, and quick attacks into Sweden's defensive gaps. Sweden need attacking bravery without becoming stretched again."
+    },
+
+    form: {
+      home: {
+        last_5_results:
+          "Japan 2-2 Netherlands; Japan 4-0 Tunisia; previous results need update",
+        goals_for_against: "6 GF / 2 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob, but attacking output spiked strongly against Tunisia",
+        xGA_trend:
+          "Needs update; Japan conceded twice to the Netherlands but controlled Tunisia",
+        opponent_strength:
+          "Opened against the Netherlands, then dominated eliminated Tunisia",
+        momentum_rating: "8/10",
+        key_warning_sign:
+          "If Sweden force the game into open transitions, Japan's back line must handle Isak and Gyökeres without leaving central spaces"
+      },
+
+      away: {
+        last_5_results:
+          "Sweden 5-1 Tunisia; Sweden 1-5 Netherlands; previous results need update",
+        goals_for_against: "6 GF / 6 GA in tournament data available",
+        clean_sheets: "0 tournament clean sheets",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; strong attacking output but chance quality needs verification",
+        xGA_trend:
+          "Needs update; scorelines suggest major defensive volatility",
+        opponent_strength:
+          "Dominated Tunisia, then were heavily exposed by the Netherlands",
+        momentum_rating: "5/10",
+        key_warning_sign:
+          "Defensive spacing collapsed against the Netherlands, and Japan's coordination can punish big gaps"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "3-4-2-1 / 4-2-3-1 depending on personnel",
+        in_possession_shape:
+          "Back three or two-plus-rest-defense base, wingbacks or fullbacks supporting wide progression, creators between lines",
+        out_of_possession_shape:
+          "Compact 5-4-1 / 4-4-2 hybrid with synchronized pressing jumps",
+        build_up_style:
+          "Patient circulation, third-man combinations, quick switches, and controlled progression through midfield",
+        pressing_style:
+          "Coordinated medium-to-high press, especially when opponents receive facing their own goal",
+        defensive_block: "Mid block that can jump high in coordinated triggers",
+        transition_style:
+          "Fast counters through wide runners and central support once Sweden's press is bypassed",
+        main_attacking_zones:
+          "Right half-space, wide overloads, cutbacks, and second-line runs",
+        set_piece_strength:
+          "Useful delivery and movement, exact set-piece xG needs update",
+        biggest_tactical_weakness:
+          "Can become vulnerable if wingbacks/fullbacks are high and Sweden break quickly into the channels"
+      },
+
+      away: {
+        base_formation: "4-4-2 / 4-2-3-1, with possible defensive tweaks after Netherlands loss",
+        in_possession_shape:
+          "Direct access into two elite forwards, wide support, and quick second-ball attacks",
+        out_of_possession_shape:
+          "Compact 4-4-2 when organized, but spacing can stretch when chasing",
+        build_up_style:
+          "Vertical progression, early passes into Isak/Gyökeres, and wide service",
+        pressing_style:
+          "Medium press with selective high jumps; Potter has emphasized compactness and controlling space",
+        defensive_block: "Mid block, potentially lower than against the Netherlands",
+        transition_style:
+          "Very dangerous attacking big spaces through Isak, Gyökeres, Kulusevski, and Elanga",
+        main_attacking_zones:
+          "Central striker lanes, right-sided carries, wide early service, and second balls",
+        set_piece_strength:
+          "Strong physical route with aerial targets",
+        biggest_tactical_weakness:
+          "If Sweden defend large spaces, Japan's coordinated rotations can pull the back line apart"
+      }
+    },
+
+    matchupAnalysis: [
+      "Japan's biggest edge is team structure. Their spacing, rotations, and synchronized pressing make them hard to pull apart.",
+      "Sweden's biggest edge is individual forward power. Isak and Gyökeres can decide the match if Sweden create transition space.",
+      "The key battle is Japan's compactness against Sweden's two-striker threat.",
+      "Sweden must find the balance between attacking enough to chase qualification and not repeating the open-space collapse against the Netherlands.",
+      "Stylistic advantage slightly leans Japan because they can play multiple game states, while Sweden likely need a more aggressive approach."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "Medium-high expected",
+        away: "Medium-high expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "Needs update",
+        away: "High concern after Netherlands match",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Strong trend after Tunisia",
+        away: "Strong striker-driven threat",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Big chances allowed",
+        home: "Needs update",
+        away: "High concern",
+        note: "Netherlands exposed defensive gaps"
+      },
+      {
+        label: "Possession %",
+        home: "Medium-high control expected",
+        away: "Medium-low unless chasing",
+        note: "Expected game state"
+      },
+      {
+        label: "Field tilt",
+        home: "Balanced to positive",
+        away: "Transition-dependent",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Key Japan control metric",
+        away: "Direct vertical passes important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Wide/half-space carries important",
+        away: "Elanga/Kulusevski-style carries important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Medium-high expected",
+        away: "Striker-dependent",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Coordinated medium-high press",
+        away: "Selective press, compactness priority",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Key Japan route",
+        away: "Possible but riskier",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Needs update",
+        away: "Physical edge possible",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Needs update after 4-goal Tunisia match",
+        away: "Needs update after two 5-1 scorelines",
+        note: "Exact xG unavailable"
+      },
+      {
+        label: "Save percentage",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium",
+        away: "Medium-high",
+        note: "Sweden chasing game-state can increase contact risk"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Ayase Ueda",
+        key_creator: "Daichi Kamada",
+        key_ball_progressor: "Hidemasa Morita",
+        key_defender: "Shogo Taniguchi",
+        key_goalkeeper: "Zion Suzuki",
+        x_factor: "Junya Ito",
+        most_likely_to_decide:
+          "Ayase Ueda if Japan continue creating clean penalty-box chances",
+        vulnerable_tactically:
+          "Wide defensive channels if Sweden release Isak or Gyökeres early"
+      },
+
+      away: {
+        key_attacker: "Alexander Isak",
+        key_creator: "Dejan Kulusevski",
+        key_ball_progressor: "Anthony Elanga",
+        key_defender: "Victor Lindelöf",
+        key_goalkeeper: "Robin Olsen",
+        x_factor: "Viktor Gyökeres",
+        most_likely_to_decide:
+          "Alexander Isak if Sweden can create transition space behind Japan's line",
+        vulnerable_tactically:
+          "Centre-backs and fullbacks defending Japan's synchronized rotations"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Japan score first",
+        points: [
+          "Sweden must chase, which opens the pitch for Japan's transitions.",
+          "Japan can sit in a compact mid-block and attack Sweden's spacing mistakes.",
+          "Potter may need earlier wide attacking changes, especially if Sweden lack penetration.",
+          "Benefits Japan because control, patience, and counterattacking all become stronger."
+        ]
+      },
+      {
+        title: "If Sweden score first",
+        points: [
+          "Japan must increase possession pressure and commit more players between lines.",
+          "Sweden can drop into a more compact block and look for Isak/Gyökeres outlets.",
+          "The game becomes more physical and set-piece-heavy.",
+          "Benefits Sweden because it lets them protect space rather than chase it."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Japan are comfortable because they can stay patient and control risk.",
+          "Sweden may feel pressure to increase attacking numbers before halftime.",
+          "The key adjustment becomes Sweden's compactness: too passive and Japan dominate, too open and Japan cut through.",
+          "Benefits Japan slightly because they do not need the game to become chaotic."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 39,
+      draw: 29,
+      awayWin: 32,
+      scoreRange: "Japan 1-1 Sweden to Japan 2-1 Sweden",
+      confidence: 5,
+      volatility: 7,
+      dataConfidence: "Medium",
+      lean: "Small tactical lean: Japan",
+      mainReason:
+        "Japan have been more stable across both group matches, while Sweden's defensive volatility is a major concern against coordinated movement.",
+      failurePoint:
+        "Sweden's striker quality can override the tactical picture if Isak and Gyökeres receive enough early service."
+    },
+
+    whyThisCouldBeWrong: [
+      "Sweden have elite forwards who can decide low-margin games.",
+      "Japan may rotate or manage minutes after using a large portion of the squad already.",
+      "Sweden's 5-1 loss to the Netherlands may exaggerate their true defensive level.",
+      "Exact xG, injuries, and confirmed lineups still need updating before kickoff."
+    ],
+
+    sourceNotes: [
+      "Reuters: Japan drew the Netherlands 2-2 and beat Tunisia 4-0, while Sweden beat Tunisia 5-1 then lost 5-1 to the Netherlands.",
+      "Reuters: the winner is guaranteed at least second place in Group F.",
+      "Reuters: Graham Potter said Sweden must be compact against Japan's coordination and organization.",
+      "Reuters: Takefusa Kubo was injured for the Tunisia match; final availability needs update.",
+      "FIFA/FotMob/SofaScore: use for final lineups, xG, shot maps, player ratings, and live injury status."
+    ]
+  }
+},
+
+"tunisia-netherlands": {
+  home: { name: "Tunisia", code: "tn" },
+  away: { name: "Netherlands", code: "nl" },
+  competition: "FIFA World Cup 2026",
+  group: "Group F",
+  kickoff: {
+    date: "2026-06-25T23:00:00Z",
+    location: "Kansas City Stadium, Kansas City"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Top-spot chase for Netherlands, pride match for Tunisia",
+      note:
+        "Tunisia are already eliminated after heavy defeats to Sweden and Japan. The Netherlands are level with Japan on four points and are fighting to win Group F.",
+      environment:
+        "Kansas City setting. Netherlands have qualification control and attacking momentum, while Tunisia need a dignified final performance after a turbulent campaign.",
+      gameState:
+        "Netherlands want early control and top-spot pressure. Tunisia need defensive compactness, emotional discipline, and a clean final showing."
+    },
+
+    form: {
+      home: {
+        last_5_results:
+          "Tunisia 1-5 Sweden; Tunisia 0-4 Japan; previous results need update",
+        goals_for_against: "1 GF / 9 GA in tournament data available",
+        clean_sheets: "0 tournament clean sheets",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; attacking output has been low",
+        xGA_trend:
+          "Needs update; scorelines show severe defensive pressure",
+        opponent_strength:
+          "Faced Sweden and Japan, now face the Group F attacking leaders",
+        momentum_rating: "2/10",
+        key_warning_sign:
+          "Tunisia have conceded nine goals in two World Cup games and changed coach mid-tournament"
+      },
+
+      away: {
+        last_5_results:
+          "Netherlands 2-2 Japan; Netherlands 5-1 Sweden; previous results need update",
+        goals_for_against: "7 GF / 3 GA in tournament data available",
+        clean_sheets: "0 tournament clean sheets",
+        xG_trend:
+          "Strong attacking trend expected, exact xG needs update from Opta/FBref",
+        xGA_trend:
+          "Needs update; defensive control still imperfect after conceding twice to Japan",
+        opponent_strength:
+          "Drew Japan and dominated Sweden, now face eliminated Tunisia",
+        momentum_rating: "9/10",
+        key_warning_sign:
+          "Top-spot race can create pressure, and forward availability needs final lineup update"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "4-2-3-1 / 4-5-1 defensive structure",
+        in_possession_shape:
+          "Direct progression into wide outlets, with limited buildup confidence under pressure",
+        out_of_possession_shape:
+          "Compact low-to-mid block, trying to protect central spaces and avoid another early collapse",
+        build_up_style:
+          "Risk-managed and often direct, especially if Netherlands press high",
+        pressing_style:
+          "Selective pressing only; likely to prioritize shape and emotional control",
+        defensive_block: "Low to mid block",
+        transition_style:
+          "Counters into wide channels, but support around the ball has been inconsistent",
+        main_attacking_zones:
+          "Wide counters, set pieces, and second balls",
+        set_piece_strength:
+          "Potential route to goal, exact set-piece xG needs update",
+        biggest_tactical_weakness:
+          "Defensive spacing and recovery runs have been heavily exposed in both group games"
+      },
+
+      away: {
+        base_formation: "4-3-3 / 3-2-5 attacking shape",
+        in_possession_shape:
+          "Fullbacks and wingers high, midfield control underneath, attackers rotating between central and wide lanes",
+        out_of_possession_shape:
+          "4-4-2 / 4-3-3 pressing structure with strong counter-press moments",
+        build_up_style:
+          "Controlled possession, quick switches, wide overloads, and fast attacks once lanes open",
+        pressing_style:
+          "Aggressive counter-press with high pressing waves when opponent buildup is loose",
+        defensive_block: "Mid-to-high block",
+        transition_style:
+          "Fast forward attacks through pace and quality in wide areas",
+        main_attacking_zones:
+          "Right-sided Dumfries overlaps, left-wing combinations, central striker movements, cutbacks",
+        set_piece_strength:
+          "Strong aerial and delivery threat",
+        biggest_tactical_weakness:
+          "Can concede if fullbacks push high and rest defense is late to cover wide counters"
+      }
+    },
+
+    matchupAnalysis: [
+      "The Netherlands' biggest edge is attacking depth. They can rotate attackers and still maintain speed, width, and penalty-box threat.",
+      "Tunisia's route is pride and structure: stay compact, avoid early concession, and make the game slower than the Dutch want.",
+      "The key battle is Tunisia's fullbacks against Dutch wide overloads and Dumfries-style runs.",
+      "If Netherlands score early, the match can open into another heavy chance-volume game.",
+      "Stylistic advantage leans strongly Netherlands because Tunisia's defensive structure has not survived sustained pressure so far."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "Low expected",
+        away: "High expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "High concern",
+        away: "Medium",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Low expected",
+        away: "High expected",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Big chances allowed",
+        home: "High concern",
+        away: "Needs update",
+        note: "Tunisia defensive trend is poor"
+      },
+      {
+        label: "Possession %",
+        home: "Low expected",
+        away: "High expected",
+        note: "Expected game state"
+      },
+      {
+        label: "Field tilt",
+        home: "Low expected",
+        away: "High expected",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Limited under pressure",
+        away: "High expected",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Wide counters only",
+        away: "Key attacking route",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Low expected",
+        away: "High expected",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Low block / selective press",
+        away: "High counter-press threat",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Low",
+        away: "Key chance source",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Possible low-volume route",
+        away: "Strong secondary route",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Needs update",
+        away: "Likely positive attacking momentum",
+        note: "Exact xG unavailable"
+      },
+      {
+        label: "Save percentage",
+        home: "High workload expected",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium-high",
+        away: "Low-medium",
+        note: "Tunisia defending long spells can increase foul pressure"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Youssef Msakni",
+        key_creator: "Elias Achouri",
+        key_ball_progressor: "Ellyes Skhiri",
+        key_defender: "Montassar Talbi",
+        key_goalkeeper: "Aymen Dahmen",
+        x_factor: "Ali Abdi",
+        most_likely_to_decide:
+          "Aymen Dahmen if Tunisia are forced into another survival-style match",
+        vulnerable_tactically:
+          "Tunisia fullbacks defending Dutch overloads and weak-side switches"
+      },
+
+      away: {
+        key_attacker: "Cody Gakpo",
+        key_creator: "Xavi Simons",
+        key_ball_progressor: "Frenkie de Jong",
+        key_defender: "Virgil van Dijk",
+        key_goalkeeper: "Bart Verbruggen",
+        x_factor: "Denzel Dumfries",
+        most_likely_to_decide:
+          "Denzel Dumfries if the Netherlands repeatedly create overloads on the right side",
+        vulnerable_tactically:
+          "Space behind advanced fullbacks if Tunisia can counter cleanly"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Tunisia score first",
+        points: [
+          "Tunisia can drop deeper and chase a pride result through compact defending.",
+          "Netherlands will increase width and ball speed, especially through fullback and winger rotations.",
+          "Koeman may use attacking depth early if the central striker situation is unclear.",
+          "Benefits Tunisia emotionally, but the defensive workload becomes extremely high."
+        ]
+      },
+      {
+        title: "If Netherlands score first",
+        points: [
+          "Tunisia's low block has to open slightly, which creates more Dutch transition and cutback chances.",
+          "Netherlands can manage rhythm while still chasing goals scored for the group-top race.",
+          "Dutch wide attackers and fullbacks become more dangerous as Tunisia lose structure.",
+          "Benefits Netherlands heavily because Tunisia's tournament has unraveled after early pressure."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Tunisia gain confidence and can frame the match as a pride rescue performance.",
+          "Netherlands may become more direct to force earlier box entries.",
+          "Set pieces and second balls become Tunisia's best upset route.",
+          "Benefits Netherlands slightly because they have more depth and more ways to change the attack."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 8,
+      draw: 16,
+      awayWin: 76,
+      scoreRange: "Tunisia 0-2 Netherlands to Tunisia 1-3 Netherlands",
+      confidence: 7,
+      volatility: 4,
+      dataConfidence: "Medium",
+      lean: "Higher-probability outcome: Netherlands win",
+      mainReason:
+        "The Netherlands have more attacking depth, are chasing top spot, and face a Tunisia side that has conceded heavily in both group matches.",
+      failurePoint:
+        "Tunisia's pride response under Renard could slow the match down if they survive the opening phase without conceding."
+    },
+
+    whyThisCouldBeWrong: [
+      "Tunisia are eliminated but may play with emotional freedom and pride.",
+      "Netherlands may rotate or manage forward availability before the knockout stage.",
+      "A low block can reduce the number of clean Dutch chances if Tunisia stay compact.",
+      "Confirmed lineups, injuries, and exact xG data still need updating before kickoff."
+    ],
+
+    sourceNotes: [
+      "Reuters: Tunisia are eliminated after losing 5-1 to Sweden and 4-0 to Japan.",
+      "Reuters: Herve Renard said Tunisia must show pride and dignity in their final match.",
+      "Reuters: Netherlands drew Japan 2-2 and beat Sweden 5-1 while battling for top spot.",
+      "Reuters: Denzel Dumfries expects Tunisia to play with full energy despite elimination.",
+      "Reuters: Netherlands forward availability needs final update, with Brobbey and Summerville mentioned as carrying issues and Depay status requiring lineup confirmation.",
+      "FIFA/FotMob/SofaScore: use for final lineups, xG, shot maps, player ratings, and live injury status."
+    ]
+  }
+},
+"turkey-usa": {
+  home: { name: "Turkey", code: "tr" },
+  away: { name: "United States", code: "us" },
+  competition: "FIFA World Cup 2026",
+  group: "Group D",
+  kickoff: {
+    date: "2026-06-26T02:00:00Z",
+    location: "Los Angeles Stadium, Inglewood"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Dead-rubber for table position, rhythm match for USA",
+      note:
+        "The United States have already secured top spot in Group D after wins over Paraguay and Australia. Turkey are eliminated after defeats to Australia and Paraguay, so this is about pride, rotation, and momentum rather than qualification.",
+      environment:
+        "Los Angeles venue with strong home support for the U.S. The emotional edge may be with Turkey trying to avoid leaving the tournament without a result.",
+      gameState:
+        "USA can manage minutes and protect players on yellow cards. Turkey need a committed response and will likely play with more emotional urgency."
+    },
+
+    form: {
+      home: {
+        last_5_results:
+          "Turkey 0-2 Australia; Turkey 0-1 Paraguay; previous results need update",
+        goals_for_against: "0 GF / 3 GA in tournament data available",
+        clean_sheets: "0 tournament clean sheets",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; attacking output has not turned into goals",
+        xGA_trend:
+          "Needs update; scorelines suggest Turkey have been competitive but inefficient",
+        opponent_strength:
+          "Lost to Australia, then lost a tight match to Paraguay",
+        momentum_rating: "2/10",
+        key_warning_sign:
+          "Turkey have not scored yet and are already eliminated, so motivation and final-third confidence are major concerns"
+      },
+
+      away: {
+        last_5_results:
+          "United States 4-1 Paraguay; United States 2-0 Australia; previous results need update",
+        goals_for_against: "6 GF / 1 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Strong attacking trend expected, exact xG needs update from Opta/FBref/FotMob",
+        xGA_trend:
+          "Positive defensive trend after Australia clean sheet; exact xGA needs update",
+        opponent_strength:
+          "Beat Paraguay comfortably, then controlled Australia to secure first place",
+        momentum_rating: "9/10",
+        key_warning_sign:
+          "USA are expected to rotate and avoid starting players on yellow cards, which can lower cohesion"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "4-2-3-1 / 4-3-3",
+        in_possession_shape:
+          "Technical midfield base with wide attackers stretching the pitch and creators moving into half-spaces",
+        out_of_possession_shape:
+          "4-4-2 / 4-5-1 mid-block, depending on how aggressively Turkey press",
+        build_up_style:
+          "Short buildup into midfield, then quick wide progression through creative players",
+        pressing_style:
+          "Medium press with emotional high-press spells when chasing momentum",
+        defensive_block: "Mid block that may become higher because Turkey have nothing to protect",
+        transition_style:
+          "Fast attacks through wide runners and early passes into attacking midfielders",
+        main_attacking_zones:
+          "Right half-space, wide combinations, central cutbacks",
+        set_piece_strength:
+          "Useful technical delivery but exact set-piece xG needs update",
+        biggest_tactical_weakness:
+          "If Turkey overcommit to chase a pride result, USA can attack transition lanes behind fullbacks"
+      },
+
+      away: {
+        base_formation: "4-3-3 / 4-2-3-1",
+        in_possession_shape:
+          "Fullbacks support wide attacks, midfielders rotate underneath, front line attacks channels and cutbacks",
+        out_of_possession_shape:
+          "Compact 4-4-2 / 4-3-3 pressing shape with strong counter-pressing after turnovers",
+        build_up_style:
+          "Controlled buildup with vertical bursts, switches to wide players, and runners attacking the box",
+        pressing_style:
+          "Aggressive in spells, but likely more controlled due to rotation and yellow-card management",
+        defensive_block: "Mid-to-high block",
+        transition_style:
+          "Quick forward attacks after regains, especially if Turkey lose the ball centrally",
+        main_attacking_zones:
+          "Wide channels, right-sided combinations, central third-man runs",
+        set_piece_strength:
+          "Physical box presence and strong delivery options",
+        biggest_tactical_weakness:
+          "Rotation can reduce timing, pressing chemistry, and final-third sharpness"
+      }
+    },
+
+    matchupAnalysis: [
+      "USA's biggest edge is structure and confidence: they have already solved two different Group D game states.",
+      "Turkey's best route is emotional intensity, early pressure, and turning the match into a pride response rather than a controlled U.S. rhythm game.",
+      "The key tactical battle is Turkey's creative midfielders against a likely rotated U.S. midfield screen.",
+      "USA's wide transitions can hurt Turkey if Turkish fullbacks push high looking for their first tournament goal.",
+      "Stylistic advantage still leans USA, but the rotation factor makes the game less predictable than the table suggests."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "Medium expected",
+        away: "Medium-high expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "Needs update",
+        away: "Low-medium expected",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Needs update",
+        away: "Strong tournament trend",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Big chances allowed",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Possession %",
+        home: "Medium expected",
+        away: "Medium-high expected",
+        note: "Expected game state"
+      },
+      {
+        label: "Field tilt",
+        home: "Can rise if USA rotate",
+        away: "Positive expected",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Key route through creators",
+        away: "Strong control route",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Wide carries important",
+        away: "Wide transition carries important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Needs update",
+        away: "Medium-high expected",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Medium with emotional jumps",
+        away: "Controlled press due to rotation",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Possible pride-response route",
+        away: "Key chance source",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Possible route",
+        away: "Useful route",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Likely underperforming finishing",
+        away: "Likely positive output trend",
+        note: "Exact xG unavailable"
+      },
+      {
+        label: "Save percentage",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium-high",
+        away: "Managed carefully",
+        note: "USA avoiding yellow-card risk for key players"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Kenan Yıldız",
+        key_creator: "Hakan Çalhanoğlu",
+        key_ball_progressor: "Arda Güler",
+        key_defender: "Merih Demiral",
+        key_goalkeeper: "Uğurcan Çakır",
+        x_factor: "Barış Alper Yılmaz",
+        most_likely_to_decide:
+          "Arda Güler if Turkey finally turn possession spells into high-quality chances",
+        vulnerable_tactically:
+          "Turkey fullbacks if they push high and USA counter into wide channels"
+      },
+
+      away: {
+        key_attacker: "Christian Pulisic",
+        key_creator: "Gio Reyna",
+        key_ball_progressor: "Yunus Musah",
+        key_defender: "Tim Ream",
+        key_goalkeeper: "Matt Turner",
+        x_factor: "Ricardo Pepi",
+        most_likely_to_decide:
+          "Gio Reyna if USA rotate and need a central creator to control tempo",
+        vulnerable_tactically:
+          "Rotated defensive pairings if Turkey overload central zones"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Turkey score first",
+        points: [
+          "Turkey can turn the match into an emotional pride performance.",
+          "USA will need to increase tempo without exposing players they are trying to protect.",
+          "Substitutions may come earlier for USA if rhythm looks flat.",
+          "Benefits Turkey because it forces a rotated U.S. side into a more urgent game state."
+        ]
+      },
+      {
+        title: "If USA score first",
+        points: [
+          "Turkey's morale and defensive shape are tested immediately.",
+          "USA can manage the ball, preserve legs, and attack transition spaces.",
+          "Turkey may become more open as they chase their first goal of the tournament.",
+          "Benefits USA because their game management and depth become more valuable."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Turkey gain belief that they can leave the tournament with a result.",
+          "USA may stay patient because the table pressure is gone.",
+          "The match could become rhythm-based rather than high intensity.",
+          "Benefits USA slightly because they do not need to force the game."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 20,
+      draw: 25,
+      awayWin: 55,
+      scoreRange: "Turkey 0-1 United States to Turkey 1-2 United States",
+      confidence: 5,
+      volatility: 6,
+      dataConfidence: "Medium",
+      lean: "Tactical lean: United States",
+      mainReason:
+        "USA have been the strongest team in Group D and have more stable attacking output, even with rotation expected.",
+      failurePoint:
+        "USA rotation, yellow-card management, and Turkey's pride response could make the match lower-control and more volatile."
+    },
+
+    whyThisCouldBeWrong: [
+      "USA are expected to rest several players on yellow cards.",
+      "Turkey have nothing to lose and may play with more emotional freedom.",
+      "Pulisic's final role needs lineup confirmation despite medical clearance.",
+      "Dead-rubber matches can produce unusual intensity and rotation patterns."
+    ],
+
+    sourceNotes: [
+      "Reuters: USA have secured top spot in Group D and will not start four players currently on yellow cards.",
+      "Reuters: Pulisic has been medically cleared from a calf issue, but his starting status needs final confirmation.",
+      "Reuters: Turkey are eliminated and Montella emphasized pride and respect for the players.",
+      "FIFA/FotMob/SofaScore: use for final lineups, xG, shot maps, player ratings, and live injury updates."
+    ]
+  }
+},
+
+"paraguay-australia": {
+  home: { name: "Paraguay", code: "py" },
+  away: { name: "Australia", code: "au" },
+  competition: "FIFA World Cup 2026",
+  group: "Group D",
+  kickoff: {
+    date: "2026-06-26T02:00:00Z",
+    location: "San Francisco Bay Area Stadium, Santa Clara"
+  },
+  analyticsV2: {
+    matchImportance: {
+      level: "Second-place qualification decider",
+      note:
+        "Australia need a draw to guarantee progression, while Paraguay need a win for the cleanest path to second place. A draw may still keep Paraguay alive through the best-third-place route, but the direct automatic spot is the major prize.",
+      environment:
+        "Bay Area kickoff with high pressure for both teams. Mandatory cooling breaks may affect rhythm and coaching resets.",
+      gameState:
+        "Australia can be slightly more pragmatic because a draw is enough. Paraguay must balance attacking urgency with the risk of being countered."
+    },
+
+    form: {
+      home: {
+        last_5_results:
+          "Paraguay 1-4 United States; Paraguay 1-0 Turkey; previous results need update",
+        goals_for_against: "2 GF / 4 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; improved final-third impact against Turkey",
+        xGA_trend:
+          "Needs update; USA match exposed defensive gaps, Turkey match showed resilience",
+        opponent_strength:
+          "Lost to group-leading USA, then beat Turkey despite playing with 10 men",
+        momentum_rating: "6/10",
+        key_warning_sign:
+          "Miguel Almirón is suspended, removing a major transition and ball-carrying threat"
+      },
+
+      away: {
+        last_5_results:
+          "Australia 2-0 Turkey; Australia 0-2 United States; previous results need update",
+        goals_for_against: "2 GF / 2 GA in tournament data available",
+        clean_sheets: "1 tournament clean sheet",
+        xG_trend:
+          "Needs update from FBref/Opta/FotMob; attack looked stronger with Irankunda and Metcalfe involved",
+        xGA_trend:
+          "Needs update; USA controlled key stretches but Australia were competitive",
+        opponent_strength:
+          "Beat Turkey, then lost to the group winners United States",
+        momentum_rating: "6/10",
+        key_warning_sign:
+          "Australia are missing Jacob Italiano and Mathew Leckie, forcing lineup changes in a decisive match"
+      }
+    },
+
+    tacticalIdentity: {
+      home: {
+        base_formation: "4-2-3-1 / 4-4-2 defensive variation",
+        in_possession_shape:
+          "Compact buildup with direct wide progression and support around the striker",
+        out_of_possession_shape:
+          "Mid-block with aggressive duels and strong central protection",
+        build_up_style:
+          "Pragmatic, often direct into wide runners or second-ball zones",
+        pressing_style:
+          "Medium press with emotional high-pressure spells, especially if chasing",
+        defensive_block: "Mid block that can drop into a compact low block",
+        transition_style:
+          "Fast counters through wide channels, though Almirón suspension reduces ball-carrying threat",
+        main_attacking_zones:
+          "Wide service, second balls, set pieces, and central runs behind midfield",
+        set_piece_strength:
+          "Important route because open-play creation may be reduced without Almirón",
+        biggest_tactical_weakness:
+          "If Paraguay overcommit to chasing the win, Australia can attack space behind the fullbacks"
+      },
+
+      away: {
+        base_formation: "4-2-3-1 / 4-4-2 out of possession",
+        in_possession_shape:
+          "Direct progression, wide deliveries, second-ball support, and runners attacking the box",
+        out_of_possession_shape:
+          "Compact 4-4-2 / 4-5-1 mid-block, protecting central zones",
+        build_up_style:
+          "Pragmatic and vertical, with early service into runners and wide outlets",
+        pressing_style:
+          "Selective press; likely more controlled because a draw is enough",
+        defensive_block: "Mid block with possible lower protection late if level",
+        transition_style:
+          "Fast breaks through Irankunda-style pace and midfield runners",
+        main_attacking_zones:
+          "Wide right, early crosses, cutbacks, and set-piece second balls",
+        set_piece_strength:
+          "Strong aerial and physical route",
+        biggest_tactical_weakness:
+          "Forced defensive changes can affect spacing and timing against Paraguay's pressure"
+      }
+    },
+
+    matchupAnalysis: [
+      "Australia's biggest edge is game-state leverage: they do not need to win, so they can protect central space and force Paraguay to take risks.",
+      "Paraguay's biggest route is intensity and direct pressure, but Almirón's suspension removes one of their best transition weapons.",
+      "The key battle is Australia's defensive reshuffle against Paraguay's wide attacks and set-piece pressure.",
+      "Cooling breaks may help both coaches reset structure, which matters in a match where game-state management is everything.",
+      "Stylistic advantage is narrow: Australia have the qualification math, Paraguay have the urgency."
+    ],
+
+    statisticalDashboard: [
+      {
+        label: "xG per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "xGA per match",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta/FotMob placeholder"
+      },
+      {
+        label: "Non-penalty xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FBref/Opta placeholder"
+      },
+      {
+        label: "Shots per 90",
+        home: "Medium expected",
+        away: "Medium expected",
+        note: "Tactical projection"
+      },
+      {
+        label: "Shots allowed per 90",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Big chances created",
+        home: "Needs update without Almirón",
+        away: "Needs update",
+        note: "Sofascore/FotMob placeholder"
+      },
+      {
+        label: "Big chances allowed",
+        home: "High concern from USA match",
+        away: "Needs update",
+        note: "Game-state dependent"
+      },
+      {
+        label: "Possession %",
+        home: "Higher if chasing",
+        away: "Can accept lower possession",
+        note: "Expected game state"
+      },
+      {
+        label: "Field tilt",
+        home: "Likely rises over time if level",
+        away: "Can defend and counter",
+        note: "Needs event data"
+      },
+      {
+        label: "Progressive passes",
+        home: "Wide/direct progression important",
+        away: "Vertical outlets important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Progressive carries",
+        home: "Reduced by Almirón suspension",
+        away: "Irankunda/Volpato-style threat important",
+        note: "FBref placeholder"
+      },
+      {
+        label: "Touches in opposition box",
+        home: "Must increase to win",
+        away: "Transition and set-piece dependent",
+        note: "Opta/FotMob placeholder"
+      },
+      {
+        label: "PPDA / pressing",
+        home: "Medium-high if chasing",
+        away: "Selective, controlled",
+        note: "Style-based"
+      },
+      {
+        label: "High turnovers",
+        home: "Key route to chance creation",
+        away: "Counter route if Paraguay overplay",
+        note: "StatsBomb/Opta placeholder"
+      },
+      {
+        label: "Set-piece xG",
+        home: "Important route",
+        away: "Important route",
+        note: "Needs update"
+      },
+      {
+        label: "Goals minus xG",
+        home: "Needs update",
+        away: "Needs update",
+        note: "Exact xG unavailable"
+      },
+      {
+        label: "Save percentage",
+        home: "Needs update",
+        away: "Needs update",
+        note: "FotMob/SofaScore placeholder"
+      },
+      {
+        label: "Cards / fouls risk",
+        home: "Medium-high",
+        away: "Medium",
+        note: "High-pressure qualifier with Paraguay chasing second"
+      }
+    ],
+
+    playerWatch: {
+      home: {
+        key_attacker: "Julio Enciso",
+        key_creator: "Diego Gómez",
+        key_ball_progressor: "Needs update without Miguel Almirón",
+        key_defender: "Gustavo Gómez",
+        key_goalkeeper: "Roberto Fernández",
+        x_factor: "Ramón Sosa",
+        most_likely_to_decide:
+          "Julio Enciso if Paraguay can create enough central shooting chances without Almirón",
+        vulnerable_tactically:
+          "Paraguay fullbacks if they push high and Australia counter into the channels"
+      },
+
+      away: {
+        key_attacker: "Nestory Irankunda",
+        key_creator: "Connor Metcalfe",
+        key_ball_progressor: "Cristian Volpato",
+        key_defender: "Harry Souttar",
+        key_goalkeeper: "Mathew Ryan",
+        x_factor: "Riley McGree",
+        most_likely_to_decide:
+          "Nestory Irankunda if Australia use his pace earlier than they did against USA",
+        vulnerable_tactically:
+          "Australia's reshuffled fullback zone after Jacob Italiano's injury"
+      }
+    },
+
+    gameScripts: [
+      {
+        title: "If Paraguay score first",
+        points: [
+          "Paraguay can protect the second-place position and force Australia to open up.",
+          "Australia must become more aggressive, likely using pace and wide runners earlier.",
+          "Cooling breaks become important for Popovic to reset the attacking plan.",
+          "Benefits Paraguay because the qualification math flips in their favor."
+        ]
+      },
+      {
+        title: "If Australia score first",
+        points: [
+          "Paraguay must chase two outcomes: the match and qualification security.",
+          "Australia can defend compactly, slow the tempo, and counter into wide spaces.",
+          "Paraguay may need earlier attacking substitutions because Almirón is unavailable.",
+          "Benefits Australia heavily because a draw was already enough."
+        ]
+      },
+      {
+        title: "If it is 0-0 after 30 minutes",
+        points: [
+          "Australia are comfortable because the live table still favors them.",
+          "Paraguay may increase pressing and direct attacks before halftime.",
+          "The game can become tense, physical, and set-piece driven.",
+          "Benefits Australia slightly, but Paraguay's urgency rises every minute."
+        ]
+      }
+    ],
+
+    predictionModel: {
+      homeWin: 30,
+      draw: 30,
+      awayWin: 40,
+      scoreRange: "Paraguay 1-1 Australia to Paraguay 0-1 Australia",
+      confidence: 5,
+      volatility: 7,
+      dataConfidence: "Medium",
+      lean: "Small tactical lean: Australia avoid defeat",
+      mainReason:
+        "Australia have the cleaner qualification scenario and can manage the match more pragmatically, while Paraguay are missing Almirón.",
+      failurePoint:
+        "Australia's injury-forced changes could disrupt the defensive structure, and Paraguay's urgency can create a high-pressure game."
+    },
+
+    whyThisCouldBeWrong: [
+      "Paraguay's win over Turkey showed resilience even with 10 men.",
+      "Australia are missing Italiano and Leckie, which affects both defensive balance and attacking options.",
+      "Paraguay only need one strong set-piece or transition moment to flip the table.",
+      "A draw may create unusual late-game incentives depending on other group and third-place scenarios."
+    ],
+
+    sourceNotes: [
+      "Reuters: Australia need at least a draw to guarantee progression, while Paraguay are chasing the cleaner second-place route.",
+      "Reuters: Jacob Italiano and Mathew Leckie are out for Australia.",
+      "Reuters: Paraguay will be without Miguel Almirón after his red card against Turkey.",
+      "Reuters: Paraguay coach Daniel Garnero criticized mandatory cooling breaks because they interrupt continuity.",
+      "FIFA/FotMob/SofaScore: use for final lineups, xG, shot maps, player ratings, and live injury updates."
+    ]
+  }
+},
 };
+// USA vs Turkey route aliases
+// These fix route/id mismatches from different naming styles.
+if (matches["turkey-united-states"]) {
+  matches["turkey-usa"] = matches["turkey-united-states"];
+  matches["usa-turkey"] = matches["turkey-united-states"];
+  matches["turkiye-usa"] = matches["turkey-united-states"];
+  matches["usa-turkiye"] = matches["turkey-united-states"];
+  matches["türkiye-usa"] = matches["turkey-united-states"];
+  matches["usa-türkiye"] = matches["turkey-united-states"];
+}

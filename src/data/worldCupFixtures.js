@@ -25,24 +25,24 @@ const fixtureList = [
   fixture("south-korea-czechia", "Group A", ["South Korea", "kr"], ["Czechia", "cz"], "2026-06-11T20:00:00-06:00", "Guadalajara", { home: 2, away: 1 }),
   fixture("czechia-south-africa", "Group A", ["Czechia", "cz"], ["South Africa", "za"], "2026-06-18T12:00:00-04:00", "Atlanta", { home: 1, away: 1 }),
   fixture("mexico-south-korea", "Group A", ["Mexico", "mx"], ["South Korea", "kr"], "2026-06-18T19:00:00-06:00", "Guadalajara", { home: 1, away: 0 }),
-  fixture("czechia-mexico", "Group A", ["Czechia", "cz"], ["Mexico", "mx"], "2026-06-24T19:00:00-06:00", "Mexico City"),
-  fixture("south-africa-south-korea", "Group A", ["South Africa", "za"], ["South Korea", "kr"], "2026-06-24T19:00:00-06:00", "Monterrey"),
+  fixture("czechia-mexico", "Group A", ["Czechia", "cz"], ["Mexico", "mx"], "2026-06-24T19:00:00-06:00", "Mexico City", { home: 0, away: 2 }),
+  fixture("south-africa-south-korea", "Group A", ["South Africa", "za"], ["South Korea", "kr"], "2026-06-24T19:00:00-06:00", "Monterrey", { home: 1, away: 0 }),
 
   // Group B
   fixture("canada-bosnia", "Group B", ["Canada", "ca"], ["Bosnia and Herzegovina", "ba"], "2026-06-12T15:00:00-04:00", "Toronto", { home: 1, away: 1 }),
   fixture("qatar-switzerland", "Group B", ["Qatar", "qa"], ["Switzerland", "ch"], "2026-06-13T12:00:00-07:00", "San Francisco Bay Area", { home: 1, away: 1 }),
   fixture("switzerland-bosnia", "Group B", ["Switzerland", "ch"], ["Bosnia and Herzegovina", "ba"], "2026-06-18T12:00:00-07:00", "Los Angeles", { home: 4, away: 1 }),
   fixture("canada-qatar", "Group B", ["Canada", "ca"], ["Qatar", "qa"], "2026-06-18T15:00:00-07:00", "Vancouver", { home: 6, away: 0 }),
-  fixture("switzerland-canada", "Group B", ["Switzerland", "ch"], ["Canada", "ca"], "2026-06-24T12:00:00-07:00", "Vancouver"),
-  fixture("bosnia-qatar", "Group B", ["Bosnia and Herzegovina", "ba"], ["Qatar", "qa"], "2026-06-24T12:00:00-07:00", "Seattle"),
+  fixture("switzerland-canada", "Group B", ["Switzerland", "ch"], ["Canada", "ca"], "2026-06-24T12:00:00-07:00", "Vancouver", { home: 2, away: 1 }),
+  fixture("bosnia-qatar", "Group B", ["Bosnia and Herzegovina", "ba"], ["Qatar", "qa"], "2026-06-24T12:00:00-07:00", "Seattle", { home: 3, away: 1 }),
 
   // Group C
   fixture("brazil-morocco", "Group C", ["Brazil", "br"], ["Morocco", "ma"], "2026-06-13T18:00:00-04:00", "New York/New Jersey", { home: 1, away: 1 }),
   fixture("haiti-scotland", "Group C", ["Haiti", "ht"], ["Scotland", "gb-sct"], "2026-06-13T21:00:00-04:00", "Boston", { home: 0, away: 1 }),
   fixture("scotland-morocco", "Group C", ["Scotland", "gb-sct"], ["Morocco", "ma"], "2026-06-19T18:00:00-04:00", "Boston", { home: 0, away: 1 }),
   fixture("brazil-haiti", "Group C", ["Brazil", "br"], ["Haiti", "ht"], "2026-06-19T20:30:00-04:00", "Philadelphia", { home: 3, away: 0 }),
-  fixture("scotland-brazil", "Group C", ["Scotland", "gb-sct"], ["Brazil", "br"], "2026-06-24T18:00:00-04:00", "Miami"),
-  fixture("morocco-haiti", "Group C", ["Morocco", "ma"], ["Haiti", "ht"], "2026-06-24T18:00:00-04:00", "Atlanta"),
+  fixture("scotland-brazil", "Group C", ["Scotland", "gb-sct"], ["Brazil", "br"], "2026-06-24T18:00:00-04:00", "Miami", { home: 0, away: 3 }),
+  fixture("morocco-haiti", "Group C", ["Morocco", "ma"], ["Haiti", "ht"], "2026-06-24T18:00:00-04:00", "Atlanta", { home: 4, away: 2 }),
 
   // Group D
   fixture("usa-paraguay", "Group D", ["USA", "us"], ["Paraguay", "py"], "2026-06-12T18:00:00-07:00", "Los Angeles", { home: 4, away: 1 }),

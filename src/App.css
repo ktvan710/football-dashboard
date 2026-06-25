@@ -550,3 +550,476 @@ body {
     max-width: none !important;
   }
 }
+/* ----------------------------- */
+/* KNOCKOUT PAGE - FOTMOB STYLE  */
+/* ----------------------------- */
+
+.ko-page {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: #f5f5f5;
+  font-family: var(--sans);
+}
+
+.ko-hero {
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.ko-eyebrow {
+  margin: 0 0 6px;
+  color: #4ade80;
+  font-family: var(--heading);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.ko-hero h1 {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.9;
+  color: #f1f0e8;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.ko-hero p {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: #a1a1aa;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+.ko-toggle {
+  display: inline-flex;
+  gap: 8px;
+  background: #181818;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ko-toggle button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: #2f2f2f;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.ko-toggle .ko-toggle-active {
+  background: #f5f5f5;
+  color: #111;
+}
+
+.ko-board-card {
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.ko-board-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ko-bracket {
+  min-width: 1280px;
+  padding: 26px 20px;
+  display: grid;
+  grid-template-columns: 110px 110px 125px 1fr 125px 110px 110px;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+}
+
+.ko-column {
+  display: grid;
+  align-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.ko-r32 {
+  gap: 10px;
+}
+
+.ko-r16 {
+  gap: 66px;
+}
+
+.ko-qf {
+  gap: 210px;
+}
+
+.ko-card {
+  width: 100px;
+  min-height: 76px;
+  border-radius: 12px;
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  place-items: center;
+  padding: 8px 7px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.ko-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.ko-left-r32 .ko-card::after,
+.ko-left-r16 .ko-card::after,
+.ko-left-qf .ko-card::after {
+  right: -29px;
+}
+
+.ko-right-r32 .ko-card::after,
+.ko-right-r16 .ko-card::after,
+.ko-right-qf .ko-card::after {
+  left: -29px;
+}
+
+.ko-card-compact {
+  width: 112px;
+}
+
+.ko-card-teams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+}
+
+.ko-team-slot {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+}
+
+.ko-flag {
+  width: 23px;
+  height: 23px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}
+
+.ko-shield {
+  width: 21px;
+  height: 24px;
+  display: block;
+  background: #494949;
+  clip-path: polygon(50% 0, 90% 15%, 85% 70%, 50% 100%, 15% 70%, 10% 15%);
+}
+
+.ko-team {
+  color: #f5f5f5;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.ko-placeholder {
+  color: #f5f5f5;
+}
+
+.ko-card-date {
+  margin-top: 8px;
+  color: #a1a1aa;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ko-match-label {
+  margin-top: 5px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #facc15;
+  color: #181818;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.ko-blue {
+  background: #38bdf8;
+}
+
+.ko-center-column {
+  min-height: 720px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 22px;
+}
+
+.ko-trophy-block {
+  text-align: center;
+  color: #8a8a8a;
+}
+
+.ko-trophy {
+  font-size: 60px;
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+.ko-trophy-block p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.ko-center-final-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ko-third-strip {
+  background: #1f1f1f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 34px;
+}
+
+.ko-third-title {
+  margin: 0 0 12px;
+  color: #f1f0e8;
+  font-family: var(--heading);
+  font-size: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.ko-third-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ko-third-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #181818;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 8px 10px;
+  color: #d4d4d8;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.ko-third-flag {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.ko-third-pill strong {
+  color: #4ade80;
+}
+
+.ko-third-pill em {
+  color: #a1a1aa;
+  font-style: normal;
+}
+
+.ko-third-empty {
+  color: #a1a1aa;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .ko-page {
+    max-width: 100%;
+  }
+
+  .ko-hero {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .ko-toggle {
+    width: 100%;
+  }
+
+  .ko-toggle button {
+    flex: 1;
+    padding: 11px 10px;
+    font-size: 13px;
+  }
+
+  .ko-board-scroll {
+    overflow-x: auto;
+  }
+
+  .ko-bracket {
+    min-width: 1280px;
+  }
+}
+/* ----------------------------- */
+/* KNOCKOUT DESKTOP FIT FIX      */
+/* No scroll on computer         */
+/* ----------------------------- */
+
+@media (min-width: 901px) {
+  .ko-board-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden !important;
+  }
+
+  .ko-board-scroll {
+    width: 100%;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  .ko-bracket {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+
+    padding: 26px 16px !important;
+
+    display: grid !important;
+    grid-template-columns:
+      92px
+      92px
+      110px
+      minmax(260px, 1fr)
+      110px
+      92px
+      92px !important;
+
+    gap: 18px !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .ko-card {
+    width: 88px !important;
+    min-height: 72px !important;
+    padding: 8px 6px !important;
+    border-radius: 12px !important;
+  }
+
+  .ko-card-compact {
+    width: 96px !important;
+  }
+
+  .ko-card-teams {
+    gap: 5px !important;
+  }
+
+  .ko-flag {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .ko-shield {
+    width: 19px !important;
+    height: 22px !important;
+  }
+
+  .ko-team {
+    font-size: 13px !important;
+    letter-spacing: -0.15px !important;
+  }
+
+  .ko-card-date {
+    font-size: 12px !important;
+    margin-top: 7px !important;
+  }
+
+  .ko-r32 {
+    gap: 10px !important;
+  }
+
+  .ko-r16 {
+    gap: 62px !important;
+  }
+
+  .ko-qf {
+    gap: 198px !important;
+  }
+
+  .ko-center-column {
+    min-height: 700px !important;
+    gap: 18px !important;
+  }
+
+  .ko-center-final-row {
+    gap: 18px !important;
+  }
+
+  .ko-trophy {
+    font-size: 52px !important;
+  }
+
+  .ko-trophy-block p {
+    font-size: 13px !important;
+    letter-spacing: 3px !important;
+  }
+
+  .ko-card::after {
+    width: 18px !important;
+  }
+
+  .ko-left-r32 .ko-card::after,
+  .ko-left-r16 .ko-card::after,
+  .ko-left-qf .ko-card::after {
+    right: -19px !important;
+  }
+
+  .ko-right-r32 .ko-card::after,
+  .ko-right-r16 .ko-card::after,
+  .ko-right-qf .ko-card::after {
+    left: -19px !important;
+  }
+}
+@media (max-width: 900px) {
+  .ko-board-scroll {
+    overflow-x: auto !important;
+  }
+
+  .ko-bracket {
+    min-width: 1280px !important;
+  }
+}

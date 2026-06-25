@@ -4,7 +4,18 @@ import Home from "./pages/Home";
 import MatchPage from "./pages/MatchPage";
 import WorldCupData from "./pages/WorldCupData";
 import TeamInfo from "./pages/TeamInfo";
-
+import Knockout from "./pages/Knockout";
+import "./App.css";
+import SportSelect from "./pages/SportSelect";
+import WnbaHome from "./pages/WnbaHome";
+import WnbaMatchPage from "./pages/WnbaMatchPage";
+import WnbaTeamInfoHub from "./pages/WnbaTeamInfoHub";
+import WnbaTeamReport from "./pages/WnbaTeamReport";
+import WnbaStandings from "./pages/WnbaStandings";
+import WnbaPlayerStats from "./pages/WnbaPlayerStats";
+import WnbaTeamStats from "./pages/WnbaTeamStats";
+import WnbaFixtures from "./pages/WnbaFixtures";
+import WnbaTopNav from "./components/WnbaTopNav";
 const OLISE_IMAGE =
   "https://preview.redd.it/official-michael-olise-has-been-called-to-play-with-france-v0-ue5ymyksglld1.jpeg?width=1080&crop=smart&auto=webp&s=715c0316bc50e9315d710a83512e79c1a3ba6d1c";
 
@@ -72,7 +83,7 @@ function PasswordScreen({ onUnlock }) {
 
           <div style={styles.imageOverlay}>
             <p style={styles.imageTag}>Premium Access</p>
-            <h2 style={styles.imageTitle}>World Cup Dashboard</h2>
+            <h2 style={styles.imageTitle}>KT's sports picks</h2>
           </div>
         </div>
 
@@ -85,7 +96,7 @@ function PasswordScreen({ onUnlock }) {
           </div>
 
           <h1 style={styles.lockTitle}>
-            {isUnlocking ? "Access Granted" : "World Cup Dashboard"}
+            {isUnlocking ? "Access Granted" : "KT's sports picks"}
           </h1>
 
           <p style={styles.lockSubtitle}>
@@ -170,33 +181,36 @@ function PasswordScreen({ onUnlock }) {
 function TopNav({ currentPath }) {
   const navItems = [
     {
-      label: "Overview",
-      path: "/"
-    },
-    {
-      label: "Table",
-      path: "/world-cup-data"
-    },
-    {
-      label: "Knockout",
-      path: "/knockout",
-      disabled: true
-    },
-    {
-      label: "Team Info",
-      path: "/team-info"
-    },
-    {
-      label: "Player stats",
-      path: "/player-stats",
-      disabled: true
-    },
-    {
-      label: "Team stats",
-      path: "/team-stats",
-      disabled: true
-    }
-  ];
+  label: "Home",
+  path: "/"
+},
+  {
+    label: "Overview",
+    path: "/world-cup"
+  },
+  {
+    label: "Table",
+    path: "/world-cup/standings"
+  },
+  {
+    label: "Knockout",
+    path: "/world-cup/knockout"
+  },
+  {
+    label: "Team Info",
+    path: "/world-cup/team-info"
+  },
+  {
+    label: "Player stats",
+    path: "/world-cup/player-stats",
+    disabled: true
+  },
+  {
+    label: "Team stats",
+    path: "/world-cup/team-stats",
+    disabled: true
+  }
+];
 
   return (
   <div style={styles.topNav} className="top-nav-responsive">
@@ -235,7 +249,10 @@ function TopNav({ currentPath }) {
 
     <div style={styles.topNavTabs} className="top-nav-tabs-responsive">
       {navItems.map((item) => {
-        const isActive = currentPath === item.path;
+        const isActive =
+  item.path === "/"
+    ? currentPath === "/"
+    : currentPath.startsWith(item.path);;
 
         if (item.disabled) {
           return (
@@ -273,22 +290,51 @@ function TopNav({ currentPath }) {
 function App() {
   const [unlocked, setUnlocked] = useState(false);
   const location = useLocation();
+  const currentPath = location.pathname;
 
+const showWorldCupTopNav =
+  currentPath.startsWith("/world-cup") ||
+  currentPath.startsWith("/match/") ||
+  currentPath.startsWith("/team-info") ||
+  currentPath === "/world-cup-data" ||
+  currentPath === "/knockout";
+
+const showWnbaTopNav = currentPath.startsWith("/wnba");
   if (!unlocked) {
     return <PasswordScreen onUnlock={() => setUnlocked(true)} />;
   }
 
   return (
     <div style={styles.appShell}>
-      <TopNav currentPath={location.pathname} />
+      {showWorldCupTopNav && <TopNav currentPath={currentPath} />}
+{showWnbaTopNav && <WnbaTopNav currentPath={currentPath} />}
 
       <main className="app-main-content">
         <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/match/:id" element={<MatchPage />} />
-          <Route path="/world-cup-data" element={<WorldCupData />} />
-          <Route path="/team-info" element={<TeamInfo />} />
-          <Route path="/team-info/:teamId" element={<TeamInfo />} />
+          <Route path="/" element={<SportSelect />} />
+
+<Route path="/world-cup" element={<Home />} />
+<Route path="/world-cup/match/:id" element={<MatchPage />} />
+<Route path="/world-cup/team-info" element={<TeamInfo />} />
+<Route path="/world-cup/team-info/:teamId" element={<TeamInfo />} />
+
+<Route path="/world-cup-data" element={<WorldCupData />} />
+<Route path="/world-cup/standings" element={<WorldCupData />} />
+<Route path="/knockout" element={<Knockout />} />
+<Route path="/world-cup/knockout" element={<Knockout />} />
+
+<Route path="/match/:id" element={<MatchPage />} />
+<Route path="/team-info" element={<TeamInfo />} />
+<Route path="/team-info/:teamId" element={<TeamInfo />} />
+
+<Route path="/wnba" element={<WnbaHome />} />
+<Route path="/wnba/match/:id" element={<WnbaMatchPage />} />
+<Route path="/wnba/team-info" element={<WnbaTeamInfoHub />} />
+<Route path="/wnba/team-info/:teamId" element={<WnbaTeamReport />} />
+<Route path="/wnba/standings" element={<WnbaStandings />} />
+<Route path="/wnba/player-stats" element={<WnbaPlayerStats />} />
+<Route path="/wnba/team-stats" element={<WnbaTeamStats />} />
+<Route path="/wnba/fixtures" element={<WnbaFixtures />} />
         </Routes>
       </main>
     </div>

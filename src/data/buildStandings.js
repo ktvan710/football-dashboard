@@ -1,3 +1,26 @@
+const GROUP_ORDER = [
+  "Group A",
+  "Group B",
+  "Group C",
+  "Group D",
+  "Group E",
+  "Group F",
+  "Group G",
+  "Group H",
+  "Group I",
+  "Group J",
+  "Group K",
+  "Group L"
+];
+
+function sortGroupsByLetter(groups) {
+  return [...groups].sort((a, b) => {
+    const aIndex = GROUP_ORDER.indexOf(a.group);
+    const bIndex = GROUP_ORDER.indexOf(b.group);
+
+    return aIndex - bIndex;
+  });
+}
 function getFlagCode(code) {
   const aliases = {
     en: "gb-eng",
